@@ -23,10 +23,6 @@ function logError(message) {
 	console.log("Emote API [ERROR]: " + message);
 }
 
-window.onerror = function(message, url, line) {
-	logError(message + " at line: " + line);
-}
-
 // GM function replacements are from https://raw.github.com/gist/3123124
 function GM_addStyle(aCss) {
 	

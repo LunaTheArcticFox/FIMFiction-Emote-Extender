@@ -9,14 +9,8 @@
 // @version 2.0
 // ==/UserScript==
 
-window.onload = run;
+$(document).ready(run());
 
 function run() {
-	
-	console.log("Start.");
-	
 	initialize();
-	
-	alert("End.");
-	
 }

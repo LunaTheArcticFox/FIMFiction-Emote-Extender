@@ -5,7 +5,7 @@
 // @include http*://www.fimfiction.net/*
 // @include http*://fimfiction.net/*
 // @grant none
-// @require https://bitbucket.org/KrazyTheFox/fimfiction-emote-extender/raw/e936105dea400c0df758eb6d4ad0bc9c21085f3a/emoteAPI.js
+// @require https://github.com/KrazyTheFox/Fimfiction-Emote-API/raw/master/emoteAPI.js
 // @version 2.0
 // ==/UserScript==
 

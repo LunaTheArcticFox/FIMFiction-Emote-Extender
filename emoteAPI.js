@@ -18,6 +18,7 @@ function initialize() {
 function init() {
 	
 	if (window.initialized) {
+		console.log("Already initialized!");
 		return;
 	}
 	

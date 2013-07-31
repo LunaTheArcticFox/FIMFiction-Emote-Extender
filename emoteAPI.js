@@ -22,8 +22,8 @@ function init() {
 	}
 	
 	$('div.textbox_container').css('height', '600');
-	$('#comment_comment').css('height', '100% !important');
-	$('div.emoticons_panel').css('background-color', '#000000');
+	$('textarea#comment_comment').css('height', '100% !important');
+	$('div.addcomment').css('background-color', '#000000');
 	
 	initialized = true;
 	

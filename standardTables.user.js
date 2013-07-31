@@ -5,9 +5,18 @@
 // @include http*://www.fimfiction.net/*
 // @include http*://fimfiction.net/*
 // @grant none
-// @require https://github.com/KrazyTheFox/Fimfiction-Emote-API/raw/master/emoteAPI.js
+// @require https://raw.github.com/KrazyTheFox/Fimfiction-Emote-API/master/emoteAPI.js
 // @version 2.0
 // ==/UserScript==
 
-alert("tst");
+$(document).ready(run);
 
+function run() {
+	
+	console.log("Start.");
+	
+	initialize();
+	
+	alert("End.");
+	
+}

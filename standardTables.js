@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name Fimfiction Emote Extender
+// @name Fimfiction Emote Extender v2
 // @namespace ffemoteextender
 // @description Adds additional emotes to fimfiction.net.
 // @include http*://www.fimfiction.net/*
 // @include http*://fimfiction.net/*
 // @grant none
-// @require https://github.com/iloveportalz0r/fimfiction-script/raw/master/emoteHandler.js
+// @require https://bitbucket.org/KrazyTheFox/fimfiction-emote-extender/raw/e936105dea400c0df758eb6d4ad0bc9c21085f3a/emoteAPI.js
 // @version 2.0
 // ==/UserScript==
 

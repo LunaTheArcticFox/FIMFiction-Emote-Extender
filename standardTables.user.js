@@ -11,8 +11,10 @@
 
 $(document).ready( function() {
 	
+	console.log("Start.");
+	
 	initialize();
 	
-	
+	console.log("End.");
 	
 });

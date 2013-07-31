@@ -24,7 +24,7 @@ function logError(message) {
 }
 
 // GM function replacements are from https://raw.github.com/gist/3123124
-function GM_addStyle(aCss) {
+function addGlobalStyle(aCss) {
 	
 	var head = document.getElementsByTagName("head")[0];
 	
@@ -135,7 +135,7 @@ function initialize() {
 	
 	logInfo("Adding CSS.");
 	
-	GM_addStyle(theHTML.join(''));
+	addGlobalStyle(theHTML.join(''));
 	
 	//$("div#comment_comment");
 	//$("div.emoticons_panel");

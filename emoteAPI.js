@@ -9,7 +9,7 @@ window.emoteTables = [];
 
 function initialize() {
 	
-	loadScript("http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js", function() {
+	loadScript('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', function() {
 		init();
 	});
 	
@@ -21,9 +21,18 @@ function init() {
 		return;
 	}
 	
-	$(".textbox_container").css("height", "600px !important");
-	$("#comment_comment").css("height", "100% !important");
+	$('.textbox_container').css('height', '600px !important');
+	$('#comment_comment').css('height', '100% !important');
 	
+	if (typeof jQuery != 'undefined') {  
+ 
+	   alert("jQuery library is loaded!");
+	 
+	} else {
+	 
+	   alert("jQuery library is not found!");
+	 
+	}
 	initialized = true;
 	
 	console.log("Success");

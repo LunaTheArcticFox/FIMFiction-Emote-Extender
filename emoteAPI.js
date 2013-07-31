@@ -9,14 +9,28 @@ window.emoteTables = [];
 
 function initialize() {
 	
-	initialized = true;
+	loadScript("http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js");
 	
-	$(".textbox_container").css("height", "600");
+	$(".textbox_container").css("height", "600px");
 	$("#comment_comment").css("height", "100%");
 	
+	initialized = true;
+	
 	console.log("Success");
+	
 }
 
 function addEmote(url, emoteName, shortTableName, longTableName) {
+	
+}
+
+function loadScript(url) {
+	
+	var head = document.getElementsByTagName('head')[0];
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = url;
+	
+	head.appendChild(script);
 	
 }

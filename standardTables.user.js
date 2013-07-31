@@ -16,6 +16,6 @@ $(document).ready( function() {
 	
 	initialize();
 	
-	console.log("End.");
+	alert("End.");
 	
 });

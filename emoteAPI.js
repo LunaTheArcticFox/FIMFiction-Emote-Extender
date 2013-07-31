@@ -18,22 +18,13 @@ function initialize() {
 function init() {
 	
 	if (window.initialized) {
-		console.log("Already initialized!");
 		return;
 	}
 	
-	$('.textbox_container').css('height', '600px !important');
+	$('div.textbox_container').css('height', '600');
 	$('#comment_comment').css('height', '100% !important');
+	$('div.emoticons_panel').css('background-color', '#000000');
 	
-	if (typeof jQuery != 'undefined') {  
- 
-	   alert("jQuery library is loaded!");
-	 
-	} else {
-	 
-	   alert("jQuery library is not found!");
-	 
-	}
 	initialized = true;
 	
 	console.log("Success");

@@ -10,7 +10,7 @@ window.emoteTables = [];
 var Page = {
 	OTHER:	{value: -1, name: "Other"},
 	BLOGEDIT:	{value: 0, name: "Blog Editor"},
-	GROUPTHREAD:	{value: 1, name: "Group Thread"},
+	GROUPTHREAD:	{value: 1, name: "Group Thread"}
 };
 
 var sitePage = Page.OTHER;

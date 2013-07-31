@@ -4,6 +4,9 @@
  *	Written by KrazyTheFox
  */
 
+window.initialized = false;
+window.emoteTables = [];
+
 function logInfo(message) {
 	console.log("Emote API [INFO]: " + message);
 }

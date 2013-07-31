@@ -51,6 +51,7 @@ function initialize() {
 	getSitePage();
 	
 	if (window.initialized || sitePage == pageOther) {
+		logError("Already initialized, returning.");
 		return;
 	}
 	

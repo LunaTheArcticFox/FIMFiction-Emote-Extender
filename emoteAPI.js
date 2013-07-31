@@ -133,6 +133,8 @@ function initialize() {
 		
 	);
 	
+	logInfo("Adding CSS.");
+	
 	GM_addStyle(theHTML.join(''));
 	
 	//$("div#comment_comment");

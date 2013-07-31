@@ -147,10 +147,16 @@ function initialize() {
 	//$("div.emoticons_panel");
 	//$('.emoticons_panel > .inner_padding');
 	
+	logInfo("Added CSS.");
+	
 	window.emoteTables[window.tablePrefix + "FF"] = $('.emoticons_panel > .inner_padding');
 	
+	logInfo("Added default table.");
+	
 	window.tabContainer = $("<div id='emoteAPITabContainer'></div>");
-	window.emotePanel.prepend(tabContainer);
+	$('.emoticons_panel > .inner_padding').prepend(tabContainer);
+	
+	logInfo("Added tab container.");
 	
 	logInfo("Initialized successfully.");
 	

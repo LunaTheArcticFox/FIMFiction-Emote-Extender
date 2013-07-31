@@ -6,14 +6,12 @@
 
 window.initialized = false;
 window.emoteTables = [];
- 
-var Page = {
-	OTHER:	{value: -1, name: "Other"},
-	BLOGEDIT:	{value: 0, name: "Blog Editor"},
-	GROUPTHREAD:	{value: 1, name: "Group Thread"}
-};
 
-var sitePage = Page.OTHER;
+var pageOther = -1;
+var pageGroupThread = 0;
+var pageBlogEdit = 1;
+
+var sitePage = pageOther;
 
 function logError(message) {
 	console.log("Emote API [ERROR]: " + message);
@@ -48,6 +46,52 @@ function initialize() {
 	
 	logInfo("Initializing...");
 	
-	//setupPage();
+	getSitePage();
+	
+	if (window.initialized) {
+		return;
+	}
+	
+	window.initialized = true;
+	
+	var theCSS = [];
+	
+	theCSS.push(
+		
+		".emoticons_panel {",
+			"height: auto !important;",
+			"min-height: 300px !important;",
+			"display: block !important;",
+		"}"
+		
+		
+		
+	);
+	
+	GM_addStyle(theHTML.join(''));
+	
+	logInfo("Initialized successfully.");
+	
+}
+
+function addEmote(url, emoteName, shortTableName, longTableName) {
+	
+	if (!window.initialized) {
+		initialize();
+	}
+	
+}
+
+function getSitePage() {
+	
+	if(/\/manage_user\/edit_blog_post/.test(location.href)) {
+		sitePage = pageBlogEdit;
+		logInfo("Site page set to blog editor.");
+	} else if(/\/group\//.test(location.href)) {
+		if (/\/thread\//.test(location.href)) {
+			sitePage = pageGroupThread;
+			logInfo("Site page set to group thread.");
+		}
+	}
 	
 }

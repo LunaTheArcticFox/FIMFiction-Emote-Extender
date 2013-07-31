@@ -137,7 +137,7 @@ function initialize() {
 	
 	logInfo("Adding CSS.");
 	
-	addGlobalStyle(theHTML.join(''));
+	addGlobalStyle(theCSS.join(''));
 	
 	//$("div#comment_comment");
 	//$("div.emoticons_panel");

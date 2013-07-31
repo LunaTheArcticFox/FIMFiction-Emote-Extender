@@ -17,8 +17,12 @@ function initialize() {
 
 function init() {
 	
-	$(".textbox_container").css("height", "600px");
-	$("#comment_comment").css("height", "100%");
+	if (window.initialized) {
+		return;
+	}
+	
+	$(".textbox_container").css("height", "600px !important");
+	$("#comment_comment").css("height", "100% !important");
 	
 	initialized = true;
 	

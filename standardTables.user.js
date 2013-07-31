@@ -6,11 +6,10 @@
 // @include http*://fimfiction.net/*
 // @grant none
 // @require https://raw.github.com/KrazyTheFox/Fimfiction-Emote-API/master/emoteAPI.js
-// @require http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js
 // @version 2.0
 // ==/UserScript==
 
-$(document).ready(run);
+window.onload = run;
 
 function run() {
 	

@@ -24,19 +24,21 @@ function logError(message) {
 }
 
 // GM function replacements are from https://raw.github.com/gist/3123124
-function addGlobalStyle(aCss) {
+function addGlobalStyle(css) {
 	
-	var head = document.getElementsByTagName("head")[0];
-	
-	if(head) {
-		var stylenode = document.createElement("style");
-		stylenode.type = "text/css";
-		stylenode.textContent = aCss;
-		head.appendChild(stylenode);
-		return stylenode;
+	try {
+		var elmHead, elmStyle;
+		elmHead = document.getElementsByTagName('head')[0];
+		elmStyle = document.createElement('style');
+		elmStyle.type = 'text/css';
+		elmHead.appendChild(elmStyle);
+		elmStyle.innerHTML = css;
+	} catch (e) {
+		if (!document.styleSheets.length) {
+			document.createStyleSheet();
+		}
+		document.styleSheets[0].cssText += css;
 	}
-	
-	return null;
 	
 }
 

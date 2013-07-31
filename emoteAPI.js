@@ -13,7 +13,7 @@ var Page = {
 	GROUPTHREAD:	{value: 1, name: "Group Thread"},
 };
 
-var sitePage = PAGE.OTHER;
+var sitePage = Page.OTHER;
 
 function logError(message) {
 	console.log("Emote API [ERROR]: " + message);

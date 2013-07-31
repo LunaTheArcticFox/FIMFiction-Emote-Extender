@@ -127,6 +127,14 @@ function initialize() {
 			"margin-top: 0px !important;",
 		"}",
 		
+		"#emoteAPITabContainer {",
+			"margin-top: 0px;",
+			"margin-left: 12px;",
+			"float: left;",
+			"clear: both;",
+			"width: 279px;",
+		"}",
+		
 		".emoticons_panel {",
 			"margin-top: 15px !important;",
 		"}"
@@ -141,14 +149,8 @@ function initialize() {
 	
 	window.emoteTables[window.tablePrefix + "FF"] = $('.emoticons_panel > .inner_padding');
 	
-	window.tabContainer = document.createElement("div");
-	window.tabContainer.style.marginLeft = "12px";
-	window.tabContainer.style.marginTop = "0px";
-	window.tabContainer.style.float = "left";
-	window.tabContainer.style.clear = "both";
-	window.tabContainer.style.width = "279px";
-	
-	window.emotePanel.insertBefore(window.tabContainer, $("div.emoticons_panel").children(":first"));
+	window.tabContainer = $("<div id='emoteAPITabContainer'></div>");
+	window.emotePanel.prepend(tabContainer);
 	
 	logInfo("Initialized successfully.");
 	

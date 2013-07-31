@@ -6,14 +6,14 @@
 
 window.initialized = false;
 window.emoteTables = [];
-
-var sitePage = PAGE.OTHER;
  
 var Page = {
 	OTHER:	{value: -1, name: "Other"},
 	BLOGEDIT:	{value: 0, name: "Blog Editor"},
 	GROUPTHREAD:	{value: 1, name: "Group Thread"},
 };
+
+var sitePage = PAGE.OTHER;
 
 function logError(message) {
 	console.log("Emote API [ERROR]: " + message);

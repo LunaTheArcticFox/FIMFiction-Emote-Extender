@@ -253,7 +253,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	logInfo("Adding emote: " + emoteName);
 
-	if ($('#emoteScriptInitialized').length) {
+	if ($('div#emoteScriptInitialized').length > 0) {
 		logInfo("Already initialized.");
 	} else {
 		initialize();
@@ -265,7 +265,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	var tableID = "#" + tablePrefix + shortTableName + "_Area";
 
-	if($(tableID).length) {
+	if($(tableID).length > 0) {
 		createNewEmote(url, emoteName, shortTableName);
 	} else {
 		createNewTable(shortTableName, longTableName);

@@ -232,9 +232,9 @@ function showTable(tableID) {
 
 	logInfo("Showing table: " + tableID + "_Area");
 
-	$('.emoticons_panel').children().each(tableID + "_Area", function (idToShow) {
+	$('.emoticons_panel').children().each(function () {
 		var currentDiv = $(this);
-		if (currentDiv.attr("id") == idToShow) {
+		if (currentDiv.attr("id") == tableID + "_Area") {
 			currentDiv.css('display', 'block');
 		} else if (currentDiv.attr("id") != "emoteAPITabContainer") {
 			currentDiv.css('display', 'none');

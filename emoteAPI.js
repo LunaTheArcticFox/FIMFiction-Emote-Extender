@@ -61,7 +61,8 @@ function initialize() {
 		
 		".emoticons_panel {",
 			"height: auto !important;",
-			"min-height: 300px !important;",
+			"min-height: 285px !important;",
+			"padding-top: 15px !important;",
 			"display: block !important;",
 		"}",
 		
@@ -132,6 +133,7 @@ function initialize() {
 		"#emoteAPITabContainer {",
 			"margin-top: 0px;",
 			"margin-left: 12px;",
+			"padding-bottom: 15px;",
 			"float: left;",
 			"clear: both;",
 			"width: 279px;",
@@ -144,10 +146,6 @@ function initialize() {
 			"float: left;",
 			"clear: both;",
 			"text-align: center;",
-		"}",
-		
-		".emoticons_panel {",
-			"padding-top: 15px !important;",
 		"}"
 		
 	);

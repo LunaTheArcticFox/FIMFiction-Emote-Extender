@@ -204,7 +204,7 @@ function showTable(tableID) {
 
 	for (var table in window.emoteTables) {
 		if(window.emoteTables[table] != window.emoteTables[tableID]) {
-			window.emoteTables[table].style.display = "none";
+			window.emoteTables[table].css('display', 'none');
 		}
 	}
 	

@@ -4,10 +4,10 @@
  *	Written by KrazyTheFox
  */
 
-window.initialized = false;
-window.emoteTables = [];
-window.tabContainer;
-window.tablePrefix = "emoteAPI_Table:";
+unsafeWindow.initialized = false;
+unsafeWindow.emoteTables = [];
+unsafeWindow.tabContainer;
+unsafeWindow.tablePrefix = "emoteAPI_Table:";
 
 var pageOther = -1;
 var pageGroupThread = 0;
@@ -67,17 +67,17 @@ function initialize() {
 		var tabContainer = $("div.tabs");
 		tabContainer.children(0).append(settingsTabList);
 
-		window.initialized = true;
+		unsafeWindow.initialized = true;
 		return;
 
 	}
 	
-	if (window.initialized || sitePage == pageOther) {
+	if (unsafeWindow.initialized || sitePage == pageOther) {
 		logError("Already initialized, returning.");
 		return;
 	}
 	
-	window.initialized = true;
+	unsafeWindow.initialized = true;
 	
 	var theCSS = [];
 	
@@ -184,13 +184,13 @@ function initialize() {
 	
 	logInfo("Added CSS.");
 	
-	window.emoteTables[window.tablePrefix + "FF"] = $('.emoticons_panel > .inner_padding');
+	unsafeWindow.emoteTables[unsafeWindow.tablePrefix + "FF"] = $('.emoticons_panel > .inner_padding');
 	
 	logInfo("Added default table.");
 	
 	var tempContainer = $("<div id='emoteAPITabContainer'></div>");
 
-	window.tabContainer = tempContainer;
+	unsafeWindow.tabContainer = tempContainer;
 
 	$('.emoticons_panel').prepend(tempContainer);
 	
@@ -225,13 +225,13 @@ function createTableLink(shortTableName, longTableName) {
 		displayName = longTableName;
 	}
 
-	var tableLink = $("<span class='emoteTabButton' id='" + (window.tablePrefix + shortTableName) + "'>" + displayName + "</span>");
+	var tableLink = $("<span class='emoteTabButton' id='" + (unsafeWindow.tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
 	tableLink.click(function() {
 		showTable(this.id);
 	});
 
-	window.tabContainer.append(tableLink);
+	unsafeWindow.tabContainer.append(tableLink);
 
 }
 
@@ -239,7 +239,7 @@ function showTable(tableID) {
 
 	logInfo("Showing table: " + tableID + "_Area");
 
-	window.emoteTables[tableID].css('display', 'block');
+	unsafeWindow.emoteTables[tableID].css('display', 'block');
 
 	setTimeout(function() {
 		var height = ($("div.emoticons_panel").height() + 1);
@@ -247,9 +247,9 @@ function showTable(tableID) {
 		$("div#comment_comment").css('height', height + "px");
 	}, 1);
 
-	for (var table in window.emoteTables) {
-		if(window.emoteTables[table] != window.emoteTables[tableID]) {
-			window.emoteTables[table].css('display', 'none');
+	for (var table in unsafeWindow.emoteTables) {
+		if(unsafeWindow.emoteTables[table] != unsafeWindow.emoteTables[tableID]) {
+			unsafeWindow.emoteTables[table].css('display', 'none');
 		}
 	}
 	
@@ -259,7 +259,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	logInfo("Adding emote: " + emoteName);
 
-	if (!window.initialized) {
+	if (!unsafeWindow.initialized) {
 		initialize();
 	}
 
@@ -267,7 +267,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 		return;
 	}
 
-	if(window.emoteTables[window.tablePrefix + shortTableName] != undefined) {
+	if(unsafeWindow.emoteTables[unsafeWindow.tablePrefix + shortTableName] != undefined) {
 		createNewEmote(url, emoteName, shortTableName);
 	} else {
 		createNewTable(shortTableName, longTableName);
@@ -289,7 +289,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
 
-	var selector = "div[id=\"" + window.tablePrefix + shortTableName + "_Area\"]";
+	var selector = "div[id=\"" + unsafeWindow.tablePrefix + shortTableName + "_Area\"]";
 
 	$(selector).append(image);
 
@@ -301,8 +301,8 @@ function createNewTable(shortTableName, longTableName) {
 
 	var emoteTable = $("<div class='emoteTable'></div>");
 	$("div.emoticons_panel").append(emoteTable);
-	emoteTable.attr("id", window.tablePrefix + shortTableName + "_Area");
-	window.emoteTables[window.tablePrefix + shortTableName] = emoteTable;
+	emoteTable.attr("id", unsafeWindow.tablePrefix + shortTableName + "_Area");
+	unsafeWindow.emoteTables[unsafeWindow.tablePrefix + shortTableName] = emoteTable;
 
 	createTableLink(shortTableName, longTableName);
 

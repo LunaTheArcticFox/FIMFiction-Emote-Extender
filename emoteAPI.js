@@ -257,6 +257,10 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 		initialize();
 	}
 
+	if (sitePage != pageGroupThread && sitePage != pageBlogEdit) {
+		return;
+	}
+
 	if(window.emoteTables[window.tablePrefix + shortTableName] != undefined) {
 		createNewEmote(url, emoteName, shortTableName);
 	} else {
@@ -300,6 +304,8 @@ function createNewTable(shortTableName, longTableName) {
 
 function getSitePage() {
 	
+	sitePage = pageOther;
+
 	if(/\/manage_user\/edit_blog_post/.test(location.href)) {
 		sitePage = pageBlogEdit;
 		logInfo("Site page set to blog editor.");

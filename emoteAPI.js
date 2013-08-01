@@ -232,11 +232,11 @@ function createNewEmote(url, emoteName, shortTableName) {
 	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
 	var image = $("<img id='" + url + "' class='customEmote' src='" + url + "' />");
+	$("div#" + window.tablePrefix + shortTableName + "_Area").append(image);
 	image.attr("width", "58");
 	image.attr("height", "58");
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
-	$("div#" + window.tablePrefix + shortTableName + "_Area").append(image);
 
 }
 
@@ -245,10 +245,9 @@ function createNewTable(shortTableName, longTableName) {
 	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
 
 	var emoteTable = $("<div class='emoteTable'></div>");
-	emoteTable.attr("id", window.tablePrefix + shortTableName + "_Area");
-
-	window.emoteTables[window.tablePrefix + shortTableName] = emoteTable;
 	$("div.emoticons_panel").append(emoteTable);
+	emoteTable.attr("id", window.tablePrefix + shortTableName + "_Area");
+	window.emoteTables[window.tablePrefix + shortTableName] = emoteTable;
 
 	createTableLink(shortTableName);
 

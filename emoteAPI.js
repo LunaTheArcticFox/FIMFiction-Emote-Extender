@@ -285,12 +285,12 @@ function replaceSelectedText(el, text) {
 
 function getInputSelection(el) {
 
-    var start = 0, end = 0, normalizedValue, range,
+    var _start = 0, _end = 0, normalizedValue, range,
         textInputRange, len, endRange;
 
     if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
-        start = el.selectionStart;
-        end = el.selectionEnd;
+        _start = el.selectionStart;
+        _end = el.selectionEnd;
     } else {
         range = document.selection.createRange();
 
@@ -309,16 +309,16 @@ function getInputSelection(el) {
             endRange.collapse(false);
 
             if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
-                start = end = len;
+                _start = _end = len;
             } else {
-                start = -textInputRange.moveStart("character", -len);
-                start += normalizedValue.slice(0, start).split("\n").length - 1;
+                _start = -textInputRange.moveStart("character", -len);
+                _start += normalizedValue.slice(0, _start).split("\n").length - 1;
 
                 if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
-                    end = len;
+                    _end = len;
                 } else {
-                    end = -textInputRange.moveEnd("character", -len);
-                    end += normalizedValue.slice(0, end).split("\n").length - 1;
+                    _end = -textInputRange.moveEnd("character", -len);
+                    _end += normalizedValue.slice(0, _end).split("\n").length - 1;
                 }
             }
         }

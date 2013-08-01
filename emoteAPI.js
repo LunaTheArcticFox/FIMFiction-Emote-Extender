@@ -445,11 +445,11 @@ Object.size = function(obj) {
 
 function createSettingsPage() {
 
-	$("div.main").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='margin: 15px;' />"));
-	$("div.main").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='margin: 15px;' />"));
-	$("div.main").append($("<input type='button' id='regSizeButton' value='Regular Size Previews' style='margin: 15px; margin-left: 25px;' />"));
-	$("div.main").append($("<input type='button' id='largeSizeButton' value='Large Size Previews' style='margin: 15px;' />"));
-	$("div.main").append($("<input type='button' id='smallSizeButton' value='Small Size Previews' style='margin: 15px;' />"));
+	$("div.main").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='margin: 15px; padding: 5px;' />"));
+	$("div.main").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='margin: 15px; padding: 5px;' />"));
+	$("div.main").append($("<input type='button' id='regSizeButton' value='Regular Size Previews' style='margin: 15px; padding: 5px; margin-left: 25px;' />"));
+	$("div.main").append($("<input type='button' id='largeSizeButton' value='Large Size Previews' style='margin: 15px; padding: 5px;' />"));
+	$("div.main").append($("<input type='button' id='smallSizeButton' value='Small Size Previews' style='margin: 15px; padding: 5px;' />"));
 
 	$("#useVerboseButton").click(function() {
 		GM_setValue("verbose", "true");

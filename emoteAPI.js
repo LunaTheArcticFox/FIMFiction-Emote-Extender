@@ -4,6 +4,8 @@
  *	Written by KrazyTheFox
  */
 
+"use strict";
+
 var tablePrefix = "emoteAPI_Table:";
 var pageOther = -1;
 var pageGroupThread = 0;

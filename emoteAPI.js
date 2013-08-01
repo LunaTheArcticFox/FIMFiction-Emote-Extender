@@ -211,16 +211,16 @@ function showTable(tableID) {
 }
 
 function addEmote(url, emoteName, shortTableName, longTableName) {
-	
-	logInfo("Adding emote: " + emoteName);
 
 	if (!window.initialized) {
 		initialize();
 	}
 
 	if(window.emoteTables[window.tablePrefix + shortTableName] != undefined) {
+		logInfo("Adding emote: " + emoteName);
 		createNewEmote(url, emoteName, shortTableName);
 	} else {
+		logInfo("Adding emote22: " + emoteName);
 		createNewTable(shortTableName, longTableName);
 		createNewEmote(url, emoteName, shortTableName);
 	}
@@ -245,6 +245,7 @@ function createNewTable(longTableName, shortTableName) {
 	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
 
 	var emoteTable = $("<div class='emoteTable'></div>");
+	emoteTable.attr("id", window.tablePrefix + shortTableName);
 
 	window.emoteTables[window.tablePrefix + shortTableName] = emoteTable;
 	$("div.emoticons_panel").append(emoteTable);

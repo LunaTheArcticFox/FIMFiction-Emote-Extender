@@ -78,6 +78,8 @@ function initialize() {
 	
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;
+
+	logInfo(GM_listValues);
 	
 	if (GM_getValue("verbose") == "true") {
 		logInfo("Verbose settings detected.");

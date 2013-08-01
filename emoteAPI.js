@@ -240,7 +240,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
 
-	var selector = "#" + window.tablePrefix + shortTableName + "_Area";
+	var selector = "div[id=\"" + window.tablePrefix + shortTableName + "_Area\"]";
 
 	$(selector).append(image);
 

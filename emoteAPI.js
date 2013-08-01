@@ -60,13 +60,16 @@ function initialize() {
 			createSettingsPage();
 		}
 
-		$("div.tabs > ul").append(
-			$("<li class='tab'></li>").append(
-				$("<a href='/manage_user/emote_script_settings'></a>").append(
-					$("<img src='//www.fimfiction-static.net/images/icons/white/settings.png'></img>"), $("<span>Emote Script Settings</span>")
-				)
-			)
-		);
+		var settingsTabSpan = $("<span>Emote Script Settings</span>");
+		var settingsTabImg  = $("<img src='//www.fimfiction-static.net/images/icons/white/settings.png'></img>");
+		var settingsTabLink = $("<a href='/manage_user/emote_script_settings'></a>");
+		var settingsTabList = $("<li class='tab'></li>");
+
+		settingsTabLink.append(settingsTabImg);
+		settingsTabLink.append(settingsTabSpan);
+		settingsTabList.append(settingsTabLink);
+		
+		$("div.tabs").first().append(settingsTabList);
 
 		window.initialized = true;
 		return;

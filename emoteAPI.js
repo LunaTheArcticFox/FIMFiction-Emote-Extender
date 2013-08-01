@@ -207,7 +207,7 @@ function initialize() {
 	settingsListObj.append(settingsLink);
 	settingsList.append(settingsListObj);
 
-	$('div.light_toolbar').append(settingsList);
+	$('.add_comment form div.light_toolbar').append(settingsList);
 
 	logInfo("Initialized successfully.");
 	

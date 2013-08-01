@@ -485,19 +485,19 @@ const __GM_STORAGE_PREFIX = [
 // remove these values.
 // https://raw.github.com/gist/3123124
 function GM_deleteValue(aKey) {
-  'use strict';
+  //'use strict';
   localStorage.removeItem(__GM_STORAGE_PREFIX + aKey);
 }
 
 function GM_getValue(aKey, aDefault) {
-  'use strict';
+  //'use strict';
   let val = localStorage.getItem(__GM_STORAGE_PREFIX + aKey)
   if (null === val && 'undefined' != typeof aDefault) return aDefault;
   return val;
 }
 
 function GM_listValues() {
-  'use strict';
+  //'use strict';
   let prefixLen = __GM_STORAGE_PREFIX.length;
   let values = [];
   let i = 0;
@@ -511,6 +511,6 @@ function GM_listValues() {
 }
 
 function GM_setValue(aKey, aVal) {
-  'use strict';
+  //'use strict';
   localStorage.setItem(__GM_STORAGE_PREFIX + aKey, aVal);
 }

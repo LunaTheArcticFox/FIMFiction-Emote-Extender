@@ -188,9 +188,11 @@ function initialize() {
 	
 	logInfo("Added default table.");
 	
-	window.tabContainer = $("<div id='emoteAPITabContainer'></div>");
+	var tempContainer = $("<div id='emoteAPITabContainer'></div>");
 
-	$('.emoticons_panel').prepend(tabContainer);
+	window.tabContainer = tempContainer;
+
+	$('.emoticons_panel').prepend(tempContainer);
 	
 	logInfo("Added tab container.");
 

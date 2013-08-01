@@ -485,32 +485,32 @@ const __GM_STORAGE_PREFIX = [
 // remove these values.
 // https://raw.github.com/gist/3123124
 function GM_deleteValue(aKey) {
-  //'use strict';
-  localStorage.removeItem(__GM_STORAGE_PREFIX + aKey);
+	'use strict';
+	localStorage.removeItem(__GM_STORAGE_PREFIX + aKey);
 }
 
 function GM_getValue(aKey, aDefault) {
-  //'use strict';
-  let val = localStorage.getItem(__GM_STORAGE_PREFIX + aKey)
-  if (null === val && 'undefined' != typeof aDefault) return aDefault;
-  return val;
+	'use strict';
+	let val = localStorage.getItem(__GM_STORAGE_PREFIX + aKey)
+	if (null === val && 'undefined' != typeof aDefault) return aDefault;
+	return val;
 }
 
 function GM_listValues() {
-  //'use strict';
-  let prefixLen = __GM_STORAGE_PREFIX.length;
-  let values = [];
-  let i = 0;
-  for (let i = 0; i < localStorage.length; i++) {
-    let k = localStorage.key(i);
-    if (k.substr(0, prefixLen) === __GM_STORAGE_PREFIX) {
-      values.push(k.substr(prefixLen));
-    }
-  }
-  return values;
+	'use strict';
+	let prefixLen = __GM_STORAGE_PREFIX.length;
+	let values = [];
+	let i = 0;
+	for (let i = 0; i < localStorage.length; i++) {
+		let k = localStorage.key(i);
+		if (k.substr(0, prefixLen) === __GM_STORAGE_PREFIX) {
+			values.push(k.substr(prefixLen));
+		}
+	}
+	return values;
 }
 
 function GM_setValue(aKey, aVal) {
-  //'use strict';
-  localStorage.setItem(__GM_STORAGE_PREFIX + aKey, aVal);
+	'use strict';
+	localStorage.setItem(__GM_STORAGE_PREFIX + aKey, aVal);
 }

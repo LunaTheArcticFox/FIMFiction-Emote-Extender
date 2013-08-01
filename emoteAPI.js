@@ -79,7 +79,7 @@ function initialize() {
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;
 	
-	if (GM_getValue("verbose")) {
+	if (GM_getValue("verbose") == "true") {
 		logInfo("Verbose settings detected.");
 		$("body").append("<div id='verboseEnabled'></div>");
 		useVerbose = true;
@@ -265,7 +265,11 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	if (!initialized) {
 		getSitePage();
-
+		if ($('div#verboseEnabled').length > 0) {
+			useVerbose = true;
+		} else if ($('div#verboseDisabled').length > 0) {
+			useVerbose = false;
+		}
 		if ($('div#emoteScriptInitialized').length > 0) {
 			initialized = true;
 			logInfo("Already initialized.");
@@ -427,12 +431,12 @@ function createSettingsPage() {
 	$("div.main").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='padding: 15px;' />"));
 
 	$("#useVerboseButton").click(function() {
-		GM_setValue("verbose", true);
+		GM_setValue("verbose", "true");
 		alert("Now using verbose tabs!");
 	});
 
 	$("#useConciseButton").click(function() {
-		GM_setValue("verbose", false);
+		GM_setValue("verbose", "false");
 		alert("Now using concise tabs!");
 	});
 

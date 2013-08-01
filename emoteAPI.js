@@ -254,11 +254,10 @@ function showTable(tableID) {
 			currentDiv.css('display', 'none');
 		}
 	});
-
+	
 	setTimeout(function() {
-		var height = ($("div.emoticons_panel").height() + 1);
-		$("div#comment_comment").css('min-height', height + "px");
-		$("div#comment_comment").css('height', height + "px");
+		$("div#comment_comment").css({'min-height':($(".emoticons_panel").height()+'px')});
+		$("div#comment_comment").css({'height':($(".emoticons_panel").height()+'px')});
 	}, 2);
 	
 }

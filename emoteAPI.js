@@ -275,7 +275,7 @@ function getSitePage() {
 			sitePage = pageGroupThread;
 			logInfo("Site page set to group thread.");
 		}
-	} else if(/\/mote_script_settings\//.test(location.href)) {
+	} else if(/\/emote_script_settings\//.test(location.href)) {
 		sitePage = pageScriptSettings;
 		logInfo("Site page set to script settings.");
 	}
@@ -351,8 +351,8 @@ Object.size = function(obj) {
 
 function createSettingsPage() {
 
-	$("body").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='padding: 15px;' />"));
-	$("body").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='padding: 15px;' />"));
+	$("div.main").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='padding: 15px;' />"));
+	$("div.main").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='padding: 15px;' />"));
 
 	$("#useVerboseButton").click(function() {
 		GM_setValue("verbose", true);

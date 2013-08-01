@@ -82,7 +82,7 @@ function initialize() {
 	if (GM_getValue("verbose")) {
 		logInfo("Verbose settings detected.");
 		$("body").append("<div id='verboseEnabled'></div>");
-		useVerbose = true;
+		//useVerbose = true;
 	} else {
 		logInfo("Concise settings detected.");
 		$("body").append("<div id='verboseDisabled'></div>");
@@ -265,11 +265,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	if (!initialized) {
 		getSitePage();
-		if ($('div#verboseEnabled').length > 0) {
-			useVerbose = true;
-		} else if ($('div#verboseDisabled').length > 0) {
-			useVerbose = false;
-		}
+
 		if ($('div#emoteScriptInitialized').length > 0) {
 			initialized = true;
 			logInfo("Already initialized.");

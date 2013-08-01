@@ -233,7 +233,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 
 	image = $("<img />");
 	image.attr("id", url);
-	image.attr("class", customEmote);
+	image.attr("class", "customEmote");
 	image.attr("src", url);
 	image.attr("width", "58");
 	image.attr("height", "58");

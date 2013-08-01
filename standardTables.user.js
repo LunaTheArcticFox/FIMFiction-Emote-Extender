@@ -12,5 +12,5 @@
 $(document).ready(run());
 
 function run() {
-	initialize();
+	addEmote("http://i.imgur.com/NBEDt.png", "Emote Name Here", "A", "Random #1");
 }

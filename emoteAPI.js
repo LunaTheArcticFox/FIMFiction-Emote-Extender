@@ -292,7 +292,7 @@ function getInputSelection(el) {
 		_end = el.selectionEnd;
 	} else {
 
-		range = document.selection.createRange();
+		range = document.createRange();
 
 		if(range && range.parentElement() == el) {
 

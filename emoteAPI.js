@@ -214,8 +214,6 @@ function initialize() {
 
 function createTableLink(shortTableName, longTableName) {
 
-	logInfo("Creating table tab: " + shortTableName);
-
 	var displayName = shortTableName;
 
 	if (GM_getValue("verbose", false)) {
@@ -254,8 +252,6 @@ function showTable(tableID) {
 }
 
 function addEmote(url, emoteName, shortTableName, longTableName) {
-
-	logInfo("Adding emote: " + emoteName);
 
 	if (!initialized) {
 		getSitePage();

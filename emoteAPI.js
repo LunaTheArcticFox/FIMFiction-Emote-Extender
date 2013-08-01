@@ -99,6 +99,7 @@ function initialize() {
 			"min-height: 285px !important;",
 			"padding-top: 15px !important;",
 			"display: block !important;",
+			"border: none !important;",
 		"}",
 		
 		".customEmote {",
@@ -165,6 +166,14 @@ function initialize() {
 			"margin-top: 0px !important;",
 		"}",
 		
+		".add_comment {",
+			"background-color: #faf8f3 !important;",
+		"}",
+		
+		"#comment_comment {",
+			"border-right: 1px solid #e8e5db !important;",
+		"}",
+
 		"#emoteAPITabContainer {",
 			"margin-top: 0px;",
 			"margin-left: 12px;",

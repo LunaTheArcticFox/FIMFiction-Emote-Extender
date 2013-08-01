@@ -135,15 +135,15 @@ function initialize() {
 			"clear: both;",
 			"width: 279px;",
 		"}",
-
-
-	emoteTable.style.display = "none";
-	emoteTable.style.margin = "10px";
-	emoteTable.style.paddingTop = "20px";
-	emoteTable.style.float = "left";
-	emoteTable.style.clear = "both";
-	emoteTable.style.textAlign = "center";
-
+		
+		".emoteTable {",
+			"display: none;",
+			"margin: 10px;",
+			"padding: 20px;",
+			"float: left;",
+			"clear: both;",
+			"text-align: center;",
+		"}",
 		
 		".emoticons_panel {",
 			"margin-top: 15px !important;",
@@ -212,6 +212,8 @@ function showTable(tableID) {
 
 function addEmote(url, emoteName, shortTableName, longTableName) {
 	
+	logInfo("Adding emote: " + emoteName);
+
 	if (!window.initialized) {
 		initialize();
 	}

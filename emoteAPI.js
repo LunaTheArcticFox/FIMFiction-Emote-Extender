@@ -12,6 +12,7 @@ window.tablePrefix = "emoteAPI_Table:";
 var pageOther = -1;
 var pageGroupThread = 0;
 var pageBlogEdit = 1;
+var pageScriptSettings = 2;
 
 var sitePage = pageOther;
 
@@ -50,6 +51,12 @@ function initialize() {
 	
 	if (window.initialized || sitePage == pageOther) {
 		logError("Already initialized, returning.");
+		return;
+	}
+
+	if (sitePage == pageScriptSettings) {
+		createSettingsPage();
+		window.initialized = true;
 		return;
 	}
 	
@@ -150,13 +157,7 @@ function initialize() {
 		
 	);
 	
-	logInfo("Adding CSS.");
-	
 	addGlobalStyle(theCSS.join(''));
-	
-	//$("div#comment_comment");
-	//$("div.emoticons_panel");
-	//$('.emoticons_panel > .inner_padding');
 	
 	logInfo("Added CSS.");
 	
@@ -169,17 +170,23 @@ function initialize() {
 	
 	logInfo("Added tab container.");
 
-	createTableLink("FF");
+	createTableLink("FF", "FF");
 
 	logInfo("Initialized successfully.");
 	
 }
 
-function createTableLink(tableName) {
+function createTableLink(shortTableName, longTableName) {
 
-	logInfo("Creating table tab: " + tableName);
+	logInfo("Creating table tab: " + shortTableName);
 
-	var tableLink = $("<span class='emoteTabButton' id='" + (window.tablePrefix + tableName) + "'>" + tableName + "</span>");
+	var displayName = shortTableName;
+
+	if (GM_getValue("verbose", false)) {
+		displayName = longTableName;
+	}
+
+	var tableLink = $("<span class='emoteTabButton' id='" + (window.tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
 	tableLink.click(function() {
 		showTable(this.id);
@@ -254,7 +261,7 @@ function createNewTable(shortTableName, longTableName) {
 	emoteTable.attr("id", window.tablePrefix + shortTableName + "_Area");
 	window.emoteTables[window.tablePrefix + shortTableName] = emoteTable;
 
-	createTableLink(shortTableName);
+	createTableLink(shortTableName, longTableName);
 
 }
 
@@ -268,6 +275,9 @@ function getSitePage() {
 			sitePage = pageGroupThread;
 			logInfo("Site page set to group thread.");
 		}
+	} else if(/\/mote_script_settings\//.test(location.href)) {
+		sitePage = pageScriptSettings;
+		logInfo("Site page set to script settings.");
 	}
 	
 }
@@ -338,3 +348,20 @@ Object.size = function(obj) {
 	}
 	return size;
 };
+
+function createSettingsPage() {
+
+	$("body").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='padding: 15px;' />"));
+	$("body").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='padding: 15px;' />"));
+
+	$("#useVerboseButton").click(function() {
+		GM_setValue("verbose", true);
+		alert("Now using verbose tabs!");
+	});
+
+	$("#useConciseButton").click(function() {
+		GM_setValue("verbose", false);
+		alert("Now using concise tabs!");
+	});
+
+}

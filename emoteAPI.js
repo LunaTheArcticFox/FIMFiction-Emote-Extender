@@ -255,11 +255,10 @@ function showTable(tableID) {
 
 function addEmote(url, emoteName, shortTableName, longTableName) {
 
-	getSitePage();
-
 	logInfo("Adding emote: " + emoteName);
 
 	if (!initialized) {
+		getSitePage();
 		if ($('div#emoteScriptInitialized').length > 0) {
 			initialized = true;
 			logInfo("Already initialized.");

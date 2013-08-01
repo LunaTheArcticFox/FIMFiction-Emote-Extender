@@ -231,12 +231,15 @@ function createNewEmote(url, emoteName, shortTableName) {
 
 	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
-	image = $("<img id='" + url + "' class='customEmote' src='" + url + "' />");
-	image.appendTo("#" + window.tablePrefix + shortTableName + "_Area");
+	image = $("<img />");
+	image.attr("id", url);
+	image.attr("class", customEmote);
+	image.attr("src", url);
 	image.attr("width", "58");
 	image.attr("height", "58");
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
+	$("div#" + window.tablePrefix + shortTableName + "_Area").append(image);
 
 }
 

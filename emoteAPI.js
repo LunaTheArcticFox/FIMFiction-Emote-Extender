@@ -330,8 +330,8 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("id", url);
 	image.attr("class", "customEmote");
 	image.attr("src", url);
-	image.attr("width", emotePreviewSize);
-	image.attr("height", emotePreviewSize);
+	image.attr("width", String(emotePreviewSize));
+	image.attr("height", String(emotePreviewSize));
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
 

@@ -141,8 +141,8 @@ function initialize() {
 		
 		".emoteTable {",
 			"display: none;",
-			"padding: 10 20px;",
-			"margin: 10px;",
+			"padding: 0 20px;",
+			"margin: 0 auto 0 auto;",
 			"float: left;",
 			"clear: both;",
 			"text-align: center;",

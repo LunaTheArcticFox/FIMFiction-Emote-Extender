@@ -69,7 +69,7 @@ function initialize() {
 		var tabContainer = $("div.tabs");
 		tabContainer.children(0).append(settingsTabList);
 
-		top.initialized = true;
+		initialized = true;
 		return;
 
 	}
@@ -79,7 +79,7 @@ function initialize() {
 		return;
 	}
 	
-	top.initialized = true;
+	initialized = true;
 	
 	var theCSS = [];
 	
@@ -186,13 +186,13 @@ function initialize() {
 	
 	logInfo("Added CSS.");
 	
-	top.emoteTables[top.tablePrefix + "FF"] = $('.emoticons_panel > .inner_padding');
+	emoteTables[tablePrefix + "FF"] = $('.emoticons_panel > .inner_padding');
 	
 	logInfo("Added default table.");
 	
 	var tempContainer = $("<div id='emoteAPITabContainer'></div>");
 
-	top.tabContainer = tempContainer;
+	tabContainer = tempContainer;
 
 	$('.emoticons_panel').prepend(tempContainer);
 	
@@ -227,13 +227,13 @@ function createTableLink(shortTableName, longTableName) {
 		displayName = longTableName;
 	}
 
-	var tableLink = $("<span class='emoteTabButton' id='" + (top.tablePrefix + shortTableName) + "'>" + displayName + "</span>");
+	var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
 	tableLink.click(function() {
 		showTable(this.id);
 	});
 
-	top.tabContainer.append(tableLink);
+	tabContainer.append(tableLink);
 
 }
 
@@ -241,7 +241,7 @@ function showTable(tableID) {
 
 	logInfo("Showing table: " + tableID + "_Area");
 
-	top.emoteTables[tableID].css('display', 'block');
+	emoteTables[tableID].css('display', 'block');
 
 	setTimeout(function() {
 		var height = ($("div.emoticons_panel").height() + 1);
@@ -249,9 +249,9 @@ function showTable(tableID) {
 		$("div#comment_comment").css('height', height + "px");
 	}, 1);
 
-	for (var table in top.emoteTables) {
-		if(top.emoteTables[table] != top.emoteTables[tableID]) {
-			top.emoteTables[table].css('display', 'none');
+	for (var table in emoteTables) {
+		if(emoteTables[table] != emoteTables[tableID]) {
+			emoteTables[table].css('display', 'none');
 		}
 	}
 	
@@ -261,7 +261,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	logInfo("Adding emote: " + emoteName);
 
-	if (!top.initialized) {
+	if (!initialized) {
 		initialize();
 	}
 
@@ -269,7 +269,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 		return;
 	}
 
-	if(top.emoteTables[top.tablePrefix + shortTableName] != undefined) {
+	if(emoteTables[tablePrefix + shortTableName] != undefined) {
 		createNewEmote(url, emoteName, shortTableName);
 	} else {
 		createNewTable(shortTableName, longTableName);
@@ -291,7 +291,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
 
-	var selector = "div[id=\"" + top.tablePrefix + shortTableName + "_Area\"]";
+	var selector = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
 
 	$(selector).append(image);
 
@@ -303,8 +303,8 @@ function createNewTable(shortTableName, longTableName) {
 
 	var emoteTable = $("<div class='emoteTable'></div>");
 	$("div.emoticons_panel").append(emoteTable);
-	emoteTable.attr("id", top.tablePrefix + shortTableName + "_Area");
-	top.emoteTables[top.tablePrefix + shortTableName] = emoteTable;
+	emoteTable.attr("id", tablePrefix + shortTableName + "_Area");
+	emoteTables[tablePrefix + shortTableName] = emoteTable;
 
 	createTableLink(shortTableName, longTableName);
 

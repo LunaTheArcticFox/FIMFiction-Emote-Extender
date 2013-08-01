@@ -10,6 +10,10 @@ var pageGroupThread = 0;
 var pageBlogEdit = 1;
 var pageScriptSettings = 2;
 
+var initialized = false;
+
+var currentTables = [];
+
 var sitePage = pageOther;
 
 function logInfo(message) {
@@ -64,6 +68,7 @@ function initialize() {
 		settingsTabContainer.children(0).append(settingsTabList);
 
 		$("body").append("<div id='emoteScriptInitialized'></div>");
+		initialized = true;
 		return;
 
 	}
@@ -73,6 +78,7 @@ function initialize() {
 	}
 	
 	$("body").append("<div id='emoteScriptInitialized'></div>");
+	initialized = true;
 	
 	var theCSS = [];
 	
@@ -253,19 +259,35 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	logInfo("Adding emote: " + emoteName);
 
-	if ($('div#emoteScriptInitialized').length > 0) {
-		logInfo("Already initialized.");
-	} else {
-		initialize();
+	if (!initialized) {
+		if ($('div#emoteScriptInitialized').length > 0) {
+			initialized = true;
+			logInfo("Already initialized.");
+		} else {
+			initialize();
+		}
 	}
 
 	if (sitePage != pageGroupThread && sitePage != pageBlogEdit) {
 		return;
 	}
 
-	var tableID = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";;
+	var tableFound = false;
 
-	if($(tableID).length > 0) {
+	if (currentTables.indexOf(tablePrefix + shortTableName + "_Area") == -1) {
+
+		var tableID = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
+
+		if($(tableID).length > 0) {
+			tableFound = true;
+			currentTables.push(tablePrefix + shortTableName + "_Area");
+		}
+
+	} else {
+		tableFound = true;
+	}
+
+	if (tableFound) {
 		createNewEmote(url, emoteName, shortTableName);
 	} else {
 		createNewTable(shortTableName, longTableName);
@@ -296,6 +318,8 @@ function createNewEmote(url, emoteName, shortTableName) {
 function createNewTable(shortTableName, longTableName) {
 
 	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
+
+	currentTables.push(tablePrefix + shortTableName + "_Area");
 
 	var emoteTable = $("<div class='emoteTable'></div>");
 	$("div.emoticons_panel").append(emoteTable);

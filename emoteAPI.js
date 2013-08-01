@@ -59,6 +59,18 @@ function initialize() {
 		window.initialized = true;
 		return;
 	}
+
+	if(/\/manage_user/.test(location.href)) {
+		$("div.tabs:first-child").append(
+			$("<li class='tab'></li>").append(
+				$("<a href='/manage_user/emote_script_settings'></a>").append(
+					$("<img src='//www.fimfiction-static.net/images/icons/white/settings.png'></img>"), $("<span>Emote Script Settings</span>")
+				)
+			)
+		);
+		window.initialized = true;
+		return;
+	}
 	
 	window.initialized = true;
 	

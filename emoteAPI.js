@@ -81,6 +81,7 @@ function initialize() {
 		"}",
 		
 		".customEmote:hover {",
+			"border: none;",
 			"opacity: 1;",
 			"transition: opacity .2s ease-in;",
 			"-moz-transition: opacity .2s ease-in;",
@@ -146,7 +147,7 @@ function initialize() {
 		"}",
 		
 		".emoticons_panel {",
-			"margin-top: 15px !important;",
+			"padding-top: 15px !important;",
 		"}"
 		
 	);

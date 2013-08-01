@@ -82,7 +82,7 @@ function initialize() {
 	if (GM_getValue("verbose")) {
 		logInfo("Verbose settings detected.");
 		$("body").append("<div id='verboseEnabled'></div>");
-		//useVerbose = true;
+		useVerbose = true;
 	} else {
 		logInfo("Concise settings detected.");
 		$("body").append("<div id='verboseDisabled'></div>");

@@ -4,10 +4,10 @@
  *	Written by KrazyTheFox
  */
 
-unsafeWindow.initialized = false;
-unsafeWindow.emoteTables = [];
-unsafeWindow.tabContainer;
-unsafeWindow.tablePrefix = "emoteAPI_Table:";
+top.initialized = false;
+top.emoteTables = [];
+top.tabContainer;
+top.tablePrefix = "emoteAPI_Table:";
 
 var pageOther = -1;
 var pageGroupThread = 0;
@@ -67,17 +67,17 @@ function initialize() {
 		var tabContainer = $("div.tabs");
 		tabContainer.children(0).append(settingsTabList);
 
-		unsafeWindow.initialized = true;
+		top.initialized = true;
 		return;
 
 	}
 	
-	if (unsafeWindow.initialized || sitePage == pageOther) {
+	if (top.initialized || sitePage == pageOther) {
 		logError("Already initialized, returning.");
 		return;
 	}
 	
-	unsafeWindow.initialized = true;
+	top.initialized = true;
 	
 	var theCSS = [];
 	
@@ -184,13 +184,13 @@ function initialize() {
 	
 	logInfo("Added CSS.");
 	
-	unsafeWindow.emoteTables[unsafeWindow.tablePrefix + "FF"] = $('.emoticons_panel > .inner_padding');
+	top.emoteTables[top.tablePrefix + "FF"] = $('.emoticons_panel > .inner_padding');
 	
 	logInfo("Added default table.");
 	
 	var tempContainer = $("<div id='emoteAPITabContainer'></div>");
 
-	unsafeWindow.tabContainer = tempContainer;
+	top.tabContainer = tempContainer;
 
 	$('.emoticons_panel').prepend(tempContainer);
 	
@@ -225,13 +225,13 @@ function createTableLink(shortTableName, longTableName) {
 		displayName = longTableName;
 	}
 
-	var tableLink = $("<span class='emoteTabButton' id='" + (unsafeWindow.tablePrefix + shortTableName) + "'>" + displayName + "</span>");
+	var tableLink = $("<span class='emoteTabButton' id='" + (top.tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
 	tableLink.click(function() {
 		showTable(this.id);
 	});
 
-	unsafeWindow.tabContainer.append(tableLink);
+	top.tabContainer.append(tableLink);
 
 }
 
@@ -239,7 +239,7 @@ function showTable(tableID) {
 
 	logInfo("Showing table: " + tableID + "_Area");
 
-	unsafeWindow.emoteTables[tableID].css('display', 'block');
+	top.emoteTables[tableID].css('display', 'block');
 
 	setTimeout(function() {
 		var height = ($("div.emoticons_panel").height() + 1);
@@ -247,9 +247,9 @@ function showTable(tableID) {
 		$("div#comment_comment").css('height', height + "px");
 	}, 1);
 
-	for (var table in unsafeWindow.emoteTables) {
-		if(unsafeWindow.emoteTables[table] != unsafeWindow.emoteTables[tableID]) {
-			unsafeWindow.emoteTables[table].css('display', 'none');
+	for (var table in top.emoteTables) {
+		if(top.emoteTables[table] != top.emoteTables[tableID]) {
+			top.emoteTables[table].css('display', 'none');
 		}
 	}
 	
@@ -259,7 +259,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	logInfo("Adding emote: " + emoteName);
 
-	if (!unsafeWindow.initialized) {
+	if (!top.initialized) {
 		initialize();
 	}
 
@@ -267,7 +267,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 		return;
 	}
 
-	if(unsafeWindow.emoteTables[unsafeWindow.tablePrefix + shortTableName] != undefined) {
+	if(top.emoteTables[top.tablePrefix + shortTableName] != undefined) {
 		createNewEmote(url, emoteName, shortTableName);
 	} else {
 		createNewTable(shortTableName, longTableName);
@@ -289,7 +289,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
 
-	var selector = "div[id=\"" + unsafeWindow.tablePrefix + shortTableName + "_Area\"]";
+	var selector = "div[id=\"" + top.tablePrefix + shortTableName + "_Area\"]";
 
 	$(selector).append(image);
 
@@ -301,8 +301,8 @@ function createNewTable(shortTableName, longTableName) {
 
 	var emoteTable = $("<div class='emoteTable'></div>");
 	$("div.emoticons_panel").append(emoteTable);
-	emoteTable.attr("id", unsafeWindow.tablePrefix + shortTableName + "_Area");
-	unsafeWindow.emoteTables[unsafeWindow.tablePrefix + shortTableName] = emoteTable;
+	emoteTable.attr("id", top.tablePrefix + shortTableName + "_Area");
+	top.emoteTables[top.tablePrefix + shortTableName] = emoteTable;
 
 	createTableLink(shortTableName, longTableName);
 

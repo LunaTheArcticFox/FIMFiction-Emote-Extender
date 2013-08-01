@@ -80,7 +80,7 @@ function initialize() {
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;
 	
-	if (GM_getValue("verbose") == "true") {
+	if (GM_getValue("verbose", false) == "true") {
 		logInfo("Verbose settings detected.");
 		$("body").append("<div id='verboseEnabled'></div>");
 		useVerbose = true;
@@ -464,7 +464,7 @@ function createSettingsPage() {
 	});
 
 	$("#smallSizeButton").click(function() {
-		GM_setValue("emotePreviewSize", 29);
+		GM_setValue("emotePreviewSize", 40);
 		alert("Now using small emote preview size.");
 	});
 

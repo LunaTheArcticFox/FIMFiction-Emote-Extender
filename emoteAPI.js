@@ -365,3 +365,42 @@ function createSettingsPage() {
 	});
 
 }
+
+const __GM_STORAGE_PREFIX = [
+    '', GM_info.script.namespace, GM_info.script.name, ''].join('***');
+
+// All of the GM_*Value methods rely on DOM Storage's localStorage facility.
+// They work like always, but the values are scoped to a domain, unlike the
+// original functions.  The content page's scripts can access, set, and
+// remove these values.
+// https://raw.github.com/gist/3123124
+function GM_deleteValue(aKey) {
+  'use strict';
+  localStorage.removeItem(__GM_STORAGE_PREFIX + aKey);
+}
+
+function GM_getValue(aKey, aDefault) {
+  'use strict';
+  let val = localStorage.getItem(__GM_STORAGE_PREFIX + aKey)
+  if (null === val && 'undefined' != typeof aDefault) return aDefault;
+  return val;
+}
+
+function GM_listValues() {
+  'use strict';
+  let prefixLen = __GM_STORAGE_PREFIX.length;
+  let values = [];
+  let i = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    let k = localStorage.key(i);
+    if (k.substr(0, prefixLen) === __GM_STORAGE_PREFIX) {
+      values.push(k.substr(prefixLen));
+    }
+  }
+  return values;
+}
+
+function GM_setValue(aKey, aVal) {
+  'use strict';
+  localStorage.setItem(__GM_STORAGE_PREFIX + aKey, aVal);
+}

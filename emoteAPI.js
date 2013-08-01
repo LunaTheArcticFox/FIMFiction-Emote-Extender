@@ -446,6 +446,7 @@ function createSettingsPage() {
 	$("div.main").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='margin: 15px;' />"));
 	$("div.main").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='margin: 15px;' />"));
 	$("div.main").append($("<input type='button' id='regSizeButton' value='Regular Size Previews' style='margin: 15px; margin-left: 25px;' />"));
+	$("div.main").append($("<input type='button' id='largeSizeButton' value='Large Size Previews' style='margin: 15px;' />"));
 	$("div.main").append($("<input type='button' id='smallSizeButton' value='Small Size Previews' style='margin: 15px;' />"));
 
 	$("#useVerboseButton").click(function() {
@@ -456,6 +457,11 @@ function createSettingsPage() {
 	$("#useConciseButton").click(function() {
 		GM_setValue("verbose", "false");
 		alert("Now using concise tabs.");
+	});
+
+	$("#largeSizeButton").click(function() {
+		GM_setValue("emotePreviewSize", 70);
+		alert("Now using large emote preview size.");
 	});
 
 	$("#regSizeButton").click(function() {

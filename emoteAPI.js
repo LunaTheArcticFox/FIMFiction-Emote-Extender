@@ -82,6 +82,8 @@ function initialize() {
 	if (GM_getValue("verbose")) {	
 		$("body").append("<div id='verboseEnabled'></div>");
 		useVerbose = true;
+	} else {
+		$("body").append("<div id='verboseDisabled'></div>");
 	}
 
 	var theCSS = [];
@@ -263,6 +265,8 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 		getSitePage();
 		if ($('div#verboseEnabled').length > 0) {
 			useVerbose = true;
+		} else if ($('div#verboseDisabled').length > 0) {
+			useVerbose = false;
 		}
 		if ($('div#emoteScriptInitialized').length > 0) {
 			initialized = true;

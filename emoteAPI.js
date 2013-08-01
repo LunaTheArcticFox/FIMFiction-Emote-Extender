@@ -64,7 +64,7 @@ function initialize() {
 		settingsTabLink.append(settingsTabSpan);
 		settingsTabList.append(settingsTabLink);
 		
-		$("div.tabs").eq(0).eq(0).append(settingsTabList);
+		$("div.tabs:first-child").append(settingsTabList);
 
 		window.initialized = true;
 		return;

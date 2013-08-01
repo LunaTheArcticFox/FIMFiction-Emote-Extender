@@ -275,7 +275,7 @@ function getSitePage() {
 			sitePage = pageGroupThread;
 			logInfo("Site page set to group thread.");
 		}
-	} else if(/\/emote_script_settings\//.test(location.href)) {
+	} else if(/\/emote_script_settings/.test(location.href)) {
 		sitePage = pageScriptSettings;
 		logInfo("Site page set to script settings.");
 	}

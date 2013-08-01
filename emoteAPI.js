@@ -192,7 +192,7 @@ function createTableLink(tableName) {
 
 function showTable(tableID) {
 
-	logInfo("Showing table: " + tableID);
+	logInfo("Showing table: " + tableID + "_Area");
 
 	window.emoteTables[tableID].css('display', 'block');
 

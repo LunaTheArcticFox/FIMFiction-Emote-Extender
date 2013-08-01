@@ -275,7 +275,7 @@ function getSitePage() {
 }
 
 function addEmoteToCommentBox(url) {
-	replaceSelectedText($("div#comment_comment"), "[img]" + url + "[/img]");
+	replaceSelectedText(document.getElementById("comment_comment"), "[img]" + url + "[/img]");
 }
 
 function replaceSelectedText(el, text) {
@@ -323,7 +323,7 @@ function getInputSelection(el) {
             }
         }
     }
-    
+
 	return {
 	start: _start,
 	end: _end

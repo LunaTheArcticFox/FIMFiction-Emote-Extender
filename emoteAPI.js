@@ -445,7 +445,7 @@ function createSettingsPage() {
 }
 
 const __GM_STORAGE_PREFIX = [
-    '', GM_info.script.namespace, GM_info.script.name, ''].join('***');
+    '', 'ffemoteextender', 'Fimfiction-Emote-Extender', ''].join('***');
 
 // All of the GM_*Value methods rely on DOM Storage's localStorage facility.
 // They work like always, but the values are scoped to a domain, unlike the

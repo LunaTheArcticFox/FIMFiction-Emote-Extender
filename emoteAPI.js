@@ -263,7 +263,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 		return;
 	}
 
-	var tableID = "#" + tablePrefix + shortTableName + "_Area";
+	var tableID = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";;
 
 	if($(tableID).length > 0) {
 		createNewEmote(url, emoteName, shortTableName);

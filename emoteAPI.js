@@ -194,7 +194,7 @@ function showTable(tableID) {
 
 	logInfo("Showing table: " + tableID);
 
-	window.emoteTables[tableID].style.display = "block";
+	window.emoteTables[tableID].css('display', 'block');
 
 	setTimeout(function() {
 		var height = ($("div.emoticons_panel").height() + 1);

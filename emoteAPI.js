@@ -277,7 +277,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 		getSitePage();
 
-		emotePreviewSize = GM_getValue('emotePreviewSize');
+		emotePreviewSize = GM_getValue('emotePreviewSize', 58);
 
 		if ($('div#verboseEnabled').length > 0) {
 			useVerbose = true;

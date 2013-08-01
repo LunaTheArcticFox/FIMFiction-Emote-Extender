@@ -256,8 +256,8 @@ function showTable(tableID) {
 	});
 
 	setTimeout(function() {
-		$("textarea#comment_comment").css({'min-height':($(".emoticons_panel").height()+'px')});
-		$("textarea#comment_comment").css({'height':($(".emoticons_panel").height()+'px')});
+		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
 	}, 2);
 	
 }

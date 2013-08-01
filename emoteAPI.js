@@ -182,9 +182,9 @@ function createTableLink(tableName) {
 
 	var tableLink = $("<span class='emoteTabButton' id='" + (top.tablePrefix + tableName) + "'>" + tableName + "</span>");
 
-	tableLink.addEventListener("click", function() {
+	tableLink.click(function() {
 		showTable(this.id);
-	}, false);
+	});
 
 	window.tabContainer.append(tableLink);
 
@@ -235,7 +235,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("width", "58");
 	image.attr("height", "58");
 	image.attr("title", emoteName);
-	image.addEventListener("click", function() { addEmoteToCommentBox(this.id); }, false);
+	image.click(function() { addEmoteToCommentBox(this.id); });
 	window.emoteTables[window.tablePrefix + shortTableName].append(image);
 
 }

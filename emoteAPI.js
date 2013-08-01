@@ -47,8 +47,6 @@ function initialize() {
 	
 	logInfo("Initializing...");
 
-	getSitePage();
-
 	if(/\/manage_user\//.test(location.href)) {
 
 		if (sitePage == pageScriptSettings) {
@@ -256,6 +254,8 @@ function showTable(tableID) {
 }
 
 function addEmote(url, emoteName, shortTableName, longTableName) {
+
+	getSitePage();
 
 	logInfo("Adding emote: " + emoteName);
 

@@ -186,7 +186,7 @@ function createTableLink(tableName) {
 		showTable(this.id);
 	}, false);
 
-	return tableLink;
+	window.tabContainer.append(tableLink);
 
 }
 
@@ -248,7 +248,8 @@ function createNewTable(longTableName, shortTableName) {
 
 	window.emoteTables[window.tablePrefix + shortTableName] = emoteTable;
 	$("div.emoticons_panel").append(emoteTable);
-	window.tabContainer.append(createTableLink(shortTableName));
+
+	createTableLink(shortTableName);
 
 }
 

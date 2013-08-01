@@ -242,7 +242,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 
 function createNewTable(longTableName, shortTableName) {
 
-	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")" + " for panel #" + panelID);
+	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
 
 	var emoteTable = $("<div class='emoteTable'></div>");
 

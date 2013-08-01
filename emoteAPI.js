@@ -17,7 +17,7 @@ var currentTables = [];
 var sitePage = pageOther;
 
 function logInfo(message) {
-	console.log("Emote API [INFO]: " + message);
+	//console.log("Emote API [INFO]: " + message);
 }
 
 function logError(message) {
@@ -275,7 +275,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 	var tableFound = false;
 
 	if (currentTables.indexOf(tablePrefix + shortTableName + "_Area") == -1) {
-
+		logError("Called!");
 		var tableID = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
 
 		if($(tableID).length > 0) {

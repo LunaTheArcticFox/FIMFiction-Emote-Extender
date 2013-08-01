@@ -46,7 +46,12 @@ function initialize() {
 	
 	logInfo("Initializing...");
 	
+	getSitePage();
 	
+	if (window.initialized || sitePage == pageOther) {
+		logError("Already initialized, returning.");
+		return;
+	}
 	
 	window.initialized = true;
 	
@@ -72,6 +77,7 @@ function initialize() {
 			"-moz-user-select: none;",
 			"-ms-user-select: none;",
 			"user-select: none;",
+			"margin: 5px;",
 		"}",
 		
 		".customEmote:hover {",
@@ -89,6 +95,7 @@ function initialize() {
 			"float: left;",
 			"text-align: center;",
 			"padding: 5px 8px 0px 8px;",
+			"margin: 5px 0px 0px 5px;",
 			"font: 13px normal \"Segoe UI\" !important;",
 			"-webkit-touch-callout: none;",
 			"-webkit-user-select: none;",
@@ -128,6 +135,15 @@ function initialize() {
 			"clear: both;",
 			"width: 279px;",
 		"}",
+
+
+	emoteTable.style.display = "none";
+	emoteTable.style.margin = "10px";
+	emoteTable.style.paddingTop = "20px";
+	emoteTable.style.float = "left";
+	emoteTable.style.clear = "both";
+	emoteTable.style.textAlign = "center";
+
 		
 		".emoticons_panel {",
 			"margin-top: 15px !important;",
@@ -153,8 +169,44 @@ function initialize() {
 	$('.emoticons_panel').prepend(tabContainer);
 	
 	logInfo("Added tab container.");
-	
+
+	createTableLink("FF");
+
 	logInfo("Initialized successfully.");
+	
+}
+
+function createTableLink(tableName) {
+
+	logInfo("Creating table tab: " + tableName);
+
+	var tableLink = $("<span class='emoteTabButton' id='" + (top.tablePrefix + tableName) + "'>" + tableName + "</span>");
+
+	tableLink.addEventListener("click", function() {
+		showTable(this.id);
+	}, false);
+
+	return tableLink;
+
+}
+
+function showTable(tableID) {
+
+	logInfo("Showing table: " + tableID);
+
+	window.emoteTables[tableID].style.display = "block";
+
+	setTimeout(function() {
+		var height = ($("div.emoticons_panel").height() + 1);
+		$("div#comment_comment").css('min-height', height + "px");
+		$("div#comment_comment").css('height', height + "px");
+	}, 1);
+
+	for (var table in window.emoteTables) {
+		if(window.emoteTables[table] != window.emoteTables[tableID]) {
+			window.emoteTables[table].style.display = "none";
+		}
+	}
 	
 }
 
@@ -163,7 +215,39 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 	if (!window.initialized) {
 		initialize();
 	}
+
+	if(window.emoteTables[window.tablePrefix + shortTableName] != undefined) {
+		createNewEmote(url, emoteName, shortTableName);
+	} else {
+		createNewTable(shortTableName, longTableName);
+		createNewEmote(url, emoteName, shortTableName);
+	}
 	
+}
+
+function createNewEmote(url, emoteName, shortTableName) {
+
+	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
+
+	var image = $("<img id='" + url + "' class='customEmote' src='" + url + "' />");
+	image.attr("width", "58");
+	image.attr("height", "58");
+	image.attr("title", emoteName);
+	image.addEventListener("click", function() { addEmoteToCommentBox(this.id); }, false);
+	window.emoteTables[window.tablePrefix + shortTableName].append(image);
+
+}
+
+function createNewTable(longTableName, shortTableName) {
+
+	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")" + " for panel #" + panelID);
+
+	var emoteTable = $("<div class='emoteTable'></div>");
+
+	window.emoteTables[window.tablePrefix + shortTableName] = emoteTable;
+	$("div.emoticons_panel").append(emoteTable);
+	window.tabContainer.append(createTableLink(shortTableName));
+
 }
 
 function getSitePage() {
@@ -179,3 +263,67 @@ function getSitePage() {
 	}
 	
 }
+
+function addEmoteToCommentBox(url) {
+	replaceSelectedText($("div#comment_comment"), "[img]" + url + "[/img]");
+}
+
+function replaceSelectedText(el, text) {
+	var sel = getInputSelection(el), val = el.value;
+	el.value = val.slice(0, sel.start) + text + val.slice(sel.end);
+}
+
+function getInputSelection(el) {
+
+	var _start = 0, _end = 0, normalizedValue, range, textInputRange, len, endRange;
+
+	if(typeof el.selectionStart === "number" && typeof el.selectionEnd === "number") {
+		_start = el.selectionStart;
+		_end = el.selectionEnd;
+	} else {
+
+		range = document.selection.createRange();
+
+		if(range && range.parentElement() == el) {
+
+			len = el.value.length;
+			normalizedValue = el.value.replace(/\r\n/g, "\n");
+
+			textInputRange = el.createTextRange();
+			textInputRange.moveToBookmark(range.getBookmark());
+
+			endRange = el.createTextRange();
+			endRange.collapse(false);
+
+			if(textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+				_start = _end = len;
+			} else {
+				_start = -textInputRange.moveStart("character", -len);
+				_start += normalizedValue.slice(0, _start).split("\n").length - 1;
+
+				if(textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+					_end = len;
+				} else {
+					_end = -textInputRange.moveEnd("character", -len);
+					_end += normalizedValue.slice(0, _end).split("\n").length - 1;
+				}
+			}
+		}
+	}
+
+	return {
+	start: _start,
+	end: _end
+	};
+
+}
+
+Object.size = function(obj) {
+	var size = 0, key;
+	for(key in obj) {
+		if(obj.hasOwnProperty(key)) {
+			size++;
+		}
+	}
+	return size;
+};

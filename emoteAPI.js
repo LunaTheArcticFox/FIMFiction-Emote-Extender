@@ -133,7 +133,7 @@ function initialize() {
 		"#emoteAPITabContainer {",
 			"margin-top: 0px;",
 			"margin-left: 12px;",
-			"padding-bottom: 15px;",
+			"margin-bottom: 15px;",
 			"float: left;",
 			"clear: both;",
 			"width: 279px;",

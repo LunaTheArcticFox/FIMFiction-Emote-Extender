@@ -79,10 +79,12 @@ function initialize() {
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;
 	
-	if (GM_getValue("verbose")) {	
+	if (GM_getValue("verbose")) {
+		logInfo("Verbose settings detected.");
 		$("body").append("<div id='verboseEnabled'></div>");
 		useVerbose = true;
 	} else {
+		logInfo("Concise settings detected.");
 		$("body").append("<div id='verboseDisabled'></div>");
 	}
 

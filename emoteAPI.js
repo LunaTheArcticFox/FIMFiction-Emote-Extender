@@ -66,6 +66,7 @@ function initialize() {
 		"}",
 		
 		".customEmote {",
+			"box-shadow: #000 0em 0em 0em;",
 			"opacity: 0.75;",
 			"transition: opacity .2s ease-out;",
 			"-moz-transition: opacity .2s ease-out;",
@@ -81,7 +82,6 @@ function initialize() {
 		"}",
 		
 		".customEmote:hover {",
-			"border: none;",
 			"opacity: 1;",
 			"transition: opacity .2s ease-in;",
 			"-moz-transition: opacity .2s ease-in;",

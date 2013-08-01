@@ -12,6 +12,7 @@ var pageScriptSettings = 2;
 
 var initialized = false;
 var useVerbose = false;
+var emotePreviewSize = 58;
 
 var currentTables = [];
 
@@ -78,8 +79,6 @@ function initialize() {
 	
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;
-
-	logInfo(GM_listValues);
 	
 	if (GM_getValue("verbose") == "true") {
 		logInfo("Verbose settings detected.");
@@ -275,18 +274,24 @@ function showTable(tableID) {
 function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	if (!initialized) {
+
 		getSitePage();
+
+		emotePreviewSize = GM_getValue('emotePreviewSize');
+
 		if ($('div#verboseEnabled').length > 0) {
 			useVerbose = true;
 		} else if ($('div#verboseDisabled').length > 0) {
 			useVerbose = false;
 		}
+
 		if ($('div#emoteScriptInitialized').length > 0) {
 			initialized = true;
 			logInfo("Already initialized.");
 		} else {
 			initialize();
 		}
+
 	}
 
 	if (sitePage != pageGroupThread && sitePage != pageBlogEdit) {
@@ -325,8 +330,8 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("id", url);
 	image.attr("class", "customEmote");
 	image.attr("src", url);
-	image.attr("width", "58");
-	image.attr("height", "58");
+	image.attr("width", emotePreviewSize);
+	image.attr("height", emotePreviewSize);
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
 
@@ -438,17 +443,29 @@ Object.size = function(obj) {
 
 function createSettingsPage() {
 
-	$("div.main").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='padding: 15px;' />"));
-	$("div.main").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='padding: 15px;' />"));
+	$("div.main").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='margin: 15px;' />"));
+	$("div.main").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='margin: 15px;' />"));
+	$("div.main").append($("<input type='button' id='regSizeButton' value='Regular Size Previews' style='margin: 15px; margin-left: 25px;' />"));
+	$("div.main").append($("<input type='button' id='smallSizeButton' value='Small Size Previews' style='margin: 15px;' />"));
 
 	$("#useVerboseButton").click(function() {
 		GM_setValue("verbose", "true");
-		alert("Now using verbose tabs!");
+		alert("Now using verbose tabs.");
 	});
 
 	$("#useConciseButton").click(function() {
 		GM_setValue("verbose", "false");
-		alert("Now using concise tabs!");
+		alert("Now using concise tabs.");
+	});
+
+	$("#regSizeButton").click(function() {
+		GM_setValue("emotePreviewSize", 58);
+		alert("Now using regular emote preview size.");
+	});
+
+	$("#smallSizeButton").click(function() {
+		GM_setValue("emotePreviewSize", 29);
+		alert("Now using small emote preview size.");
 	});
 
 }

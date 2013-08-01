@@ -48,11 +48,6 @@ function initialize() {
 	logInfo("Initializing...");
 	
 	getSitePage();
-	
-	if (window.initialized || sitePage == pageOther) {
-		logError("Already initialized, returning.");
-		return;
-	}
 
 	if(/\/manage_user\//.test(location.href)) {
 
@@ -74,6 +69,11 @@ function initialize() {
 		window.initialized = true;
 		return;
 
+	}
+	
+	if (window.initialized || sitePage == pageOther) {
+		logError("Already initialized, returning.");
+		return;
 	}
 	
 	window.initialized = true;

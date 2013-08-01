@@ -295,18 +295,20 @@ function createNewEmote(url, emoteName, shortTableName) {
 
 	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
-	image = $("<img />");
-	image.attr("id", url);
-	image.attr("class", "customEmote");
-	image.attr("src", url);
-	image.attr("width", "58");
-	image.attr("height", "58");
-	image.attr("title", emoteName);
-	image.click(function() { addEmoteToCommentBox(this.id); });
+	var image = document.createElement('img');
+	image.setAttribute("id", url);
+	image.setAttribute("class", "customEmote");
+	image.setAttribute("src", url);
+	image.setAttribute("width", "58");
+	image.setAttribute("height", "58");
+	image.setAttribute("title", emoteName);
+
+	jImage = $(image);
+	jImage.click(function() { addEmoteToCommentBox(this.id); });
 
 	var selector = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
 
-	$(selector).append(image);
+	$(selector).append(jImage);
 
 }
 

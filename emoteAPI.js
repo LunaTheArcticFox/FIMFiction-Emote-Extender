@@ -176,7 +176,6 @@ function initialize() {
 		
 		".emoteTable {",
 			"display: none;",
-			"padding: 0 20px;",
 			"margin: 0 auto 0 auto;",
 			"float: left;",
 			"clear: both;",

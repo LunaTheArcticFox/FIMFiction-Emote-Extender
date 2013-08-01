@@ -240,7 +240,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 
 }
 
-function createNewTable(longTableName, shortTableName) {
+function createNewTable(shortTableName, longTableName) {
 
 	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
 

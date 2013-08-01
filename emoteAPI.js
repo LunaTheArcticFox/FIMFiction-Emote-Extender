@@ -236,7 +236,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("height", "58");
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
-	window.emoteTables[window.tablePrefix + shortTableName].append(image);
+	$("#" + window.tablePrefix + shortTableName).append(image);
 
 }
 

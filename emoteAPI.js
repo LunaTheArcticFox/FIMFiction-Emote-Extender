@@ -212,15 +212,15 @@ function showTable(tableID) {
 
 function addEmote(url, emoteName, shortTableName, longTableName) {
 
+	logInfo("Adding emote: " + emoteName);
+
 	if (!window.initialized) {
 		initialize();
 	}
 
 	if(window.emoteTables[window.tablePrefix + shortTableName] != undefined) {
-		logInfo("Adding emote: " + emoteName);
 		createNewEmote(url, emoteName, shortTableName);
 	} else {
-		logInfo("Adding emote22: " + emoteName);
 		createNewTable(shortTableName, longTableName);
 		createNewEmote(url, emoteName, shortTableName);
 	}
@@ -236,7 +236,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("height", "58");
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
-	$("#" + window.tablePrefix + shortTableName).append(image);
+	$("div#" + window.tablePrefix + shortTableName).append(image);
 
 }
 

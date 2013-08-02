@@ -82,7 +82,7 @@ function initialize() {
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;
 	
-	if (GM_getValue("verbose", false) == "true") {
+	if (getValue("verbose", false) == "true") {
 		logInfo("Verbose settings detected.");
 		$("body").append("<div id='verboseEnabled'></div>");
 		useVerbose = true;
@@ -279,7 +279,7 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 		getSitePage();
 
-		emotePreviewSize = GM_getValue('emotePreviewSize', 58);
+		emotePreviewSize = getValue('emotePreviewSize', 58);
 
 		if ($('div#verboseEnabled').length > 0) {
 			useVerbose = true;
@@ -452,67 +452,40 @@ function createSettingsPage() {
 	$("div.main").append($("<input type='button' id='smallSizeButton' value='Small Size Previews' style='margin: 15px; padding: 5px;' />"));
 
 	$("#useVerboseButton").click(function() {
-		GM_setValue("verbose", "true");
+		setValue("verbose", "true");
 		alert("Now using verbose tabs.");
 	});
 
 	$("#useConciseButton").click(function() {
-		GM_setValue("verbose", "false");
+		setValue("verbose", "false");
 		alert("Now using concise tabs.");
 	});
 
 	$("#largeSizeButton").click(function() {
-		GM_setValue("emotePreviewSize", 70);
+		setValue("emotePreviewSize", 70);
 		alert("Now using large emote preview size.");
 	});
 
 	$("#regSizeButton").click(function() {
-		GM_setValue("emotePreviewSize", 58);
+		setValue("emotePreviewSize", 58);
 		alert("Now using regular emote preview size.");
 	});
 
 	$("#smallSizeButton").click(function() {
-		GM_setValue("emotePreviewSize", 40);
+		setValue("emotePreviewSize", 40);
 		alert("Now using small emote preview size.");
 	});
 
 }
 
-const __GM_STORAGE_PREFIX = [
-    '', 'ffemoteextender', 'Fimfiction-Emote-Extender', ''].join('***');
-
-// All of the GM_*Value methods rely on DOM Storage's localStorage facility.
-// They work like always, but the values are scoped to a domain, unlike the
-// original functions.  The content page's scripts can access, set, and
-// remove these values.
-// https://raw.github.com/gist/3123124
-function GM_deleteValue(aKey) {
-	'use strict';
-	localStorage.removeItem(__GM_STORAGE_PREFIX + aKey);
+function setValue(name, data) {
+	$.cookie(name, data, { expires: 365 });
 }
 
-function GM_getValue(aKey, aDefault) {
-	'use strict';
-	let val = localStorage.getItem(__GM_STORAGE_PREFIX + aKey)
-	if (null === val && 'undefined' != typeof aDefault) return aDefault;
-	return val;
-}
-
-function GM_listValues() {
-	'use strict';
-	let prefixLen = __GM_STORAGE_PREFIX.length;
-	let values = [];
-	let i = 0;
-	for (let i = 0; i < localStorage.length; i++) {
-		let k = localStorage.key(i);
-		if (k.substr(0, prefixLen) === __GM_STORAGE_PREFIX) {
-			values.push(k.substr(prefixLen));
-		}
+function getValue(name, defaultValue) {
+	var returnValue = $.cookie(name);
+	if (returnValue == null) {
+		return defaultValue;
 	}
-	return values;
-}
-
-function GM_setValue(aKey, aVal) {
-	'use strict';
-	localStorage.setItem(__GM_STORAGE_PREFIX + aKey, aVal);
+	return returnValue;
 }

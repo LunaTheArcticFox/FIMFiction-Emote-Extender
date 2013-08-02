@@ -4,8 +4,8 @@
 // @description Adds additional emotes to fimfiction.net.
 // @include http*://www.fimfiction.net/*
 // @include http*://fimfiction.net/*
-// @grant GM_setValue
-// @grant GM_getValue
+// @grant none
+// @require https://github.com/carhartl/jquery-cookie/raw/master/jquery.cookie.js
 // @require https://raw.github.com/KrazyTheFox/Fimfiction-Emote-API/master/emoteAPI.js
 // @version 2.0b
 // ==/UserScript==

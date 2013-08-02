@@ -5,8 +5,6 @@
 // @include http*://www.fimfiction.net/*
 // @include http*://fimfiction.net/*
 // @grant none
-// @require http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
-// @require https://github.com/carhartl/jquery-cookie/raw/master/jquery.cookie.js
 // @require https://raw.github.com/KrazyTheFox/Fimfiction-Emote-API/master/emoteAPI.js
 // @version 2.0b
 // ==/UserScript==

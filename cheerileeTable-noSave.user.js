@@ -13,6 +13,16 @@ $(document).ready(run());
 
 function run() {
 
+	//Use the following settings only in the first script you run.
+
+	//Uncomment to enable verbose emote tables:
+	//$("body").append("<div id='verboseEnabled'></div>");
+
+	//Uncomment *one* line to select emote size:
+	//$("body").append("<div id='emoteSizeSmall'></div>");
+	//$("body").append("<div id='emoteSizeRegular'></div>");
+	//$("body").append("<div id='emoteSizeLarge'></div>");
+
 	addEmote("http://i.imgur.com/IdiNEoG.png", "Emote", "CHR", "Cheerilee");
 	addEmote("http://i.imgur.com/zi55aHB.png", "Emote", "CHR", "Cheerilee");
 	addEmote("http://i.imgur.com/Z9dmrsL.png", "Emote", "CHR", "Cheerilee");

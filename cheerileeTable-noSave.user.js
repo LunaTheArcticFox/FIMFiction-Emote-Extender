@@ -19,9 +19,9 @@ function run() {
 	//$("body").append("<div id='verboseEnabled'></div>");
 
 	//Uncomment *one* line to select emote size:
-	//$("body").append("<div id='emoteSizeSmall'></div>");
-	//$("body").append("<div id='emoteSizeRegular'></div>");
-	//$("body").append("<div id='emoteSizeLarge'></div>");
+	//$("body").append("<div id='emoteSizeSmall'></div>"); //Small Emotes
+	//$("body").append("<div id='emoteSizeRegular'></div>"); //Regular Emotes
+	//$("body").append("<div id='emoteSizeLarge'></div>"); //Large Emotes
 
 	addEmote("http://i.imgur.com/IdiNEoG.png", "Emote", "CHR", "Cheerilee");
 	addEmote("http://i.imgur.com/zi55aHB.png", "Emote", "CHR", "Cheerilee");

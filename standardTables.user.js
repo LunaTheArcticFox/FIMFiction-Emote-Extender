@@ -332,6 +332,7 @@ function run() {
 	addEmote("http://i.imgur.com/8BDWuaI.png", "Emote", "PP", "Pinkie Pie");
 	addEmote("http://i.imgur.com/sBq1PM1.png", "Emote", "PP", "Pinkie Pie");
 	addEmote("http://i.imgur.com/Ok4LXo8.png", "Emote", "PP", "Pinkie Pie");
+	addEmote("http://i.imgur.com/NH9sCfd.png", "Emote", "PP", "Pinkie Pie");
 
 	addEmote("http://i.imgur.com/fiITL.png", "Emote", "CMC", "The Crusaders");
 	addEmote("http://i.imgur.com/inSsXQt.png", "Emote", "CMC", "The Crusaders");

@@ -257,6 +257,7 @@ function run() {
 	addEmote("http://i.imgur.com/1bcgbrm.png", "Emote", "RD", "Rainbow Dash");
 	addEmote("http://i.imgur.com/aJbPeur.png", "Emote", "RD", "Rainbow Dash");
 	addEmote("http://i.imgur.com/DuTtzKD.png", "Emote", "RD", "Rainbow Dash");
+	addEmote("http://i.imgur.com/btqHYra.png", "Emote", "RD", "Rainbow Dash");
 
 	addEmote("http://i.imgur.com/KluyWmn.png", "Emote", "R", "Rarity");
 	addEmote("http://i.imgur.com/cUszKbb.png", "Emote", "R", "Rarity");

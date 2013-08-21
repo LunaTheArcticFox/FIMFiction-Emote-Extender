@@ -545,7 +545,7 @@ function getSitePage() {
 }
 
 function addEmoteToCommentBox(url) {
-	replaceSelectedText(document.getElementById("comment_comment"), "[img]" + url + "[/img]");
+	replaceSelectedText(document.getElementById("comment_comment"), "[img]" + url + "[/img] ");
 }
 
 function replaceSelectedText(el, text) {

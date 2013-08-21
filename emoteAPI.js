@@ -255,7 +255,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 
 	$("#emotePageTabContainer").append(tableLink);
 
-	tableLink = $("<span class='emotePageTabButton " + tablePrefix + shortTableName + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'>" + ... + "</span>");
+	tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'>...</span>");
 
 	tableLink.click(function() {
 		showTable(this.id);

@@ -362,12 +362,21 @@ function showTable(tableID) {
 
 	$('.emoticons_panel').children().each(function () {
 		var currentDiv = $(this);
+		
 		if (currentDiv.attr("id") == tableID + "_Area") {
 			currentDiv.css('display', 'block');
 		} else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
 			currentDiv.css('display', 'none');
 		}
+
+		if (currentDiv.attr("class") == "emotePageTabButton") {
+			currentDiv.css('opacity', '0.5');
+		}
+
 	});
+
+	var tabID = "#" + tableID;
+	$(tabID).css('opacity', '1.0');
 
 	setTimeout(function() {
 		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
@@ -400,13 +409,22 @@ function showTableCycle(tableID) {
 	logInfo("Showing table: " + tableID + nextPage + "_Area");
 
 	$('.emoticons_panel').children().each(function () {
+
 		var currentDiv = $(this);
 		if (currentDiv.attr("id") == tableID + nextPage + "_Area") {
 			currentDiv.css('display', 'block');
 		} else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
 			currentDiv.css('display', 'none');
 		}
+
+		if (currentDiv.attr("class") == "emotePageTabButton") {
+			currentDiv.css('opacity', '0.5');
+		}
+
 	});
+
+	var tabID = "#" + tableID + nextPage;
+	$(tabID).css('opacity', '1.0');
 
 	setTimeout(function() {
 		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});

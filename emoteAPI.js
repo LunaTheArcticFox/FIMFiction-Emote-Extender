@@ -158,7 +158,6 @@ function initialize() {
 		".emotePageTabButton {",
 			"width: auto;",
 			"height: 23px;",
-			"float: left;",
 			"text-align: center;",
 			"padding: 5px 8px 0px 8px;",
 			"margin: 5px 0px 0px 5px;",
@@ -212,13 +211,10 @@ function initialize() {
 		"}",
 		
 		"#emotePageTabContainer {",
-			"margin-top: 0px;",
-			"margin-left: 12px;",
-			"margin-bottom: 15px;",
+			"margin: 0 auto 0 auto;",
 			"float: left;",
 			"clear: both;",
 			"width: 279px;",
-			"text-align: center;",
 		"}",
 
 		".emoteTable {",

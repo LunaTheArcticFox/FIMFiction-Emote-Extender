@@ -217,6 +217,7 @@ function initialize() {
 			"float: left;",
 			"clear: both;",
 			"width: 279px;",
+			"display: block;",
 		"}",
 		
 		".emoteTable {",

@@ -311,33 +311,31 @@ function run() {
 	addEmote("http://i.imgur.com/Sm8bW9r.png", "Emote", "CMC", "The Crusaders", 1);
 	addEmote("http://i.imgur.com/NZoImDq.png", "Emote", "CMC", "The Crusaders", 1);
 	addEmote("http://i.imgur.com/oHyofJ3.png", "Emote", "CMC", "The Crusaders", 1);
-	
 	addEmote("http://i.imgur.com/UjiYYXl.png", "Emote", "CMC", "The Crusaders", 1);
 	addEmote("http://i.imgur.com/0V8u1Lz.png", "Emote", "CMC", "The Crusaders", 1);
 
-	addEmote("http://i.imgur.com/uVj8R.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/20x2X.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/BxLgU.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/gl6yp.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/IMGC8.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/fiITL.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/tDOuj3P.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/O7YJl8D.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/5HOAGsD.png", "Emote", "CMC", "The Crusaders", 1);
+	addEmote("http://i.imgur.com/uVj8R.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/20x2X.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/BxLgU.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/gl6yp.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/IMGC8.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/fiITL.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/tDOuj3P.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/O7YJl8D.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/5HOAGsD.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/kQc1R5l.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/sM1SH0r.png", "Emote", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/rLhDpm3.png", "Emote", "CMC", "The Crusaders", 2);
 
-	addEmote("http://i.imgur.com/kQc1R5l.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/sM1SH0r.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/rLhDpm3.png", "Emote", "CMC", "The Crusaders", 1);
-	
-	addEmote("http://i.imgur.com/sYAzM.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/VViKq.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/DGsL3.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/dWaeV.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/inSsXQt.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/Gh1mXeB.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/njZ7Ocd.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/IfOQXKX.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/s461PaL.png", "Emote", "CMC", "The Crusaders", 1);
+	addEmote("http://i.imgur.com/sYAzM.png", "Emote", "CMC", "The Crusaders", 3);
+	addEmote("http://i.imgur.com/VViKq.png", "Emote", "CMC", "The Crusaders", 3);
+	addEmote("http://i.imgur.com/DGsL3.png", "Emote", "CMC", "The Crusaders", 3);
+	addEmote("http://i.imgur.com/dWaeV.png", "Emote", "CMC", "The Crusaders", 3);
+	addEmote("http://i.imgur.com/inSsXQt.png", "Emote", "CMC", "The Crusaders", 3);
+	addEmote("http://i.imgur.com/Gh1mXeB.png", "Emote", "CMC", "The Crusaders", 3);
+	addEmote("http://i.imgur.com/njZ7Ocd.png", "Emote", "CMC", "The Crusaders", 3);
+	addEmote("http://i.imgur.com/IfOQXKX.png", "Emote", "CMC", "The Crusaders", 3);
+	addEmote("http://i.imgur.com/s461PaL.png", "Emote", "CMC", "The Crusaders", 3);
 
 	addEmote("http://i.imgur.com/TkVcM.png", "Emote", "MISC", "Other", 1);
 	addEmote("http://i.imgur.com/ZebG2.png", "Emote", "MISC", "Other", 1);

@@ -170,7 +170,6 @@ function initialize() {
 			"-moz-user-select: none;",
 			"-ms-user-select: none;",
 			"user-select: none;",
-			"opacity: 1;",
 			"transition: opacity .2s ease-in;",
 			"-moz-transition: opacity .2s ease-in;",
 			"-webkit-transition: opacity .2s ease-in;",

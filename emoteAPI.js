@@ -158,6 +158,7 @@ function initialize() {
 		".emotePageTabButton {",
 			"width: 20px;",
 			"height: 23px;",
+			"float: left;",
 			"text-align: center;",
 			"padding: 5px 8px 0px 8px;",
 			"margin: 5px 0px 0px 5px;",

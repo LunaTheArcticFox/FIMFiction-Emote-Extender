@@ -235,13 +235,21 @@ function initialize() {
 	
 }
 
-function createTableLink(shortTableName, longTableName) {
+function createTableLink(shortTableName, longTableName, tablePage) {
 
 	var displayName = shortTableName;
 
 	if (useVerbose) {
 		displayName = longTableName;
 	}
+
+	var tablePageLink = $("<span class='emotePageButton' id='" + (tablePrefix + shortTableName + tablePage) + "'></span>");
+
+	tablePageLink.click(function() {
+		showTable(this.id);
+	});
+
+	$("#emoticons_panel:nth-child(1)").append(tablePageLink);
 
 	var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
@@ -273,7 +281,7 @@ function showTable(tableID) {
 	
 }
 
-function addEmote(url, emoteName, shortTableName, longTableName) {
+function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 	if (!initialized) {
 
@@ -302,13 +310,13 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	var tableFound = false;
 
-	if (currentTables.indexOf(tablePrefix + shortTableName + "_Area") == -1) {
+	if (currentTables.indexOf(tablePrefix + shortTableName + tablePage + "_Area") == -1) {
 		
-		var tableID = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
+		var tableID = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
 
 		if($(tableID).length > 0) {
 			tableFound = true;
-			currentTables.push(tablePrefix + shortTableName + "_Area");
+			currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
 		}
 
 	} else {
@@ -316,10 +324,10 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 	}
 
 	if (tableFound) {
-		createNewEmote(url, emoteName, shortTableName);
+		createNewEmote(url, emoteName, shortTableName, tablePage);
 	} else {
-		createNewTable(shortTableName, longTableName);
-		createNewEmote(url, emoteName, shortTableName);
+		createNewTable(shortTableName, longTableName, tablePage);
+		createNewEmote(url, emoteName, shortTableName, tablePage);
 	}
 	
 }
@@ -343,17 +351,17 @@ function createNewEmote(url, emoteName, shortTableName) {
 
 }
 
-function createNewTable(shortTableName, longTableName) {
+function createNewTable(shortTableName, longTableName, tablePage) {
 
-	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
+	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ") - Page: " + tablePage);
 
-	currentTables.push(tablePrefix + shortTableName + "_Area");
+	currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
 
 	var emoteTable = $("<div class='emoteTable'></div>");
 	$("div.emoticons_panel").append(emoteTable);
-	emoteTable.attr("id", tablePrefix + shortTableName + "_Area");
+	emoteTable.attr("id", tablePrefix + shortTableName + tablePage + "_Area");
 
-	createTableLink(shortTableName, longTableName);
+	createTableLink(shortTableName, longTableName, tablePage);
 
 }
 

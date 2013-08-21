@@ -61,6 +61,8 @@ function run() {
 	addEmote("http://i.imgur.com/oBAx788.png", "Emote", "AJ2", "Applejack 2");
 	addEmote("http://i.imgur.com/myOBKB4.png", "Emote", "AJ2", "Applejack 2");
 	addEmote("http://i.imgur.com/LRD2W70.png", "Emote", "AJ2", "Applejack 2");
+	addEmote("http://i.imgur.com/MIrVmT7.png", "Emote", "AJ2", "Applejack 2");
+	addEmote("http://i.imgur.com/yyfj6BZ.png", "Emote", "AJ2", "Applejack 2");
 
 	addEmote("http://i.imgur.com/hCkff.png", "Emote", "FS1", "Fluttershy 1");
 	addEmote("http://i.imgur.com/FlxUX.png", "Emote", "FS1", "Fluttershy 1");
@@ -219,7 +221,7 @@ function run() {
 	addEmote("http://i.imgur.com/1bcgbrm.png", "Emote", "RD2", "Rainbow Dash 2");
 	addEmote("http://i.imgur.com/aJbPeur.png", "Emote", "RD2", "Rainbow Dash 2");
 	addEmote("http://i.imgur.com/DuTtzKD.png", "Emote", "RD2", "Rainbow Dash 2");
-	addEmote("http://i.imgur.com/btqHYra.png", "Emote", "RD", "Rainbow Dash 2");
+	addEmote("http://i.imgur.com/btqHYra.png", "Emote", "RD2", "Rainbow Dash 2");
 
 	addEmote("http://i.imgur.com/AhJQA.png", "Emote", "TS1", "Twilight Sparkle 1");
 	addEmote("http://i.imgur.com/teICa.png", "Emote", "TS1", "Twilight Sparkle 1");
@@ -270,7 +272,6 @@ function run() {
 	addEmote("http://i.imgur.com/EKbat.png", "Emote", "CMC", "The Crusaders");
 	addEmote("http://i.imgur.com/Ku52Y.png", "Emote", "CMC", "The Crusaders");
 	addEmote("http://i.imgur.com/JZ7Qjcd.png", "Emote", "CMC", "The Crusaders");
-
 	addEmote("http://i.imgur.com/uVj8R.png", "Emote", "CMC", "The Crusaders");
 	addEmote("http://i.imgur.com/20x2X.png", "Emote", "CMC", "The Crusaders");
 	addEmote("http://i.imgur.com/BxLgU.png", "Emote", "CMC", "The Crusaders");
@@ -280,7 +281,6 @@ function run() {
 	addEmote("http://i.imgur.com/tDOuj3P.png", "Emote", "CMC", "The Crusaders");
 	addEmote("http://i.imgur.com/O7YJl8D.png", "Emote", "CMC", "The Crusaders");
 	addEmote("http://i.imgur.com/5HOAGsD.png", "Emote", "CMC", "The Crusaders");
-
 	addEmote("http://i.imgur.com/sYAzM.png", "Emote", "CMC", "The Crusaders");
 	addEmote("http://i.imgur.com/VViKq.png", "Emote", "CMC", "The Crusaders");
 	addEmote("http://i.imgur.com/DGsL3.png", "Emote", "CMC", "The Crusaders");
@@ -342,8 +342,5 @@ function run() {
 	addEmote("http://i.imgur.com/lx5pI.png", "Emote", "OTR2", "Other 2");
 	addEmote("http://i.imgur.com/eWyjh.png", "Emote", "OTR2", "Other 2");
 	addEmote("http://i.imgur.com/pjagI.png", "Emote", "OTR2", "Other 2");
-
-
-
-
+	
 }

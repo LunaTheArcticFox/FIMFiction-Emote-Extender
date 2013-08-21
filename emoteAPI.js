@@ -304,6 +304,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 
 		tableLink.click(function() {
 			showTable(this.id);
+			showPageTab("FF");
 		});
 
 		$("#emoteAPITabContainer").append(tableLink);

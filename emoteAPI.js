@@ -156,12 +156,12 @@ function initialize() {
 		"}",
 		
 		".emotePageTabButton {",
-			"width: 20px;",
+			"width: 15px;",
 			"height: 23px;",
 			"float: left;",
 			"text-align: center;",
 			"padding: 5px 8px 0px 8px;",
-			"margin: 5px 0px 0px 5px;",
+			"margin: 0 10px;",
 			"font: 13px normal \"Segoe UI\" !important;",
 			"-webkit-touch-callout: none;",
 			"-webkit-user-select: none;",
@@ -212,10 +212,12 @@ function initialize() {
 		"}",
 		
 		"#emotePageTabContainer {",
-			"margin: 0 auto 0 auto;",
+			"margin: 0 auto;",
+			"margin-bottom: 15px;",
 			"float: left;",
 			"clear: both;",
 			"width: 279px;",
+			"text-align: center;",
 		"}",
 
 		".emoteTable {",

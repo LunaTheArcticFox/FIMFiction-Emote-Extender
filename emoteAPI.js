@@ -253,7 +253,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 		showPageTab(this.id);
 	});
 
-	$("#emotePageTabContainer").append(tableLink);
+	$("#emoteAPITabContainer").append(tableLink);
 
 	tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'> . </span>");
 
@@ -261,7 +261,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 		showTable(this.id);
 	});
 
-	$("#emoteAPITabContainer").append(tableLink);
+	$("#emotePageTabContainer").append(tableLink);
 
 }
 

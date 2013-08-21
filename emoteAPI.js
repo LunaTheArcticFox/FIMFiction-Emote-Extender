@@ -234,7 +234,11 @@ function initialize() {
 
 	logInfo("Added default table.");
 	
-	var tempContainer = $("<div id='emoteAPITabContainer'></div>");
+	var tempContainer = $("<div id='emotePageTabContainer'></div>");
+
+	$('.emoticons_panel').prepend(tempContainer);
+
+	tempContainer = $("<div id='emoteAPITabContainer'></div>");
 
 	$('.emoticons_panel').prepend(tempContainer);
 	
@@ -275,7 +279,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 		showTable(this.id);
 	});
 
-	$("#emoticons_panel").append(tablePageLink);
+	$("#emotePageTabContainer").append(tablePageLink);
 
 	var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 

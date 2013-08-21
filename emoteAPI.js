@@ -253,12 +253,13 @@ function initialize() {
 	logInfo("Added default table.");
 	
 	var tempContainer = $("<div id='emotePageTabContainer'></div>");
-
 	$('.emoticons_panel').prepend(tempContainer);
 
 	tempContainer = $("<div id='emoteAPITabContainer'></div>");
-
 	$('.emoticons_panel').prepend(tempContainer);
+
+	tempContainer = $("<div id='emoteURLList' style='display: none;'></div>");
+	$('body').append(tempContainer);
 	
 	logInfo("Added tab container.");
 
@@ -493,6 +494,9 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 }
 
 function createNewEmote(url, emoteName, shortTableName, tablePage) {
+
+	var urlSpan = $("<span>" + url + "</span>");
+	$("div#emoteURLList").append(urlSpan);
 
 	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 

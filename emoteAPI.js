@@ -17,6 +17,7 @@ var useVerbose = false;
 var emotePreviewSize = 58;
 
 var currentTables = [];
+var majorTables = [];
 
 var sitePage = pageOther;
 
@@ -282,13 +283,19 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 		displayName = longTableName;
 	}
 
-	var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
+	if (majorTables.indexOf((tablePrefix + shortTableName)) == -1) {
 
-	tableLink.click(function() {
-		showPageTab(this.id);
-	});
+		var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
-	$("#emoteAPITabContainer").append(tableLink);
+		tableLink.click(function() {
+			showPageTab(this.id);
+		});
+
+		$("#emoteAPITabContainer").append(tableLink);
+
+		majorTables.push((tablePrefix + shortTableName));
+
+	}
 
 	tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'> . </span>");
 

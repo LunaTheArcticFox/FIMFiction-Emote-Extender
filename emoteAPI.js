@@ -221,7 +221,7 @@ function initialize() {
 		"}",
 		
 		"#emotePageTabContainer {",
-			"margin-bottom: 10px;",
+			"margin-bottom: 8px;",
 			"float: left;",
 			"clear: both;",
 			"width: 279px;",

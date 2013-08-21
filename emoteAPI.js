@@ -184,7 +184,7 @@ function initialize() {
 
 		".emoteTabButton:hover {",
 			"cursor: pointer;",
-			"opacity: 1.0;",
+			"opacity: 0.8;",
 			"transition: opacity .2s ease-out;",
 			"-moz-transition: opacity .2s ease-out;",
 			"-webkit-transition: opacity .2s ease-out;",
@@ -193,7 +193,7 @@ function initialize() {
 
 		".emotePageTabButton:hover {",
 			"cursor: pointer;",
-			"opacity: 0.8;",
+			"opacity: 1.0;",
 			"transition: opacity .2s ease-out;",
 			"-moz-transition: opacity .2s ease-out;",
 			"-webkit-transition: opacity .2s ease-out;",

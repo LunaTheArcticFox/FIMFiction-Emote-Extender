@@ -197,6 +197,7 @@ function run() {
 	addEmote("http://i.imgur.com/oBAx788.png", "Emote", "AJ", "Applejack");
 	addEmote("http://i.imgur.com/myOBKB4.png", "Emote", "AJ", "Applejack");
 	addEmote("http://i.imgur.com/LRD2W70.png", "Emote", "AJ", "Applejack");
+	addEmote("http://i.imgur.com/BgoQMdX.png", "Emote", "AJ", "Applejack");
 
 	addEmote("http://i.imgur.com/sb2Qbof.png", "Emote", "FS", "Fluttershy");
 	addEmote("http://i.imgur.com/24nRCr5.png", "Emote", "FS", "Fluttershy");

@@ -163,6 +163,32 @@ function initialize() {
 			"-o-transition: opacity .2s ease-out;",
 		"}",
 		
+		".emotePageButton {",
+			"width: auto;",
+			"height: 23px;",
+			"float: left;",
+			"text-align: center;",
+			"padding: 5px 8px 0px 8px;",
+			"margin: 5px 0px 0px 5px;",
+			"font: 13px normal \"Segoe UI\" !important;",
+			"-webkit-touch-callout: none;",
+			"-webkit-user-select: none;",
+			"-khtml-user-select: none;",
+			"-moz-user-select: none;",
+			"-ms-user-select: none;",
+			"user-select: none;",
+			"opacity: 1;",
+			"transition: opacity .2s ease-in;",
+			"-moz-transition: opacity .2s ease-in;",
+			"-webkit-transition: opacity .2s ease-in;",
+			"-o-transition: opacity .2s ease-in;",
+			"-webkit-border-radius: 3px;",
+			"-moz-border-radius: 3px;",
+			"border-radius: 3px;",
+			"background-color: #000000;",
+			"color: #ffffff",
+		"}",
+		
 		".inner_padding {",
 			"margin-top: 0px !important;",
 		"}",
@@ -249,7 +275,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 		showTable(this.id);
 	});
 
-	$("#emoticons_panel:nth-child(1)").append(tablePageLink);
+	$("#emoticons_panel").append(tablePageLink);
 
 	var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 

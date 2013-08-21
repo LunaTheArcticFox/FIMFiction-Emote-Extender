@@ -1,5 +1,5 @@
 /*
- *	Fimfiction Emote Script v2.0 Beta
+ *	Fimfiction Emote Script v2.0 Release
  *
  *	Written by KrazyTheFox
  */
@@ -15,6 +15,7 @@ var pageScriptSettings = 2;
 
 var initialized = false;
 
+var majorTables = [];
 var currentTables = [];
 
 var sitePage = pageOther;
@@ -120,9 +121,44 @@ function initialize() {
 			"color: #ffffff",
 		"}",
 		
+		".emotePageTabButton {",
+			"opacity: 0.5;",
+			"width: 15px;",
+			"height: 15px;",
+			"display: inline-block;",
+			"text-align: center;",
+			"padding: 0px;",
+			"margin-left: 5px;",
+			"font: 13px normal \"Segoe UI\" !important;",
+			"-webkit-touch-callout: none;",
+			"-webkit-user-select: none;",
+			"-khtml-user-select: none;",
+			"-moz-user-select: none;",
+			"-ms-user-select: none;",
+			"user-select: none;",
+			"transition: opacity .2s ease-in;",
+			"-moz-transition: opacity .2s ease-in;",
+			"-webkit-transition: opacity .2s ease-in;",
+			"-o-transition: opacity .2s ease-in;",
+			"-webkit-border-radius: 10px;",
+			"-moz-border-radius: 10px;",
+			"border-radius: 15px;",
+			"background-color: #00a9f0;",
+			"color: #ffffff",
+		"}",
+
 		".emoteTabButton:hover {",
 			"cursor: pointer;",
 			"opacity: 0.8;",
+			"transition: opacity .2s ease-out;",
+			"-moz-transition: opacity .2s ease-out;",
+			"-webkit-transition: opacity .2s ease-out;",
+			"-o-transition: opacity .2s ease-out;",
+		"}",
+
+		".emotePageTabButton:hover {",
+			"cursor: pointer;",
+			"opacity: 1.0;",
 			"transition: opacity .2s ease-out;",
 			"-moz-transition: opacity .2s ease-out;",
 			"-webkit-transition: opacity .2s ease-out;",
@@ -150,6 +186,14 @@ function initialize() {
 			"width: 279px;",
 		"}",
 		
+		"#emotePageTabContainer {",
+			"margin-bottom: 8px;",
+			"float: left;",
+			"clear: both;",
+			"width: 279px;",
+			"text-align: center;",
+		"}",
+
 		".emoteTable {",
 			"display: none;",
 			"margin: 0 auto 0 auto;",
@@ -174,7 +218,11 @@ function initialize() {
 
 	logInfo("Added default table.");
 	
-	var tempContainer = $("<div id='emoteAPITabContainer'></div>");
+	var tempContainer = $("<div id='emotePageTabContainer'></div>");
+
+	$('.emoticons_panel').prepend(tempContainer);
+
+	tempContainer = $("<div id='emoteAPITabContainer'></div>");
 
 	$('.emoticons_panel').prepend(tempContainer);
 	
@@ -201,7 +249,7 @@ function initialize() {
 	
 }
 
-function createTableLink(shortTableName, longTableName) {
+function createTableLink(shortTableName, longTableName, tablePage) {
 
 	var displayName = shortTableName;
 
@@ -209,13 +257,68 @@ function createTableLink(shortTableName, longTableName) {
 		displayName = longTableName;
 	}
 
-	var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
+	if (majorTables.indexOf((tablePrefix + shortTableName)) == -1 && shortTableName != "FF") {
 
-	tableLink.click(function() {
-		showTable(this.id);
-	});
+		var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
-	$("#emoteAPITabContainer").append(tableLink);
+		tableLink.click(function() {
+			showTableCycle(this.id);
+			showPageTab(this.id);
+		});
+
+		$("#emoteAPITabContainer").append(tableLink);
+
+		majorTables.push((tablePrefix + shortTableName));
+
+	}
+
+	if (shortTableName === "FF") {
+
+		var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + "FF") + "'>" + displayName + "</span>");
+
+		tableLink.click(function() {
+			showTable(this.id);
+			showPageTab("FF");
+		});
+
+		$("#emoteAPITabContainer").append(tableLink);
+
+	} else {
+
+		var tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' style='display: none;' id='" + (tablePrefix + shortTableName + tablePage) + "'> </span>");
+
+		tableLink.click(function() {
+			showTable(this.id);
+		});
+
+		$("#emotePageTabContainer").append(tableLink);
+
+	}
+
+}
+
+function showPageTab(tabID) {
+
+	if (tabID === "FF") {
+		$('#emotePageTabContainer').children().each(function () {
+			var currentDiv = $(this);
+			currentDiv.css('display', 'none');
+		});
+	} else {
+		$('#emotePageTabContainer').children().each(function () {
+			var currentDiv = $(this);
+			if (currentDiv.attr("class") == "emotePageTabButton " + tabID + "pagetab") {
+				currentDiv.css('display', 'inline-block');
+			} else {
+				currentDiv.css('display', 'none');
+			}
+		});
+	}
+
+	setTimeout(function() {
+		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+	}, 2);
 
 }
 
@@ -227,9 +330,20 @@ function showTable(tableID) {
 		var currentDiv = $(this);
 		if (currentDiv.attr("id") == tableID + "_Area") {
 			currentDiv.css('display', 'block');
-		} else if (currentDiv.attr("id") != "emoteAPITabContainer") {
+		} else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
 			currentDiv.css('display', 'none');
 		}
+	});
+
+	$('#emotePageTabContainer').children().each(function () {
+
+		var currentDiv = $(this);
+		currentDiv.css('background-color', "#00a9f0");
+
+		if (currentDiv.attr("id") == tableID) {
+			currentDiv.css('background-color', "#003fe0");
+		}
+
 	});
 
 	setTimeout(function() {
@@ -239,7 +353,59 @@ function showTable(tableID) {
 	
 }
 
-function addEmote(url, emoteName, shortTableName, longTableName) {
+function showTableCycle(tableID) {
+
+	var currPage = 0;
+	var totalPages = 0;
+
+	$('.emoticons_panel').children().each(function () {
+		var currentDiv = $(this);
+		if (currentDiv.attr("id") == tableID + (totalPages + 1) + "_Area") {
+			totalPages++;
+			if (currentDiv.css("display") === "block") {
+				currPage = totalPages;
+			}
+		}
+	});
+
+	var nextPage = currPage + 1;
+
+	if (nextPage > totalPages) {
+		nextPage = 1;
+	}
+
+	logInfo("Showing table: " + tableID + nextPage + "_Area");
+
+	$('.emoticons_panel').children().each(function () {
+
+		var currentDiv = $(this);
+		if (currentDiv.attr("id") == tableID + nextPage + "_Area") {
+			currentDiv.css('display', 'block');
+		} else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
+			currentDiv.css('display', 'none');
+		}
+
+	});
+
+	$('#emotePageTabContainer').children().each(function () {
+
+		var currentDiv = $(this);
+		currentDiv.css('background-color', "#00a9f0");
+
+		if (currentDiv.attr("id") == tableID + nextPage) {
+			currentDiv.css('background-color', "#003fe0");
+		}
+
+	});
+
+	setTimeout(function() {
+		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+	}, 2);
+	
+}
+
+function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 	if (!initialized) {
 
@@ -274,13 +440,13 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 
 	var tableFound = false;
 
-	if (currentTables.indexOf(tablePrefix + shortTableName + "_Area") == -1) {
+	if (currentTables.indexOf(tablePrefix + shortTableName + tablePage + "_Area") == -1) {
 		
-		var tableID = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
+		var tableID = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
 
 		if($(tableID).length > 0) {
 			tableFound = true;
-			currentTables.push(tablePrefix + shortTableName + "_Area");
+			currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
 		}
 
 	} else {
@@ -288,15 +454,15 @@ function addEmote(url, emoteName, shortTableName, longTableName) {
 	}
 
 	if (tableFound) {
-		createNewEmote(url, emoteName, shortTableName);
+		createNewEmote(url, emoteName, shortTableName, tablePage);
 	} else {
-		createNewTable(shortTableName, longTableName);
-		createNewEmote(url, emoteName, shortTableName);
+		createNewTable(shortTableName, longTableName, tablePage);
+		createNewEmote(url, emoteName, shortTableName, tablePage);
 	}
 	
 }
 
-function createNewEmote(url, emoteName, shortTableName) {
+function createNewEmote(url, emoteName, shortTableName, tablePage) {
 
 	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
@@ -309,23 +475,23 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
 
-	var selector = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
+	var selector = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
 
 	$(selector).append(image);
 
 }
 
-function createNewTable(shortTableName, longTableName) {
+function createNewTable(shortTableName, longTableName, tablePage) {
 
 	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
 
-	currentTables.push(tablePrefix + shortTableName + "_Area");
+	currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
 
 	var emoteTable = $("<div class='emoteTable'></div>");
 	$("div.emoticons_panel").append(emoteTable);
-	emoteTable.attr("id", tablePrefix + shortTableName + "_Area");
+	emoteTable.attr("id", tablePrefix + shortTableName + tablePage + "_Area");
 
-	createTableLink(shortTableName, longTableName);
+	createTableLink(shortTableName, longTableName, tablePage);
 
 }
 
@@ -349,7 +515,7 @@ function getSitePage() {
 }
 
 function addEmoteToCommentBox(url) {
-	replaceSelectedText(document.getElementById("comment_comment"), "[img]" + url + "[/img]");
+	replaceSelectedText(document.getElementById("comment_comment"), "[img]" + url + "[/img] ");
 }
 
 function replaceSelectedText(el, text) {

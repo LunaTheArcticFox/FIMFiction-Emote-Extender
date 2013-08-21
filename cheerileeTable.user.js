@@ -6,7 +6,7 @@
 // @include http*://fimfiction.net/*
 // @grant none
 // @require https://raw.github.com/KrazyTheFox/Fimfiction-Emote-API/master/emoteAPI.js
-// @version 2.0b2
+// @version 2.0
 // ==/UserScript==
 
 $(document).ready(run());
@@ -25,7 +25,6 @@ function run() {
     addEmote("http://i.imgur.com/PsTsg73.png", "Emote", "CHR", "Cheerilee", 1);
     addEmote("http://i.imgur.com/7OlsrI3.png", "Emote", "CHR", "Cheerilee", 1);
     addEmote("http://i.imgur.com/PC1vZ9r.png", "Emote", "CHR", "Cheerilee", 1);
-
     addEmote("http://i.imgur.com/r0hl8Qx.png", "Emote", "CHR", "Cheerilee", 1);
     addEmote("http://i.imgur.com/um4v4cj.png", "Emote", "CHR", "Cheerilee", 1);
     addEmote("http://i.imgur.com/4tvC5bF.png", "Emote", "CHR", "Cheerilee", 1);

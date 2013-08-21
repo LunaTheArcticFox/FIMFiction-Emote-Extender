@@ -239,7 +239,7 @@ function initialize() {
 	
 }
 
-function createTableLink(shortTableName, longTableName) {
+function createTableLink(shortTableName, longTableName, tablePage) {
 
 	var displayName = shortTableName;
 
@@ -250,11 +250,30 @@ function createTableLink(shortTableName, longTableName) {
 	var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
 	tableLink.click(function() {
+		showPageTab(this.id);
+	});
+
+	$("#emotePageTabContainer").append(tableLink);
+
+	tableLink = $("<span class='emotePageTabButton " + tablePrefix + shortTableName + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'>" + ... + "</span>");
+
+	tableLink.click(function() {
 		showTable(this.id);
 	});
 
 	$("#emoteAPITabContainer").append(tableLink);
 
+}
+
+function showPageTab(tabID) {
+	$('.emoticons_panel').children().each(function () {
+		var currentDiv = $(this);
+		if (currentDiv.attr("class") == tabID + "pagetab") {
+			currentDiv.css('display', 'block');
+		} else {
+			currentDiv.css('display', 'none');
+		}
+	}
 }
 
 function showTable(tableID) {
@@ -306,13 +325,13 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 	var tableFound = false;
 
-	if (currentTables.indexOf(tablePrefix + shortTableName + "_Area") == -1) {
+	if (currentTables.indexOf(tablePrefix + shortTableName + tablePage + "_Area") == -1) {
 		
-		var tableID = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
+		var tableID = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
 
 		if($(tableID).length > 0) {
 			tableFound = true;
-			currentTables.push(tablePrefix + shortTableName + "_Area");
+			currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
 		}
 
 	} else {
@@ -320,15 +339,15 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 	}
 
 	if (tableFound) {
-		createNewEmote(url, emoteName, shortTableName);
+		createNewEmote(url, emoteName, shortTableName, tablePage);
 	} else {
-		createNewTable(shortTableName, longTableName);
-		createNewEmote(url, emoteName, shortTableName);
+		createNewTable(shortTableName, longTableName, tablePage);
+		createNewEmote(url, emoteName, shortTableName, tablePage);
 	}
 	
 }
 
-function createNewEmote(url, emoteName, shortTableName) {
+function createNewEmote(url, emoteName, shortTableName, tablePage) {
 
 	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
@@ -341,23 +360,23 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
 
-	var selector = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
+	var selector = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
 
 	$(selector).append(image);
 
 }
 
-function createNewTable(shortTableName, longTableName) {
+function createNewTable(shortTableName, longTableName, tablePage) {
 
 	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
 
-	currentTables.push(tablePrefix + shortTableName + "_Area");
+	currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
 
 	var emoteTable = $("<div class='emoteTable'></div>");
 	$("div.emoticons_panel").append(emoteTable);
-	emoteTable.attr("id", tablePrefix + shortTableName + "_Area");
+	emoteTable.attr("id", tablePrefix + shortTableName + tablePage + "_Area");
 
-	createTableLink(shortTableName, longTableName);
+	createTableLink(shortTableName, longTableName, tablePage);
 
 }
 

@@ -270,6 +270,7 @@ function initialize() {
 	$('.add_comment form div.light_toolbar').append(settingsList);
 
 	showTable(tablePrefix + "FF");
+	showPageTab("FF");
 
 	logInfo("Initialized successfully.");
 	
@@ -283,7 +284,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 		displayName = longTableName;
 	}
 
-	if (majorTables.indexOf((tablePrefix + shortTableName)) == -1) {
+	if (majorTables.indexOf((tablePrefix + shortTableName)) == -1 && shortTableName != "FF") {
 
 		var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
@@ -297,7 +298,19 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 
 	}
 
-	tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'> . </span>");
+	if (shortTableName === "FF") {
+
+		var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + "FF") + "'>" + displayName + "</span>");
+
+		tableLink.click(function() {
+			showTable(this.id);
+		});
+
+		$("#emoteAPITabContainer").append(tableLink);
+
+	}
+
+	var tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'> . </span>");
 
 	tableLink.click(function() {
 		showTable(this.id);
@@ -308,14 +321,21 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 }
 
 function showPageTab(tabID) {
-	$('#emotePageTabContainer').children().each(function () {
-		var currentDiv = $(this);
-		if (currentDiv.attr("class") == "emotePageTabButton " + tabID + "pagetab") {
-			currentDiv.css('display', 'block');
-		} else {
+	if (tabID === "FF") {
+		$('#emotePageTabContainer').children().each(function () {
+			var currentDiv = $(this);
 			currentDiv.css('display', 'none');
-		}
-	});
+		});
+	} else {
+		$('#emotePageTabContainer').children().each(function () {
+			var currentDiv = $(this);
+			if (currentDiv.attr("class") == "emotePageTabButton " + tabID + "pagetab") {
+				currentDiv.css('display', 'block');
+			} else {
+				currentDiv.css('display', 'none');
+			}
+		});
+	}
 }
 
 function showTable(tableID) {

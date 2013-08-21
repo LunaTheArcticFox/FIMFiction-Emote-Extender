@@ -26,4 +26,10 @@ function run() {
     addEmote("http://i.imgur.com/7OlsrI3.png", "Emote", "CHR", "Cheerilee", 1);
     addEmote("http://i.imgur.com/PC1vZ9r.png", "Emote", "CHR", "Cheerilee", 1);
 
+    addEmote("http://i.imgur.com/r0hl8Qx.png", "Emote", "CHR", "Cheerilee", 1);
+    addEmote("http://i.imgur.com/um4v4cj.png", "Emote", "CHR", "Cheerilee", 1);
+    addEmote("http://i.imgur.com/4tvC5bF.png", "Emote", "CHR", "Cheerilee", 1);
+    addEmote("http://i.imgur.com/2VCyIBF.png", "Emote", "CHR", "Cheerilee", 1);
+    addEmote("http://i.imgur.com/Ot8C5aY.png", "Emote", "CHR", "Cheerilee", 1);
+
 }

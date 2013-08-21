@@ -268,7 +268,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 function showPageTab(tabID) {
 	$('.emoticons_panel').children().each(function () {
 		var currentDiv = $(this);
-		if (currentDiv.attr("class") == tabID + "pagetab") {
+		if (currentDiv.attr("class") == "emotePageTabButton " + tabID + "pagetab") {
 			currentDiv.css('display', 'block');
 		} else {
 			currentDiv.css('display', 'none');

@@ -309,15 +309,17 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 
 		$("#emoteAPITabContainer").append(tableLink);
 
+	} else {
+
+		var tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'> . </span>");
+
+		tableLink.click(function() {
+			showTable(this.id);
+		});
+
+		$("#emotePageTabContainer").append(tableLink);
+
 	}
-
-	var tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'> . </span>");
-
-	tableLink.click(function() {
-		showTable(this.id);
-	});
-
-	$("#emotePageTabContainer").append(tableLink);
 
 }
 

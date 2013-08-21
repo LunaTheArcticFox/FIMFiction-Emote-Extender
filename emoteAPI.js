@@ -270,7 +270,7 @@ function showPageTab(tabID) {
 		var currentDiv = $(this);
 		if (currentDiv.attr("class") == "emotePageTabButton " + tabID + "pagetab") {
 			currentDiv.css('display', 'block');
-		} else {
+		} else if (currentDiv.parent().attr("class") == "emotePageTabContainer") {
 			currentDiv.css('display', 'none');
 		}
 	});

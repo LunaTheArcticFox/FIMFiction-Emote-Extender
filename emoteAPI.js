@@ -209,6 +209,15 @@ function initialize() {
 			"clear: both;",
 			"width: 279px;",
 		"}",
+
+		"#emotePageTabContainer {",
+			"margin-top: 0px;",
+			"margin-left: 12px;",
+			"margin-bottom: 15px;",
+			"float: left;",
+			"clear: both;",
+			"width: 279px;",
+		"}",
 		
 		".emoteTable {",
 			"display: none;",

@@ -208,7 +208,11 @@ function initialize() {
 
 	logInfo("Added default table.");
 	
-	var tempContainer = $("<div id='emoteAPITabContainer'></div>");
+	var tempContainer = $("<div id='emotePageTabContainer'></div>");
+
+	$('.emoticons_panel').prepend(tempContainer);
+
+	tempContainer = $("<div id='emoteAPITabContainer'></div>");
 
 	$('.emoticons_panel').prepend(tempContainer);
 	
@@ -261,7 +265,7 @@ function showTable(tableID) {
 		var currentDiv = $(this);
 		if (currentDiv.attr("id") == tableID + "_Area") {
 			currentDiv.css('display', 'block');
-		} else if (currentDiv.attr("id") != "emoteAPITabContainer") {
+		} else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
 			currentDiv.css('display', 'none');
 		}
 	});

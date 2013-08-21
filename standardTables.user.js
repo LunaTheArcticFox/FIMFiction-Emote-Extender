@@ -313,11 +313,9 @@ function run() {
 	addEmote("http://i.imgur.com/vBxYG.png", "Emote", "MISC", "Other", 1);
 	addEmote("http://i.imgur.com/pV4j88A.png", "Emote", "MISC", "Other", 1);
 	addEmote("http://i.imgur.com/VK1CV.png", "Emote", "MISC", "Other", 1);
-	addEmote("http://i.imgur.com/563Gv.png", "Emote", "MISC", "Other", 1);
-	addEmote("http://i.imgur.com/2DFdg.png", "Emote", "MISC", "Other", 1);
-	addEmote("http://i.imgur.com/sHp29.png", "Emote", "MISC", "Other", 1);
-	addEmote("http://i.imgur.com/rv8JX.png", "Emote", "MISC", "Other", 1);
-
+	
+	addEmote("http://i.imgur.com/sHp29.png", "Emote", "MISC", "Other", 2);
+	addEmote("http://i.imgur.com/rv8JX.png", "Emote", "MISC", "Other", 2);	
 	addEmote("http://i.imgur.com/zI6pj.png", "Emote", "MISC", "Other", 2);
 	addEmote("http://i.imgur.com/BDNMW.png", "Emote", "MISC", "Other", 2);
 	addEmote("http://i.imgur.com/ZQwXp.png", "Emote", "MISC", "Other", 2);

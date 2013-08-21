@@ -13,30 +13,30 @@ $(document).ready(run());
 
 function run() {
 	
-	addEmote("http://i.imgur.com/NBEDt.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/5Tp73.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/oa0BJ.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/oaEI1BM.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/bEP8EQ2.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/mMp7L.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/HZlOi.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/7PYFy.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/DHDbq.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/8zRAx.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/aBIJ1.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/DmoWN.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/MdJgU.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/dVnqE.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/TAf9J.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/gNxjD.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/JmYib.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/aPZth.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/4sZY1.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/1NN8f.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/xmRQV.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/lGb8P.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/0zTKq.png", "Emote", "AJ", "Applejack", 1)
-	addEmote("http://i.imgur.com/BeQHk.png", "Emote", "AJ", "Applejack", 1)
+	addEmote("http://i.imgur.com/NBEDt.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/5Tp73.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/oa0BJ.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/oaEI1BM.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/bEP8EQ2.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/mMp7L.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/HZlOi.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/7PYFy.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/DHDbq.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/8zRAx.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/aBIJ1.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/DmoWN.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/MdJgU.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/dVnqE.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/TAf9J.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/gNxjD.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/JmYib.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/aPZth.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/4sZY1.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/1NN8f.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/xmRQV.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/lGb8P.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/0zTKq.png", "Emote", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/BeQHk.png", "Emote", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/fl6ox.png", "Emote", "AJ", "Applejack", 2);
 	addEmote("http://i.imgur.com/mbZjl.png", "Emote", "AJ", "Applejack", 2);
 	addEmote("http://i.imgur.com/r19vB.png", "Emote", "AJ", "Applejack", 2);
@@ -64,26 +64,26 @@ function run() {
 	addEmote("http://i.imgur.com/MIrVmT7.png", "Emote", "AJ", "Applejack", 2);
 	addEmote("http://i.imgur.com/yyfj6BZ.png", "Emote", "AJ", "Applejack", 2);
 
-	addEmote("http://i.imgur.com/hCkff.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/FlxUX.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/Mpt2V.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/PKx4m.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/J1YdP.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/iX6uT.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/AUoqx.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/gphLa.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/eAjva.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/H718D.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/ahOjP.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/5wxoPUa.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/sb2Qbof.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/24nRCr5.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/AFuKMoD.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/mkCLMHb.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/IOcuWkK.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/YUeUKME.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/z4PAdhi.png", "Emote", "FS", "Fluttershy", 1)
-	addEmote("http://i.imgur.com/wwVpoHt.png", "Emote", "FS", "Fluttershy", 1)
+	addEmote("http://i.imgur.com/hCkff.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/FlxUX.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/Mpt2V.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/PKx4m.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/J1YdP.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/iX6uT.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/AUoqx.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/gphLa.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/eAjva.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/H718D.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/ahOjP.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/5wxoPUa.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/sb2Qbof.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/24nRCr5.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/AFuKMoD.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/mkCLMHb.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/IOcuWkK.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/YUeUKME.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/z4PAdhi.png", "Emote", "FS", "Fluttershy", 1);
+	addEmote("http://i.imgur.com/wwVpoHt.png", "Emote", "FS", "Fluttershy", 1);
 	addEmote("http://i.imgur.com/cSViT7t.png", "Emote", "FS", "Fluttershy", 2);
 	addEmote("http://i.imgur.com/3UFhl3F.png", "Emote", "FS", "Fluttershy", 2);
 	addEmote("http://i.imgur.com/968NYEH.png", "Emote", "FS", "Fluttershy", 2);
@@ -104,56 +104,56 @@ function run() {
 	addEmote("http://i.imgur.com/Tsg6sSk.png", "Emote", "FS", "Fluttershy", 2);
 	addEmote("http://i.imgur.com/3Bw1vJc.png", "Emote", "FS", "Fluttershy", 2);
 
-	addEmote("http://i.imgur.com/N6frZ.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/EYLpq.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/ojb2X.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/30Blc.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/yGwJZ.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/aMNtT.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/qO3Da.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/UGWzB.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/477xD.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/RXtaw.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/uEidI.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/xeWgy.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/zbei6cO.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/zplekGi.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/jvzynek.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/LMtxcao.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/7ppPcYn.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/4doC5ED.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/MQBZ41g.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/pdLkfXA.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/NwyjTTE.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/Q7KFdL7.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/q4uECGh.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/4M5fMay.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/8BDWuaI.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/sBq1PM1.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/Ok4LXo8.png", "Emote", "PP", "Pinkie Pie", 1);
-	addEmote("http://i.imgur.com/NH9sCfd.png", "Emote", "PP", "Pinkie Pie", 1);
+	addEmote("http://i.imgur.com/N6frZ.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/EYLpq.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/ojb2X.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/30Blc.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/yGwJZ.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/aMNtT.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/qO3Da.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/UGWzB.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/477xD.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/RXtaw.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/uEidI.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/xeWgy.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/zbei6cO.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/zplekGi.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/jvzynek.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/LMtxcao.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/7ppPcYn.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/4doC5ED.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/MQBZ41g.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/pdLkfXA.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/NwyjTTE.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/Q7KFdL7.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/q4uECGh.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/4M5fMay.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/8BDWuaI.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/sBq1PM1.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/Ok4LXo8.png", "Emote", "PP", "Pinkie Pie", 1);;
+	addEmote("http://i.imgur.com/NH9sCfd.png", "Emote", "PP", "Pinkie Pie", 1);;
 
-	addEmote("http://i.imgur.com/CGBhB.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/Ma3vZ.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/zbSFhpV.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/dObdk0h.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/i3eNB.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/TAnnF.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/DHfUL.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/9YyaH.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/DobP4.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/DiqwR.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/SUAwQ.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/JT3f7.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/u3SP8.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/ZkYG2.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/2tu9n.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/KluyWmn.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/cUszKbb.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/9yFw70j.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/hyH6usq.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/CpZgXTk.png", "Emote", "R", "Rarity", 1)
-	addEmote("http://i.imgur.com/hT1CSak.png", "Emote", "R", "Rarity", 1)
+	addEmote("http://i.imgur.com/CGBhB.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/Ma3vZ.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/zbSFhpV.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/dObdk0h.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/i3eNB.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/TAnnF.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/DHfUL.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/9YyaH.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/DobP4.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/DiqwR.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/SUAwQ.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/JT3f7.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/u3SP8.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/ZkYG2.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/2tu9n.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/KluyWmn.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/cUszKbb.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/9yFw70j.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/hyH6usq.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/CpZgXTk.png", "Emote", "R", "Rarity", 1);
+	addEmote("http://i.imgur.com/hT1CSak.png", "Emote", "R", "Rarity", 1);
 	addEmote("http://i.imgur.com/HDAG3B9.png", "Emote", "R", "Rarity", 2);
 	addEmote("http://i.imgur.com/tHHlMgs.png", "Emote", "R", "Rarity", 2);
 	addEmote("http://i.imgur.com/GLRdqlz.png", "Emote", "R", "Rarity", 2);
@@ -176,29 +176,29 @@ function run() {
 	addEmote("http://i.imgur.com/8FLpgzg.png", "Emote", "R", "Rarity", 2);
 	addEmote("http://i.imgur.com/zDp89aN.png", "Emote", "R", "Rarity", 2);
 
-	addEmote("http://i.imgur.com/tCets.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/dB5nN.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/Kv8nA.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/OzWNB.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/jjgRs.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/oZUgV.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/XtUF0.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/o42xN.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/9HNfn.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/NRtTF.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/CqXDDh6.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/QoZIz.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/Y7iEz.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/DN4kI.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/1mJFi.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/fQFdk.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/5JXsL.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/drWSW.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/r1Eed.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/mI2kf.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/JJakx.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/2mIou.png", "Emote", "RD", "Rainbow Dash", 1)
-	addEmote("http://i.imgur.com/l49YA.png", "Emote", "RD", "Rainbow Dash", 1)
+	addEmote("http://i.imgur.com/tCets.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/dB5nN.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/Kv8nA.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/OzWNB.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/jjgRs.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/oZUgV.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/XtUF0.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/o42xN.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/9HNfn.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/NRtTF.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/CqXDDh6.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/QoZIz.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/Y7iEz.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/DN4kI.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/1mJFi.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/fQFdk.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/5JXsL.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/drWSW.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/r1Eed.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/mI2kf.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/JJakx.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/2mIou.png", "Emote", "RD", "Rainbow Dash", 1);
+	addEmote("http://i.imgur.com/l49YA.png", "Emote", "RD", "Rainbow Dash", 1);
 	addEmote("http://i.imgur.com/Bo3i2.png", "Emote", "RD", "Rainbow Dash", 2);
 	addEmote("http://i.imgur.com/F4J97.png", "Emote", "RD", "Rainbow Dash", 2);
 	addEmote("http://i.imgur.com/99WZ6.png", "Emote", "RD", "Rainbow Dash", 2);
@@ -223,27 +223,27 @@ function run() {
 	addEmote("http://i.imgur.com/DuTtzKD.png", "Emote", "RD", "Rainbow Dash", 2);
 	addEmote("http://i.imgur.com/btqHYra.png", "Emote", "RD", "Rainbow Dash", 2);
 
-	addEmote("http://i.imgur.com/AhJQA.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/teICa.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/qDNQJ.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/ULdav.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/NZ9LG.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/lyj7g.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/UQUPg.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/uCBdE.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/h6FPh.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/Zvhzz.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/5faXAtj.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/IbDeO.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/5OGeQ.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/hs7Hh.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/Srz3i.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/HlSYp.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/2652g.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/NmMWv.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/Ccokh.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/hgIE1.png", "Emote", "TS", "Twilight Sparkle", 1);
-	addEmote("http://i.imgur.com/hRqZN.png", "Emote", "TS", "Twilight Sparkle", 1);
+	addEmote("http://i.imgur.com/AhJQA.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/teICa.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/qDNQJ.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/ULdav.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/NZ9LG.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/lyj7g.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/UQUPg.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/uCBdE.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/h6FPh.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/Zvhzz.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/5faXAtj.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/IbDeO.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/5OGeQ.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/hs7Hh.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/Srz3i.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/HlSYp.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/2652g.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/NmMWv.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/Ccokh.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/hgIE1.png", "Emote", "TS", "Twilight Sparkle", 1);;
+	addEmote("http://i.imgur.com/hRqZN.png", "Emote", "TS", "Twilight Sparkle", 1);;
 	addEmote("http://i.imgur.com/2hXpy.png", "Emote", "TS", "Twilight Sparkle", 2);
 	addEmote("http://i.imgur.com/ZsI8b.png", "Emote", "TS", "Twilight Sparkle", 2);
 	addEmote("http://i.imgur.com/fGB3u.png", "Emote", "TS", "Twilight Sparkle", 2);
@@ -266,54 +266,54 @@ function run() {
 	addEmote("http://i.imgur.com/OL1DowU.png", "Emote", "TS", "Twilight Sparkle", 2);
 	addEmote("http://i.imgur.com/lSIizWD.png", "Emote", "TS", "Twilight Sparkle", 2);
 
-	addEmote("http://i.imgur.com/DKLH4.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/6skeR.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/yEdBp.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/EKbat.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/Ku52Y.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/JZ7Qjcd.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/uVj8R.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/20x2X.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/BxLgU.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/gl6yp.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/IMGC8.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/fiITL.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/tDOuj3P.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/O7YJl8D.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/5HOAGsD.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/sYAzM.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/VViKq.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/DGsL3.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/dWaeV.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/inSsXQt.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/Gh1mXeB.png", "Emote", "CMC", "The Crusaders", 1);
-	addEmote("http://i.imgur.com/njZ7Ocd.png", "Emote", "CMC", "The Crusaders", 1);
+	addEmote("http://i.imgur.com/DKLH4.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/6skeR.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/yEdBp.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/EKbat.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/Ku52Y.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/JZ7Qjcd.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/uVj8R.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/20x2X.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/BxLgU.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/gl6yp.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/IMGC8.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/fiITL.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/tDOuj3P.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/O7YJl8D.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/5HOAGsD.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/sYAzM.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/VViKq.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/DGsL3.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/dWaeV.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/inSsXQt.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/Gh1mXeB.png", "Emote", "CMC", "The Crusaders", 1);;
+	addEmote("http://i.imgur.com/njZ7Ocd.png", "Emote", "CMC", "The Crusaders", 1);;
 
-	addEmote("http://i.imgur.com/TkVcM.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/ZebG2.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/Wtyb9.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/j4frQ.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/fIvet.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/tkMRq.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/u9iJV.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/fH5FO.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/0lMv9.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/nh9dv.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/Av7mi.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/xJ9hG.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/TVh3T.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/QwaS1.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/YI5jr.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/lebxZ.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/QcNTf.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/qACFB.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/BbPhC.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/GmNPM.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/vBxYG.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/pV4j88A.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/VK1CV.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/563Gv.png", "Emote", "OTR", "Other", 1)
-	addEmote("http://i.imgur.com/2DFdg.png", "Emote", "OTR", "Other", 1)
+	addEmote("http://i.imgur.com/TkVcM.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/ZebG2.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/Wtyb9.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/j4frQ.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/fIvet.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/tkMRq.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/u9iJV.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/fH5FO.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/0lMv9.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/nh9dv.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/Av7mi.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/xJ9hG.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/TVh3T.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/QwaS1.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/YI5jr.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/lebxZ.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/QcNTf.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/qACFB.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/BbPhC.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/GmNPM.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/vBxYG.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/pV4j88A.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/VK1CV.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/563Gv.png", "Emote", "OTR", "Other", 1);
+	addEmote("http://i.imgur.com/2DFdg.png", "Emote", "OTR", "Other", 1);
 
 	addEmote("http://i.imgur.com/sHp29.png", "Emote", "OTR", "Other", 2);
 	addEmote("http://i.imgur.com/rv8JX.png", "Emote", "OTR", "Other", 2);

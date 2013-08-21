@@ -269,7 +269,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 		displayName = longTableName;
 	}
 
-	var tablePageLink = $("<span class='emotePageButton' id='" + (tablePrefix + shortTableName + tablePage) + "'></span>");
+	var tablePageLink = $("<span class='emotePageButton' id='" + (tablePrefix + shortTableName + tablePage) + "'> * * * </span>");
 
 	tablePageLink.click(function() {
 		showTable(this.id);
@@ -358,7 +358,7 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 	
 }
 
-function createNewEmote(url, emoteName, shortTableName) {
+function createNewEmote(url, emoteName, shortTableName, tablePage) {
 
 	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
@@ -371,7 +371,7 @@ function createNewEmote(url, emoteName, shortTableName) {
 	image.attr("title", emoteName);
 	image.click(function() { addEmoteToCommentBox(this.id); });
 
-	var selector = "div[id=\"" + tablePrefix + shortTableName + "_Area\"]";
+	var selector = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
 
 	$(selector).append(image);
 

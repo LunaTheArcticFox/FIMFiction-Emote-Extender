@@ -273,7 +273,7 @@ function showPageTab(tabID) {
 		} else {
 			currentDiv.css('display', 'none');
 		}
-	}
+	});
 }
 
 function showTable(tableID) {

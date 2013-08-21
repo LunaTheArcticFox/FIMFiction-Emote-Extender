@@ -369,14 +369,7 @@ function showTable(tableID) {
 			currentDiv.css('display', 'none');
 		}
 
-		if (currentDiv.attr("class") == "emotePageTabButton") {
-			currentDiv.css('opacity', '0.5');
-		}
-
 	});
-
-	var tabID = "#" + tableID;
-	$(tabID).css('opacity', '1.0');
 
 	setTimeout(function() {
 		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
@@ -417,14 +410,18 @@ function showTableCycle(tableID) {
 			currentDiv.css('display', 'none');
 		}
 
-		if (currentDiv.attr("class") == "emotePageTabButton") {
-			currentDiv.css('opacity', '0.5');
+	});
+
+	$('#emotePageTabContainer').children().each(function () {
+
+		var currentDiv = $(this);
+		currentDiv.css('background-color', "#00a9f0");
+
+		if (currentDiv.attr("id") == tableID + nextPage) {
+			currentDiv.css('background-color', "#000000");
 		}
 
 	});
-
-	var tabID = "#" + tableID + nextPage;
-	$(tabID).css('opacity', '1.0');
 
 	setTimeout(function() {
 		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});

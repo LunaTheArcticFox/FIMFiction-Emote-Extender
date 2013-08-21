@@ -266,11 +266,11 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 }
 
 function showPageTab(tabID) {
-	$('.emoticons_panel').children().each(function () {
+	$('#emotePageTabContainer').children().each(function () {
 		var currentDiv = $(this);
 		if (currentDiv.attr("class") == "emotePageTabButton " + tabID + "pagetab") {
 			currentDiv.css('display', 'block');
-		} else if (currentDiv.parent().attr("class") == "emotePageTabContainer") {
+		} else {
 			currentDiv.css('display', 'none');
 		}
 	});

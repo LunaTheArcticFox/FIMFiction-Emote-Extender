@@ -175,7 +175,7 @@ function initialize() {
 			"border-right: 1px solid #e8e5db !important;",
 		"}",
 
-		"#emoteAPITabContainer {",
+		"#emoteAPITabContainer, #emotePageTabContainer {",
 			"margin-top: 0px;",
 			"margin-left: 12px;",
 			"margin-bottom: 15px;",

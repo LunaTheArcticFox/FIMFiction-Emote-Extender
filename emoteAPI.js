@@ -371,6 +371,17 @@ function showTable(tableID) {
 
 	});
 
+	$('#emotePageTabContainer').children().each(function () {
+
+		var currentDiv = $(this);
+		currentDiv.css('background-color', "#00a9f0");
+
+		if (currentDiv.attr("id") == tableID) {
+			currentDiv.css('background-color', "#003fe0");
+		}
+
+	});
+
 	setTimeout(function() {
 		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
 		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
@@ -418,7 +429,7 @@ function showTableCycle(tableID) {
 		currentDiv.css('background-color', "#00a9f0");
 
 		if (currentDiv.attr("id") == tableID + nextPage) {
-			currentDiv.css('background-color', "#000000");
+			currentDiv.css('background-color', "#003fe0");
 		}
 
 	});

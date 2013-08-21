@@ -269,8 +269,8 @@ function initialize() {
 
 	$('.add_comment form div.light_toolbar').append(settingsList);
 
-	showTable(tablePrefix + "FF");
 	showPageTab("FF");
+	showTable(tablePrefix + "FF");
 
 	logInfo("Initialized successfully.");
 	
@@ -311,7 +311,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 
 	} else {
 
-		var tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' id='" + (tablePrefix + shortTableName + tablePage) + "'> . </span>");
+		var tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' style='display: none;' id='" + (tablePrefix + shortTableName + tablePage) + "'> . </span>");
 
 		tableLink.click(function() {
 			showTable(this.id);

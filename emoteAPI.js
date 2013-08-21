@@ -270,7 +270,6 @@ function initialize() {
 	$('.add_comment form div.light_toolbar').append(settingsList);
 
 	showTable(tablePrefix + "FF");
-	showPageTab("FF");
 
 	logInfo("Initialized successfully.");
 	

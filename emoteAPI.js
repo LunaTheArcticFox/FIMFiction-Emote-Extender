@@ -158,10 +158,9 @@ function initialize() {
 		".emotePageTabButton {",
 			"width: 15px;",
 			"height: 23px;",
-			"float: left;",
+			"display: inline-block;",
 			"text-align: center;",
 			"padding: 5px 8px 0px 8px;",
-			"margin: 0 10px;",
 			"font: 13px normal \"Segoe UI\" !important;",
 			"-webkit-touch-callout: none;",
 			"-webkit-user-select: none;",
@@ -212,7 +211,6 @@ function initialize() {
 		"}",
 		
 		"#emotePageTabContainer {",
-			"margin: 0 auto;",
 			"margin-bottom: 15px;",
 			"float: left;",
 			"clear: both;",
@@ -333,7 +331,7 @@ function showPageTab(tabID) {
 		$('#emotePageTabContainer').children().each(function () {
 			var currentDiv = $(this);
 			if (currentDiv.attr("class") == "emotePageTabButton " + tabID + "pagetab") {
-				currentDiv.css('display', 'block');
+				currentDiv.css('display', 'inline-block');
 			} else {
 				currentDiv.css('display', 'none');
 			}

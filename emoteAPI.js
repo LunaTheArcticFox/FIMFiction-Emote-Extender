@@ -323,6 +323,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 }
 
 function showPageTab(tabID) {
+
 	if (tabID === "FF") {
 		$('#emotePageTabContainer').children().each(function () {
 			var currentDiv = $(this);
@@ -338,6 +339,12 @@ function showPageTab(tabID) {
 			}
 		});
 	}
+
+	setTimeout(function() {
+		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+	}, 2);
+	
 }
 
 function showTable(tableID) {

@@ -157,8 +157,8 @@ function initialize() {
 		
 		".emotePageTabButton {",
 			"opacity: 0.5;",
-			"width: 10px;",
-			"height: 10px;",
+			"width: 15px;",
+			"height: 15px;",
 			"display: inline-block;",
 			"text-align: center;",
 			"padding: 0px;",
@@ -176,7 +176,7 @@ function initialize() {
 			"-o-transition: opacity .2s ease-in;",
 			"-webkit-border-radius: 10px;",
 			"-moz-border-radius: 10px;",
-			"border-radius: 10px;",
+			"border-radius: 15px;",
 			"background-color: #00a9f0;",
 			"color: #ffffff",
 		"}",
@@ -221,7 +221,7 @@ function initialize() {
 		"}",
 		
 		"#emotePageTabContainer {",
-			"margin-bottom: 15px;",
+			"margin-bottom: 10px;",
 			"float: left;",
 			"clear: both;",
 			"width: 279px;",
@@ -296,6 +296,7 @@ function createTableLink(shortTableName, longTableName, tablePage) {
 		var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
 		tableLink.click(function() {
+			showTableCycle(this.id);
 			showPageTab(this.id);
 		});
 
@@ -362,6 +363,45 @@ function showTable(tableID) {
 	$('.emoticons_panel').children().each(function () {
 		var currentDiv = $(this);
 		if (currentDiv.attr("id") == tableID + "_Area") {
+			currentDiv.css('display', 'block');
+		} else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
+			currentDiv.css('display', 'none');
+		}
+	});
+
+	setTimeout(function() {
+		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+	}, 2);
+	
+}
+
+function showTableCycle(tableID) {
+
+	var currPage = 0;
+	var totalPages = 0;
+
+	$('.emoticons_panel').children().each(function () {
+		var currentDiv = $(this);
+		if (currentDiv.attr("id") == tableID + (totalPages + 1) + "_Area") {
+			totalPages++;
+			if (currentDiv.css("display") === "block") {
+				currPage = totalPages;
+			}
+		}
+	});
+
+	var nextPage = currPage + 1;
+
+	if (nextPage > totalPages) {
+		nextPage = 1;
+	}
+
+	logInfo("Showing table: " + tableID + nextPage + "_Area");
+
+	$('.emoticons_panel').children().each(function () {
+		var currentDiv = $(this);
+		if (currentDiv.attr("id") == tableID + nextPage + "_Area") {
 			currentDiv.css('display', 'block');
 		} else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
 			currentDiv.css('display', 'none');

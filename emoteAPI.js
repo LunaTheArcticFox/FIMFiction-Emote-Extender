@@ -54,21 +54,21 @@ function initialize() {
 
 	if(/\/manage_user\//.test(location.href)) {
 
+		var settingsTabSpan = $("<span>Emote Script</span>");
+		var settingsTabImg  = $("<img src='//www.fimfiction-static.net/images/icons/white/settings.png'></img>");
+		var settingsTabLink = $("<a href='/manage_user/emote_script_settings'></a>");
+		var settingsTabList = $("<li class='tab'></li>");
+
+		settingsTabLink.append(settingsTabImg);
+		settingsTabLink.append(settingsTabSpan);
+		settingsTabList.append(settingsTabLink);
+		
+		var settingsTabContainer = $("div.tabs");
+		settingsTabContainer.children(0).append(settingsTabList);
+
 		if (sitePage == pageScriptSettings) {
 
 			createSettingsPage();
-
-			var settingsTabSpan = $("<span>Emote Script</span>");
-			var settingsTabImg  = $("<img src='//www.fimfiction-static.net/images/icons/white/settings.png'></img>");
-			var settingsTabLink = $("<a href='/manage_user/emote_script_settings'></a>");
-			var settingsTabList = $("<li class='tab'></li>");
-
-			settingsTabLink.append(settingsTabImg);
-			settingsTabLink.append(settingsTabSpan);
-			settingsTabList.append(settingsTabLink);
-			
-			var settingsTabContainer = $("div.tabs");
-			settingsTabContainer.children(0).append(settingsTabList);
 
 			$("body").append("<div id='emoteScriptInitialized'></div>");
 			initialized = true;
@@ -78,10 +78,7 @@ function initialize() {
 
 	}
 
-	logInfo("!!!");
-
 	if (sitePage == pageBlogEdit) {
-		logInfo("!!!2");
 		$(".light_toolbar .no_margin").append("<div class='emoticons_panel'>Balrgh</div>");
 		$("#blog_post_content").parent().css("margin-right", "300px");
 	}

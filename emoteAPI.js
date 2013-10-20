@@ -144,7 +144,7 @@ function initialize() {
 			"text-align: center;",
 			"padding: 5px 8px 0px 8px;",
 			"margin: 5px 0px 0px 5px;",
-			"font: 13px normal \"Segoe UI\" !important;",
+			"font: 16px normal \"Arial\" !important;",
 			"-webkit-touch-callout: none;",
 			"-webkit-user-select: none;",
 			"-khtml-user-select: none;",

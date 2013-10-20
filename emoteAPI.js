@@ -82,6 +82,11 @@ function initialize() {
 	
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;
+
+	if (sitePage == pageBlogEdit) {
+		$("div .light_toolbar").after("<div class='emoticons_panel'></div>");
+		$("#blog_post_content").parent().css("margin-right", "300px");
+	}
 	
 	if (GM_getValue("verbose", false) == "true") {
 		logInfo("Verbose settings detected.");

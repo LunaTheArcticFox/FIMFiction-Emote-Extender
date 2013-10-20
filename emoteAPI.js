@@ -658,7 +658,7 @@ function createSettingsPage() {
 }
 
 function getDefaultTableHTML() {
-	return "<div class=\"emoticons_panel\">
+	return "<div class=\"emoticons_panel\">\
 				<div class=\"inner_padding\">\
 					<a href=\"javascript:smilie(':ajbemused:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajbemused.png\" style=\"margin:1px;\"></a>\
 					<a href=\"javascript:smilie(':ajsleepy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajsleepy.png\" style=\"margin:1px;\"></a>\

@@ -80,7 +80,7 @@ function initialize() {
 
 	if (sitePage == pageBlogEdit) {
 		$(".light_toolbar").removeClass("no_margin");
-		$(".light_toolbar").append(getDefaultTableHTML());
+		$(".light_toolbar").after(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");
 	}
 	

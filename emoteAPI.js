@@ -79,7 +79,7 @@ function initialize() {
 	}
 
 	if (sitePage == pageBlogEdit) {
-		$(".light_toolbar .no_margin").append(getDefaultTableHTML());
+		$(".light_toolbar").append(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");
 	}
 	

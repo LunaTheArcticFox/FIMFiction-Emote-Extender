@@ -443,10 +443,17 @@ function showTableCycle(tableID) {
 
 	});
 
-	setTimeout(function() {
-		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-	}, 2);
+	if (sitePage == pageBlogEdit) {
+		setTimeout(function() {
+			$("textarea#blog_post_content").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+			$("textarea#blog_post_content").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+		}, 2);
+	} else {
+		setTimeout(function() {
+			$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+			$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+		}, 2);
+	}
 	
 }
 
@@ -557,7 +564,12 @@ function getSitePage() {
 }
 
 function addEmoteToCommentBox(url) {
-	replaceSelectedText(document.getElementById("comment_comment"), "[img]" + url + "[/img] ");
+
+	if (sitePage == pageBlogEdit) {
+		replaceSelectedText(document.getElementById("blog_post_content"), "[img]" + url + "[/img] ");
+	} else {
+		replaceSelectedText(document.getElementById("comment_comment"), "[img]" + url + "[/img] ");
+	}
 }
 
 function replaceSelectedText(el, text) {

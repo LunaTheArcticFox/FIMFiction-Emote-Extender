@@ -76,6 +76,8 @@ function initialize() {
 
 	}
 
+	alert("Do alerts work?");
+
 	if (sitePage == pageBlogEdit) {
 		alert("This is reached.");
 		$(".light_toolbar .no_margin").append("<div class='emoticons_panel'>Balrgh</div>");

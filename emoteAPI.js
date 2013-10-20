@@ -82,6 +82,7 @@ function initialize() {
 		$(".light_toolbar").removeClass("no_margin");
 		$(".light_toolbar").after(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");
+		$(".emoticons_panel").append("<p><b>This part of the emote script is undergoing development. While it should be fully functional, the styling is actively being worked on and looks this way intentionally. Kind of.</b></p>");
 	}
 	
 	if (sitePage == pageOther) {

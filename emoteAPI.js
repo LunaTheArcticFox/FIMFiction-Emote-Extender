@@ -145,6 +145,8 @@ function initialize() {
 			"padding: 5px 8px 0px 8px;",
 			"margin: 5px 0px 0px 5px;",
 			"font: 16px normal \"Arial\" !important;",
+			"font-family: \"Arial\" !important;;",
+			"font-size: 16px !important;;",
 			"-webkit-touch-callout: none;",
 			"-webkit-user-select: none;",
 			"-khtml-user-select: none;",

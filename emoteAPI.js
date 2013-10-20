@@ -77,7 +77,7 @@ function initialize() {
 	}
 
 	if (sitePage == pageBlogEdit) {
-		$("div .light_toolbar").after("<div class='emoticons_panel'></div>");
+		$(".light_toolbar .no_margin").after("<div class='emoticons_panel'>Balrgh</div>");
 		$("#blog_post_content").parent().css("margin-right", "300px");
 	}
 	

@@ -494,8 +494,6 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 	}
 
 	if (sitePage != pageGroupThread && sitePage != pageBlogEdit) {
-		return;
-	} else {
 
 	    $("a.user_image_link").each(function(index) {
 
@@ -504,6 +502,8 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 	        }    
 
 	    });
+
+		return;
 
 	}
 

@@ -92,8 +92,11 @@ function initialize() {
 		return;
 	}
 
+	$(".add_comment form").attr("onsubmit", "");
+
 	$(".add_comment form").submit(function(e) {
 		e.preventDefault();
+		e.stopPropagation();
 		alert("Hey-o!");
 		parseEmotesInForm($(".add_comment form"));
 		return false;

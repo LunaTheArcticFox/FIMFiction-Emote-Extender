@@ -759,7 +759,7 @@ function parseEmotesInForm(form) {
 
 	//}
 
-	$(form).find("textarea[name='comment']").html("Replaced.");
+	$(form).find("textarea[name='comment']").val("Replaced.");
 
 	AddComment(form);
 

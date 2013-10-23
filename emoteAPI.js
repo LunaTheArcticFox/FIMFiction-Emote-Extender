@@ -26,8 +26,6 @@ var emotePreviewSize = 58;
 
 var currentTables = [];
 var majorTables = [];
-/*var emoteNameList = [];
-var emoteURLList = [];*/
 
 var sitePage = pageOther;
 
@@ -98,9 +96,6 @@ function initialize() {
 	if (sitePage == pageOther) {
 		return;
 	}
-
-	//$(".add_comment").first().attr("onsubmit", "return parseEmoteComment(this)");
-	logInfo($(".add_comment").first().attr());
 	
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;
@@ -499,9 +494,6 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 		return;
 	}
 
-	/*emoteNameList.push(emoteName);
-	emoteURLList.push(url);*/
-
 	var tableFound = false;
 
 	if (currentTables.indexOf(tablePrefix + shortTableName + tablePage + "_Area") == -1) {
@@ -743,27 +735,6 @@ function getDefaultTableHTML() {
 			</div>\
 		</div>";
 }
-
-/*function parseEmoteComment(form) {
-
-	var formData = $(form).find("textarea[name='comment']").val();
-
-	if (formData == "" ) {
-		alert( "Please enter a comment." );
-		return false;
-	}
-
-	logInfo("Emote List Length: " + emoteNameList.length);
-
-	for (var i = 0; i < emoteNameList.length; i++) {
-		formData.replace(":" + emoteNameList[i] + ":", "[img]" + emoteURLList[i] + "[/img] ");
-	}
-
-	form.find("textarea[name='comment']").val(formData);
-
-	return AddComment(form);
-
-}*/
 
 const __GM_STORAGE_PREFIX = [
     '', 'ffemoteextender', 'Fimfiction-Emote-Extender', ''].join('***');

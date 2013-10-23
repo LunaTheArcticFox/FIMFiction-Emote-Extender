@@ -85,6 +85,7 @@ function initialize() {
 		$(".light_toolbar").after(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");
 		$(".emoticons_panel").after("<p style='display: block;'>Blog post support for the emote script is undergoing development. While it should be fully functional, the styling is actively being worked on and looks this way intentionally. Kind of.</p>");
+		$(".add_comment").first().submit(parseEmotesInForm($(".add_comment").first()));
 	}
 	
 	if (sitePage == pageOther) {
@@ -731,6 +732,14 @@ function getDefaultTableHTML() {
 				<br />Comments with more than 20 emoticons will have them stripped\
 			</div>\
 		</div>";
+}
+
+function parseEmotesInForm(form) {
+
+	logInfo("URL List Length: " + emoteURLList.length);
+
+	return AddComment(form);
+
 }
 
 const __GM_STORAGE_PREFIX = [

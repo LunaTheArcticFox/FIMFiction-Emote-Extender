@@ -748,7 +748,7 @@ function parseEmotesInForm(form) {
 
 	logInfo("URL List Length: " + emoteURLList.length);
 
-	//return AddComment(form);
+	AddComment(form);
 
 }
 

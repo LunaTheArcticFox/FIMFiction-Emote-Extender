@@ -497,7 +497,7 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 		return;
 	}
 
-	emoteNameList.push(emoteName);
+	emoteNameList.push(":" + emoteName + ":");
 	emoteURLList.push(url);
 
 	var tableFound = false;
@@ -751,7 +751,7 @@ function parseEmotesInForm(form) {
 		logInfo(textareaData);
 
 		for (var i = 0; i < emoteNameList.length; i++) {
-			textareaData.replace(new RegExp(":" + emoteNameList[i] + ":", "g"), "[img]" + emoteURLList[i] + "[/img] ");
+			textareaData.replace(new RegExp(emoteNameList[i], "g"), "[img]" + emoteURLList[i] + "[/img] ");
 			logInfo(emoteNameList[i]);
 		}
 

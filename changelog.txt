@@ -1,0 +1,12 @@
+
+/******
+ADD A BAT PONY EMOTE, ADD A SOMBRA EMOTE
+PLUS DARING DO
+*******/
+
+- Blog posts now have an emote panel
+- Emotes now have fimfiction style shorthand (Needs completion)
+
+To Do:
+- Automatic emote spoiler replacement on all pages
+- Emote panel in PMs

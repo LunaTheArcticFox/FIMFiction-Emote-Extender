@@ -751,13 +751,8 @@ function parseEmotesInForm(form) {
 		logInfo(textareaData);
 
 		for (var i = 0; i < emoteNameList.length; i++) {
-			//var re = new RegExp(emoteNameList[i], "g");
-			//textareaData.replace(re, "[img]" + emoteURLList[i] + "[/img] ");
 			textareaData = textareaData.split(emoteNameList[i]).join("[img]" + emoteURLList[i] + "[/img] ");
-			//logInfo(emoteNameList[i]);
 		}
-
-		//textareaData = "Just testing the emote script.";
 
 		logInfo(textareaData);
 

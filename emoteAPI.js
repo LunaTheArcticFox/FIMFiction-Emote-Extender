@@ -111,161 +111,157 @@ function initialize() {
 		logInfo("Concise settings detected.");
 		$("body").append("<div id='verboseDisabled'></div>");
 	}
-
-	var theCSS = [];
 	
-	theCSS.push(
+	var theCSS = 
 		
-		".emoticons_panel {",
-			"height: auto !important;",
-			"min-height: 285px !important;",
-			"padding-top: 15px !important;",
-			"display: block !important;",
-			"border: none !important;",
-		"}",
+		".emoticons_panel {" +
+			"height: auto !important;" +
+			"min-height: 285px !important;" +
+			"padding-top: 15px !important;" +
+			"display: block !important;" +
+			"border: none !important;" +
+		"}" +
 		
-		".customEmote {",
-			"box-shadow: #000 0em 0em 0em;",
-			"opacity: 0.75;",
-			"transition: opacity .2s ease-out;",
-			"-moz-transition: opacity .2s ease-out;",
-			"-webkit-transition: opacity .2s ease-out;",
-			"-o-transition: opacity .2s ease-out;",
-			"-webkit-touch-callout: none;",
-			"-webkit-user-select: none;",
-			"-khtml-user-select: none;",
-			"-moz-user-select: none;",
-			"-ms-user-select: none;",
-			"user-select: none;",
-			"margin: 5px;",
-		"}",
+		".customEmote {" +
+			"box-shadow: #000 0em 0em 0em;" +
+			"opacity: 0.75;" +
+			"transition: opacity .2s ease-out;" +
+			"-moz-transition: opacity .2s ease-out;" +
+			"-webkit-transition: opacity .2s ease-out;" +
+			"-o-transition: opacity .2s ease-out;" +
+			"-webkit-touch-callout: none;" +
+			"-webkit-user-select: none;" +
+			"-khtml-user-select: none;" +
+			"-moz-user-select: none;" +
+			"-ms-user-select: none;" +
+			"user-select: none;" +
+			"margin: 5px;" +
+		"}" +
 		
-		".customEmote:hover {",
-			"opacity: 1;",
-			"transition: opacity .2s ease-in;",
-			"-moz-transition: opacity .2s ease-in;",
-			"-webkit-transition: opacity .2s ease-in;",
-			"-o-transition: opacity .2s ease-in;",
-			"cursor: pointer;",
-		"}",
+		".customEmote:hover {" +
+			"opacity: 1;" +
+			"transition: opacity .2s ease-in;" +
+			"-moz-transition: opacity .2s ease-in;" +
+			"-webkit-transition: opacity .2s ease-in;" +
+			"-o-transition: opacity .2s ease-in;" +
+			"cursor: pointer;" +
+		"}" +
 		
-		".emoteTabButton {",
-			"width: auto;",
-			"height: 23px;",
-			"float: left;",
-			"text-align: center;",
-			"padding: 5px 8px 0px 8px !important;",
-			"margin: 5px 0px 0px 5px !important;",
-			"font-family: \"Arial\" !important;",
-			"font-size: 16px !important;",
-			"-webkit-touch-callout: none;",
-			"-webkit-user-select: none;",
-			"-khtml-user-select: none;",
-			"-moz-user-select: none;",
-			"-ms-user-select: none;",
-			"user-select: none;",
-			"opacity: 1;",
-			"transition: opacity .2s ease-in;",
-			"-moz-transition: opacity .2s ease-in;",
-			"-webkit-transition: opacity .2s ease-in;",
-			"-o-transition: opacity .2s ease-in;",
-			"-webkit-border-radius: 3px;",
-			"-moz-border-radius: 3px;",
-			"border-radius: 3px;",
-			"background-color: #abc156;",
-			"color: #ffffff",
-		"}",
+		".emoteTabButton {" +
+			"width: auto;" +
+			"height: 23px;" +
+			"float: left;" +
+			"text-align: center;" +
+			"padding: 5px 8px 0px 8px !important;" +
+			"margin: 5px 0px 0px 5px !important;" +
+			"font-family: \"Arial\" !important;" +
+			"font-size: 16px !important;" +
+			"-webkit-touch-callout: none;" +
+			"-webkit-user-select: none;" +
+			"-khtml-user-select: none;" +
+			"-moz-user-select: none;" +
+			"-ms-user-select: none;" +
+			"user-select: none;" +
+			"opacity: 1;" +
+			"transition: opacity .2s ease-in;" +
+			"-moz-transition: opacity .2s ease-in;" +
+			"-webkit-transition: opacity .2s ease-in;" +
+			"-o-transition: opacity .2s ease-in;" +
+			"-webkit-border-radius: 3px;" +
+			"-moz-border-radius: 3px;" +
+			"border-radius: 3px;" +
+			"background-color: #abc156;" +
+			"color: #ffffff" +
+		"}" +
 		
-		".emotePageTabButton {",
-			"opacity: 0.5;",
-			"width: 15px;",
-			"height: 15px;",
-			"display: inline-block;",
-			"text-align: center;",
-			"padding: 0px;",
-			"margin-left: 5px;",
-			"font: 13px normal \"Segoe UI\" !important;",
-			"-webkit-touch-callout: none;",
-			"-webkit-user-select: none;",
-			"-khtml-user-select: none;",
-			"-moz-user-select: none;",
-			"-ms-user-select: none;",
-			"user-select: none;",
-			"transition: opacity .2s ease-in;",
-			"-moz-transition: opacity .2s ease-in;",
-			"-webkit-transition: opacity .2s ease-in;",
-			"-o-transition: opacity .2s ease-in;",
-			"-webkit-border-radius: 10px;",
-			"-moz-border-radius: 10px;",
-			"border-radius: 15px;",
-			"background-color: #00a9f0;",
-			"color: #ffffff",
-		"}",
+		".emotePageTabButton {" +
+			"opacity: 0.5;" +
+			"width: 15px;" +
+			"height: 15px;" +
+			"display: inline-block;" +
+			"text-align: center;" +
+			"padding: 0px;" +
+			"margin-left: 5px;" +
+			"font: 13px normal \"Segoe UI\" !important;" +
+			"-webkit-touch-callout: none;" +
+			"-webkit-user-select: none;" +
+			"-khtml-user-select: none;" +
+			"-moz-user-select: none;" +
+			"-ms-user-select: none;" +
+			"user-select: none;" +
+			"transition: opacity .2s ease-in;" +
+			"-moz-transition: opacity .2s ease-in;" +
+			"-webkit-transition: opacity .2s ease-in;" +
+			"-o-transition: opacity .2s ease-in;" +
+			"-webkit-border-radius: 10px;" +
+			"-moz-border-radius: 10px;" +
+			"border-radius: 15px;" +
+			"background-color: #00a9f0;" +
+			"color: #ffffff" +
+		"}" +
 
-		".emoteTabButton:hover {",
-			"cursor: pointer;",
-			"opacity: 0.8;",
-			"transition: opacity .2s ease-out;",
-			"-moz-transition: opacity .2s ease-out;",
-			"-webkit-transition: opacity .2s ease-out;",
-			"-o-transition: opacity .2s ease-out;",
-		"}",
+		".emoteTabButton:hover {" +
+			"cursor: pointer;" +
+			"opacity: 0.8;" +
+			"transition: opacity .2s ease-out;" +
+			"-moz-transition: opacity .2s ease-out;" +
+			"-webkit-transition: opacity .2s ease-out;" +
+			"-o-transition: opacity .2s ease-out;" +
+		"}" +
 
-		".emotePageTabButton:hover {",
-			"cursor: pointer;",
-			"opacity: 1.0;",
-			"transition: opacity .2s ease-out;",
-			"-moz-transition: opacity .2s ease-out;",
-			"-webkit-transition: opacity .2s ease-out;",
-			"-o-transition: opacity .2s ease-out;",
-		"}",
+		".emotePageTabButton:hover {" +
+			"cursor: pointer;" +
+			"opacity: 1.0;" +
+			"transition: opacity .2s ease-out;" +
+			"-moz-transition: opacity .2s ease-out;" +
+			"-webkit-transition: opacity .2s ease-out;" +
+			"-o-transition: opacity .2s ease-out;" +
+		"}" +
 		
-		".inner_padding {",
-			"margin-top: 0px !important;",
-		"}",
+		".inner_padding {" +
+			"margin-top: 0px !important;" +
+		"}" +
 		
-		".add_comment {",
-			"background-color: #faf8f3 !important;",
-		"}",
+		".add_comment {" +
+			"background-color: #faf8f3 !important;" +
+		"}" +
 		
-		"#comment_comment {",
-			"border-right: 1px solid #e8e5db !important;",
-		"}",
+		"#comment_comment {" +
+			"border-right: 1px solid #e8e5db !important;" +
+		"}" +
 
-		"#emoteAPITabContainer {",
-			"margin-top: 0px;",
-			"margin-left: 12px;",
-			"margin-bottom: 15px;",
-			"float: left;",
-			"clear: both;",
-			"width: 279px;",
-		"}",
+		"#emoteAPITabContainer {" +
+			"margin-top: 0px;" +
+			"margin-left: 12px;" +
+			"margin-bottom: 15px;" +
+			"float: left;" +
+			"clear: both;" +
+			"width: 279px;" +
+		"}" +
 		
-		"#emotePageTabContainer {",
-			"margin-bottom: 8px;",
-			"float: left;",
-			"clear: both;",
-			"width: 279px;",
-			"text-align: center;",
-		"}",
+		"#emotePageTabContainer {" +
+			"margin-bottom: 8px;" +
+			"float: left;" +
+			"clear: both;" +
+			"width: 279px;" +
+			"text-align: center;" +
+		"}" +
 
-		".emoteTable {",
-			"display: none;",
-			"margin: 0 auto 0 auto;",
-			"float: left;",
-			"clear: both;",
-			"text-align: center;",
-		"}",
+		".emoteTable {" +
+			"display: none;" +
+			"margin: 0 auto 0 auto;" +
+			"float: left;" +
+			"clear: both;" +
+			"text-align: center;" +
+		"}" +
 
-		".emotescript_both_curved {",
-			"-webkit-border-radius: 4px;",
-			"-moz-border-radius: 4px;",
-			"border-radius: 4px;",
-		"}"
-		
-	);
+		".emotescript_both_curved {" +
+			"-webkit-border-radius: 4px;" +
+			"-moz-border-radius: 4px;" +
+			"border-radius: 4px;" +
+		"}";
 	
-	addGlobalStyle(theCSS.join(''));
+	addGlobalStyle(theCSS);
 	
 	logInfo("Added CSS.");
 	
@@ -278,9 +274,6 @@ function initialize() {
 
 	tempContainer = $("<div id='emoteAPITabContainer'></div>");
 	$('.emoticons_panel').prepend(tempContainer);
-
-	tempContainer = $("<div id='emoteURLList' style='display: none;'></div>");
-	$('body').append(tempContainer);
 	
 	logInfo("Added tab container.");
 
@@ -536,12 +529,9 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 function createNewEmote(url, emoteName, shortTableName, tablePage) {
 
-	var urlSpan = $("<span>" + url + "</span>");
-	$("div#emoteURLList").append(urlSpan);
-
 	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
-	var image = $("<img />");
+	var image = $(document.createElement('img'));
 	image.attr("id", url);
 	image.attr("class", "customEmote");
 	image.attr("src", url);

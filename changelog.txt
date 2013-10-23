@@ -6,7 +6,8 @@ PLUS DARING DO
 
 - Blog posts now have an emote panel
 - Emotes now have fimfiction style shorthand (Needs completion)
+- Automatic emote spoiler replacement on all pages (Thanks, Kits!)
 
 To Do:
-- Automatic emote spoiler replacement on all pages
 - Emote panel in PMs
+- Emote panel in new forum threads

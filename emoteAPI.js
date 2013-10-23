@@ -96,6 +96,7 @@ function initialize() {
 		e.preventDefault();
 		alert("Hey-o!");
 		parseEmotesInForm($(".add_comment form"));
+		return false;
 	});
 
 	$("body").append("<div id='emoteScriptInitialized'></div>");
@@ -746,7 +747,6 @@ function parseEmotesInForm(form) {
 
 	logInfo("URL List Length: " + emoteURLList.length);
 
-	return false;
 	//return AddComment(form);
 
 }

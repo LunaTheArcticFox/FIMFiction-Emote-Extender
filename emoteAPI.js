@@ -756,7 +756,7 @@ function parseEmotesInForm(form) {
 			if (m != null) {
 				alert("Found!");
 			}
-			textareaData.replace(, "[img]" + emoteURLList[i] + "[/img] ");
+			textareaData.replace(re, "[img]" + emoteURLList[i] + "[/img] ");
 			//logInfo(emoteNameList[i]);
 		}
 

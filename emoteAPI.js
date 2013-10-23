@@ -754,7 +754,7 @@ function parseEmotesInForm(form) {
 
 	}
 
-	$(form).find("textarea[name='comment']").val(textareaData);
+	$(form).find("textarea[name='comment']").text(textareaData);
 
 	AddComment(form);
 

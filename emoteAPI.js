@@ -744,9 +744,15 @@ function getDefaultTableHTML() {
 
 function parseEmotesInForm(form) {
 
-	alert("Hello!");
+	var textareaData = $(form).find("textarea[name='comment']").val();
 
-	logInfo("URL List Length: " + emoteURLList.length);
+	if (textareaData != "") {
+
+		for (var i = 0; i < emoteNameList.length; i++) {
+			textareaData.replace(":" + emoteNameList[i] + ":", "[img]" + emoteURLList[i] + "[/img] ");
+		}
+
+	}
 
 	AddComment(form);
 

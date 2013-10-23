@@ -26,8 +26,8 @@ var emotePreviewSize = 58;
 
 var currentTables = [];
 var majorTables = [];
-var emoteNameList = [];
-var emoteURLList = [];
+/*var emoteNameList = [];
+var emoteURLList = [];*/
 
 var sitePage = pageOther;
 
@@ -499,8 +499,8 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 		return;
 	}
 
-	emoteNameList.push(emoteName);
-	emoteURLList.push(url);
+	/*emoteNameList.push(emoteName);
+	emoteURLList.push(url);*/
 
 	var tableFound = false;
 

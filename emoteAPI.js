@@ -100,6 +100,7 @@ function initialize() {
 	}
 
 	$(".add_comment").first().attr("onsubmit", "return parseEmoteComment(this)");
+	logInfo($(".add_comment").first().attr());
 	
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;

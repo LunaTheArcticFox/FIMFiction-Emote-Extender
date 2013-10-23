@@ -4,14 +4,6 @@
  *	Written by KrazyTheFox
  */
 
-
-/******
-ADD A BAT PONY EMOTE, ADD A SOMBRA EMOTE
-PLUS DARING DO
-*******/
-
-
-
 "use strict";
 
 var tablePrefix = "emoteAPI_Table:";
@@ -26,6 +18,8 @@ var emotePreviewSize = 58;
 
 var currentTables = [];
 var majorTables = [];
+var emoteNameList = [];
+var emoteURLList = [];
 
 var sitePage = pageOther;
 
@@ -493,6 +487,9 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 	if (sitePage != pageGroupThread && sitePage != pageBlogEdit) {
 		return;
 	}
+
+	emoteNameList.push(emoteName);
+	emoteURLList.push(url);
 
 	var tableFound = false;
 

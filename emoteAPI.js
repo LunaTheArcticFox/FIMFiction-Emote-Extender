@@ -92,8 +92,9 @@ function initialize() {
 		return;
 	}
 
-	$(".add_comment form").submit(function() {
-		alert("Hello!");
+	$(".add_comment form").submit(function(e) {
+		e.preventDefault();
+		alert("Hey-o!");
 		parseEmotesInForm($(".add_comment form"));
 	});
 
@@ -743,11 +744,10 @@ function parseEmotesInForm(form) {
 
 	alert("Hello!");
 
-	form.preventDefault();
-
 	logInfo("URL List Length: " + emoteURLList.length);
 
-	return AddComment(form);
+	return false;
+	//return AddComment(form);
 
 }
 

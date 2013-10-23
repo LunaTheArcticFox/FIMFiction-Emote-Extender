@@ -52,7 +52,7 @@ function addGlobalStyle(css) {
 
 function initialize() {
 	
-	logInfo("Initializing...");
+	//logInfo("Initializing...");
 
 	if(/\/manage_user\//.test(location.href)) {
 
@@ -104,11 +104,11 @@ function initialize() {
 	initialized = true;
 	
 	if (GM_getValue("verbose", false) == "true") {
-		logInfo("Verbose settings detected.");
+		//logInfo("Verbose settings detected.");
 		$("body").append("<div id='verboseEnabled'></div>");
 		useVerbose = true;
 	} else {
-		logInfo("Concise settings detected.");
+		//logInfo("Concise settings detected.");
 		$("body").append("<div id='verboseDisabled'></div>");
 	}
 	
@@ -263,11 +263,11 @@ function initialize() {
 	
 	addGlobalStyle(theCSS);
 	
-	logInfo("Added CSS.");
+	//logInfo("Added CSS.");
 	
 	$('.emoticons_panel > .inner_padding').attr("id", tablePrefix + "FF_Area");
 
-	logInfo("Added default table.");
+	//logInfo("Added default table.");
 	
 	var tempContainer = $("<div id='emotePageTabContainer'></div>");
 	$('.emoticons_panel').prepend(tempContainer);
@@ -275,11 +275,11 @@ function initialize() {
 	tempContainer = $("<div id='emoteAPITabContainer'></div>");
 	$('.emoticons_panel').prepend(tempContainer);
 	
-	logInfo("Added tab container.");
+	//logInfo("Added tab container.");
 
 	createTableLink("FF", "FF");
 
-	logInfo("Creating settings tab button.");
+	//logInfo("Creating settings tab button.");
 
 	var settingsImage = $("<img width='16' height='16' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAM1SURBVHjadJNNSCN3GMZ/k0y+NImLTMIkNUYwJMqmkVkPBrFQe0u8FEEpgoc9pfS0PfTUntvj9tLLXmVDb0XBbdlDS6gtEbPxYv3AiMQaIjpDo/nwHzNjeui6h9K+p/fw/Hh43odX4n9mdXX1VSKRyAAcHR39uLa2lv0vne1hSafTz3K53JuJiYmPAVRV1bLZLNlsFlVVNYBUKrWay+XepNPpZw+c/AAvLy8/n56eZnJy8odSqfRaURRVlmUAFEVRnz59+uvU1NScpmkkEoknAMVi8Vs7QCaT+W5+fj40PDxMNBolGAyOJ5NJLMvCNE0ikQiqqo5qmobb7cbr9aLrerBcLr+wA7Tb7ctAIPCJ3++n1+sRCARwOByYpgmA0+nE7/fTbDa5ubmhVCqxsbHxmWEYh3YAwzAOg8HgrM/nG/f5fPT7ffb399nZ2RGVSsUSQsherxchBCcnJ5RKpdeFQuErAGlpaemVoiiaoihqMpnE6/VSrVbZ2tr6OZ/PLwCsrKxszs3NfRSNRmm1Wuzt7aHr+oWu67vy6OhoRtM0XC4XnU4HSZI4PT0Vb2EBkM/nF0ZGRv4KBAJuIQSpVIput6vu7u5mZCEEZ2dn2Gw2JEkiFAphWZb07757vZ7U6XS4uLig3+9zf3+PEAJ7OByebTQavmazOWiaJh6PB4fDIQ8NDX1wcHDwPSAvLi7+FI/Hx/v9Pufn59TrdWq12qVhGL+9c1pYWPhFVdUPFUUhFotRr9epVqtdgGg06gqFQlQqFXRdR9f17fX19TSAHSAejy/F4/EvwuEwjUaD6+trwuEwY2NjciQSkR0OB8fHx7RaLQKBAHd3dyOmaf55dXW1K71134vFYo+FENze3tJut3E6nXi9XizLotvtIoRgcHAQj8eD2+2mUqn8sbm5mZQB6vX6S8uyvna5XHS7XSzLKtvt9ic22z+vYhgGvV7v93a7Pfuguby8fPkuQr1e3/L7/T1Zlt+r1WpfFovFnKqqn0uS5BZC0Gw2rwuFwqTNZjscGBh4rOv683K5/A3AwxHtgBt4BPgkSXo0MzPzwjTN9wFkWd7b3t7+tN/vd4BroAF0gO7fAwAtE2jf5kCQVgAAAABJRU5ErkJggg==' />");
 	var settingsLink = $("<a class='emotescript_both_curved' href='/manage_user/emote_script_settings' title='Emote Script Settings'></a>");
@@ -294,7 +294,7 @@ function initialize() {
 
 	showTable(tablePrefix + "FF");
 
-	logInfo("Initialized successfully.");
+	//logInfo("Initialized successfully.");
 	
 }
 
@@ -373,7 +373,7 @@ function showPageTab(tabID) {
 
 function showTable(tableID) {
 
-	logInfo("Showing table: " + tableID + "_Area");
+	//logInfo("Showing table: " + tableID + "_Area");
 
 	$('.emoticons_panel').children().each(function () {
 		var currentDiv = $(this);
@@ -425,7 +425,7 @@ function showTableCycle(tableID) {
 		nextPage = 1;
 	}
 
-	logInfo("Showing table: " + tableID + nextPage + "_Area");
+	//logInfo("Showing table: " + tableID + nextPage + "_Area");
 
 	$('.emoticons_panel').children().each(function () {
 
@@ -479,7 +479,7 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 		if ($('div#emoteScriptInitialized').length > 0) {
 			initialized = true;
-			logInfo("Already initialized.");
+			//logInfo("Already initialized.");
 		} else {
 			initialize();
 		}
@@ -550,7 +550,7 @@ function createNewEmote(url, emoteName, shortTableName, tablePage) {
 
 function createNewTable(shortTableName, longTableName, tablePage) {
 
-	logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
+	//logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
 
 	currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
 
@@ -568,15 +568,15 @@ function getSitePage() {
 
 	if(/\/manage_user\/edit_blog_post/.test(location.href)) {
 		sitePage = pageBlogEdit;
-		logInfo("Site page set to blog editor.");
+		//logInfo("Site page set to blog editor.");
 	} else if(/\/group\//.test(location.href)) {
 		if (/\/thread\//.test(location.href)) {
 			sitePage = pageGroupThread;
-			logInfo("Site page set to group thread.");
+			//logInfo("Site page set to group thread.");
 		}
 	} else if(/\/emote_script_settings/.test(location.href)) {
 		sitePage = pageScriptSettings;
-		logInfo("Site page set to script settings.");
+		//logInfo("Site page set to script settings.");
 	}
 	
 }
@@ -750,13 +750,9 @@ function parseEmotesInForm(form) {
 
 	if (textareaData != "") {
 
-		logInfo(textareaData);
-
 		for (var i = 0; i < emoteNameList.length; i++) {
 			textareaData = textareaData.split(emoteNameList[i]).join("[img]" + emoteURLList[i] + "[/img] ");
 		}
-
-		logInfo(textareaData);
 
 		$(form).find("textarea[name='comment']").val(textareaData);
 

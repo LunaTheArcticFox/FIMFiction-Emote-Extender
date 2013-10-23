@@ -532,12 +532,14 @@ function createNewEmote(url, emoteName, shortTableName, tablePage) {
 	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
 	var image = $(document.createElement('img'));
-	image.attr("id", url);
-	image.attr("class", "customEmote");
-	image.attr("src", url);
-	image.attr("width", String(emotePreviewSize));
-	image.attr("height", String(emotePreviewSize));
-	image.attr("title", emoteName);
+	image.attr({
+		"id": url,
+		"class": "customEmote",
+		"src": url,
+		"width": emotePreviewSize,
+		"height": emotePreviewSize,
+		"title": emoteName
+	});
 	image.click(function() { addEmoteToCommentBox(this.id); });
 
 	var selector = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";

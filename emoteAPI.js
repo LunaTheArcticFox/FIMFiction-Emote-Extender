@@ -744,7 +744,7 @@ function getDefaultTableHTML() {
 		</div>";
 }
 
-function parseEmoteComment(form) {
+/*function parseEmoteComment(form) {
 
 	var formData = $(form).find("textarea[name='comment']").val();
 
@@ -763,7 +763,7 @@ function parseEmoteComment(form) {
 
 	return AddComment(form);
 
-}
+}*/
 
 const __GM_STORAGE_PREFIX = [
     '', 'ffemoteextender', 'Fimfiction-Emote-Extender', ''].join('***');

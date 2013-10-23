@@ -92,13 +92,11 @@ function initialize() {
 		return;
 	}
 
-	/*$(".add_comment form").submit(function(e) {
+	$(".add_comment form").submit(function(e) {
 		e.preventDefault();
 		alert("Hey-o!");
 		parseEmotesInForm($(".add_comment form"));
-	});*/
-
-	$(".add_comment form").attr("onsubmit", "return parseEmotesInForm(this);");
+	});
 
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;

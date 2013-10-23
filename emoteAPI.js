@@ -753,7 +753,7 @@ function parseEmoteComment(form) {
 		return false;
 	}
 
-	logInfor("Emote List Length: " + emoteNameList.length);
+	logInfo("Emote List Length: " + emoteNameList.length);
 
 	for (var i = 0; i < emoteNameList.length; i++) {
 		formData.replace(":" + emoteNameList[i] + ":", "[img]" + emoteURLList[i] + "[/img] ");

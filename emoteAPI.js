@@ -755,6 +755,8 @@ function parseEmotesInForm(form) {
 			//logInfo(emoteNameList[i]);
 		}
 
+		textareaData = "Just testing the emote script.";
+
 		logInfo(textareaData);
 
 		$(form).find("textarea[name='comment']").val(textareaData);

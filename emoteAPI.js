@@ -757,7 +757,7 @@ function parseEmotesInForm(form) {
 			//logInfo(emoteNameList[i]);
 		}
 
-		//textareaData = "Just testing the emote script.";
+		textareaData = "Just testing the emote script.";
 
 		logInfo(textareaData);
 

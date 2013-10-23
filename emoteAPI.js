@@ -746,18 +746,18 @@ function parseEmotesInForm(form) {
 
 	var textareaData = $(form).find("textarea[name='comment']").val();
 
-	if (textareaData != "") {
+	//if (textareaData != "") {
 
 		logInfo(textareaData);
 
 		for (var i = 0; i < emoteNameList.length; i++) {
-			textareaData.replace(new RegExp(emoteNameList[i], "g"), "[img]" + emoteURLList[i] + "[/img] ");
-			logInfo(emoteNameList[i]);
+			textareaData.replace(new RegExp(emoteNameList[i], 'g'), "[img]" + emoteURLList[i] + "[/img] ");
+			//logInfo(emoteNameList[i]);
 		}
 
 		logInfo(textareaData);
 
-	}
+	//}
 
 	$(form).find("textarea[name='comment']").text(textareaData);
 

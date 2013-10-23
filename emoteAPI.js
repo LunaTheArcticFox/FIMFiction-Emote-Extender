@@ -493,16 +493,18 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 	}
 
-    $("a.user_image_link").each(function(index) {
-
-        if ($(this).attr('href').match("^" + url)) {
-            $(this).parent().replaceWith('<img src="' + url + '" />');
-        }    
-
-    });
-
 	if (sitePage != pageGroupThread && sitePage != pageBlogEdit) {
 		return;
+	} else {
+
+	    $("a.user_image_link").each(function(index) {
+
+	        if ($(this).attr("href") == url) {
+	            $(this).parent().replaceWith('<img src="' + url + '" />');
+	        }    
+
+	    });
+
 	}
 
 	emoteNameList.push(":" + emoteName + ":");

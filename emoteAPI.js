@@ -529,7 +529,7 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 function createNewEmote(url, emoteName, shortTableName, tablePage) {
 
-	logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
+	//logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
 	var image = $(document.createElement('img'));
 	image.attr({

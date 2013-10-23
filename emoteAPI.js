@@ -746,7 +746,7 @@ function parseEmotesInForm(form) {
 
 	var textareaData = $(form).find("textarea[name='comment']").val();
 
-	//if (textareaData != "") {
+	if (textareaData != "") {
 
 		logInfo(textareaData);
 
@@ -757,9 +757,9 @@ function parseEmotesInForm(form) {
 
 		logInfo(textareaData);
 
-	//}
+		$(form).find("textarea[name='comment']").val(textareaData);
 
-	$(form).find("textarea[name='comment']").val("Replaced.");
+	}
 
 	AddComment(form);
 

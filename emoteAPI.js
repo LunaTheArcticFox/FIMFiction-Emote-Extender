@@ -85,16 +85,18 @@ function initialize() {
 		$(".light_toolbar").after(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");
 		$(".emoticons_panel").after("<p style='display: block;'>Blog post support for the emote script is undergoing development. While it should be fully functional, the styling is actively being worked on and looks this way intentionally. Kind of.</p>");
-		$(".add_comment form").bind("submit", function(e) {
-			alert("Hey-o!");
-			parseEmotesInForm(e);
-		});
+
 	}
 	
 	if (sitePage == pageOther) {
 		return;
 	}
-	
+
+	$(".add_comment form").submit(function() {
+		alert("Hello!");
+		parseEmotesInForm($(".add_comment form"));
+	});
+
 	$("body").append("<div id='emoteScriptInitialized'></div>");
 	initialized = true;
 	

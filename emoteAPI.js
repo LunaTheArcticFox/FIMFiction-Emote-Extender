@@ -85,8 +85,8 @@ function initialize() {
 		$(".light_toolbar").after(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");
 		$(".emoticons_panel").after("<p style='display: block;'>Blog post support for the emote script is undergoing development. While it should be fully functional, the styling is actively being worked on and looks this way intentionally. Kind of.</p>");
-		$(".add_comment form:first").submit(function() {
-			parseEmotesInForm($(".add_comment form:first"));
+		$(".add_comment form").submit(function() {
+			parseEmotesInForm($(".add_comment form"));
 		});
 	}
 	

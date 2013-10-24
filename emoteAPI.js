@@ -470,6 +470,8 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 	if (!initialized) {
 
+		alert("Not init");
+
 		getSitePage();
 
 		emotePreviewSize = GM_getValue('emotePreviewSize', 58);

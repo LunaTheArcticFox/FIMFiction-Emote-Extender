@@ -97,7 +97,17 @@ function initialize() {
 	$(".add_comment").children().eq(0).submit(function(e) {
 		e.preventDefault();
 		e.stopPropagation();
-		parseEmotesInForm();
+		parseCommentSubmission();
+	});
+
+	$("#preview_comment").off();
+	$("#preview_comment").on("click", function() {
+		$.post('/ajax/preview_comment.php',
+			{ "comment" : emoteShorthandToImages($("#comment_comment").val()) }, 
+			function(xml) { 
+				$("#comment_preview").html( $("comment", xml).text());
+				$("#comment_preview").fadeIn();	
+			});
 	});
 
 	$("body").append("<div id='emoteScriptInitialized'></div>");
@@ -733,26 +743,28 @@ function getDefaultTableHTML() {
 		</div>";
 }
 
-function parseEmotesInForm() {
+function parseCommentSubmission() {
 
 	var textareaData = $("#comment_comment").val();
+
+	if (textareaData != "") {
+		$("#comment_comment").val(emoteShorthandToImages(textareaData));
+	}
+
+	AddComment($(".add_comment").children().eq(0));
+
+}
+
+function emoteShorthandToImages(textToConvert) {
 
 	var nameList = $("#emoteNameList").children();
 	var urlList = $("#emoteURLList").children();
 
-	logInfo(nameList.length);
-
-	if (textareaData != "") {
-
-		for (var i = 0; i < nameList.length; i++) {
-			textareaData = textareaData.split(nameList.eq(i).html()).join("[img]" + urlList.eq(i).html() + "[/img] ");
-		}
-
-		$("#comment_comment").val(textareaData);
-
+	for (var i = 0; i < nameList.length; i++) {
+		textToConvert = textToConvert.split(nameList.eq(i).html()).join("[img]" + urlList.eq(i).html() + "[/img] ");
 	}
 
-	AddComment($(".add_comment").children().eq(0));
+	return textToConvert;
 
 }
 

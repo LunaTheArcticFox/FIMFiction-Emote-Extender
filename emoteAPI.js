@@ -732,14 +732,14 @@ function parseEmotesInForm(form) {
 
 	var textareaData = $(form).find("textarea[name='comment']").val();
 
-	var nameList = $("#emoteNameList");
-	var urlList = $("#emoteURLList");
+	var nameList = $("#emoteNameList").children();
+	var urlList = $("#emoteURLList").children();
 
-	logInfo(nameList.children().length);
+	logInfo(nameList.length);
 
 	if (textareaData != "") {
 
-		for (var i = 0; i < nameList.children().length; i++) {
+		for (var i = 0; i < nameList.length; i++) {
 			textareaData = textareaData.split(nameList.eq(i)).join("[img]" + urlList.eq(i) + "[/img] ");
 		}
 

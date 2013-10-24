@@ -316,7 +316,7 @@ function run() {
 	addEmote("http://i.imgur.com/5HOAGsD.png", "scootapost", "CMC", "The Crusaders", 2);
 	addEmote("http://i.imgur.com/kQc1R5l.png", "scootasurprised", "CMC", "The Crusaders", 2);
 	addEmote("http://i.imgur.com/sM1SH0r.png", "guiltyloo", "CMC", "The Crusaders", 2);
-	addEmote("http://i.imgur.com/rLhDpm3.png", "scootascared", "CMC", "The Crusaders", 2);
+	addEmote("http://i.imgur.com/rLhDpm3.png", "chicken", "CMC", "The Crusaders", 2);
 	addEmote("http://i.imgur.com/sYAzM.png", "ohcomeon", "CMC", "The Crusaders", 3);
 	addEmote("http://i.imgur.com/VViKq.png", "sbbook", "CMC", "The Crusaders", 3);
 	addEmote("http://i.imgur.com/DGsL3.png", "dumbfabric", "CMC", "The Crusaders", 3);

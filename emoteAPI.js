@@ -83,7 +83,6 @@ function initialize() {
 	}
 
 	if (sitePage == pageBlogEdit) {
-		alert("Blog Page");
 		$(".light_toolbar").removeClass("no_margin");
 		$(".light_toolbar").after(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");
@@ -468,11 +467,7 @@ function showTableCycle(tableID) {
 
 function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
-	alert("Emote add called.");
-
 	if (!initialized) {
-
-		alert("Not init");
 
 		getSitePage();
 
@@ -577,15 +572,15 @@ function getSitePage() {
 
 	if(/\/manage_user\/edit_blog_post/.test(location.href)) {
 		sitePage = pageBlogEdit;
-		logInfo("Site page set to blog editor.");
+		//logInfo("Site page set to blog editor.");
 	} else if(/\/group\//.test(location.href)) {
 		if (/\/thread\//.test(location.href)) {
 			sitePage = pageGroupThread;
-			logInfo("Site page set to group thread.");
+			//logInfo("Site page set to group thread.");
 		}
 	} else if(/\/emote_script_settings/.test(location.href)) {
 		sitePage = pageScriptSettings;
-		logInfo("Site page set to script settings.");
+		//logInfo("Site page set to script settings.");
 	}
 	
 }

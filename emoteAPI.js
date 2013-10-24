@@ -20,6 +20,8 @@ var emotePreviewSize = 58;
 
 var currentTables = [];
 var majorTables = [];
+var nameListDiv;
+var urlListDiv;
 
 var sitePage = pageOther;
 
@@ -457,6 +459,9 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 		getSitePage();
 
+		nameListDiv = $("#emoteNameList");
+		urlListDiv = $("#emoteURLList");
+
 		emotePreviewSize = GM_getValue('emotePreviewSize', 58);
 
 		if ($('div#verboseEnabled').length > 0) {
@@ -491,11 +496,11 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 	var container = $(document.createElement('span'));
 	container.html(emoteName);
-	$("#emoteNameList").append(container);
+	nameListDiv.append(container);
 
 	container = $(document.createElement('span'));
 	container.html(url);
-	$("#emoteURLList").append(container);
+	urlListDiv.append(container);
 
 	var tableFound = false;
 
@@ -740,7 +745,7 @@ function parseEmotesInForm(form) {
 	if (textareaData != "") {
 
 		for (var i = 0; i < nameList.length; i++) {
-			textareaData = textareaData.split(nameList.eq(i).text()).join("[img]" + urlList.eq(i).text() + "[/img] ");
+			textareaData = textareaData.split(nameList.eq(i).html()).join("[img]" + urlList.eq(i).html() + "[/img] ");
 		}
 
 		$(form).find("textarea[name='comment']").val(textareaData);

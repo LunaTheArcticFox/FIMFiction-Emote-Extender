@@ -735,10 +735,7 @@ function getDefaultTableHTML() {
 
 function parseEmotesInForm(form) {
 
-	$("#comment_preview").style("display", "none");
-	//$("#comment_preview").html("");
-
-	var textareaData = $(form).find("textarea[name='comment']").val();
+	var textareaData = $("#comment_comment").val();
 
 	var nameList = $("#emoteNameList").children();
 	var urlList = $("#emoteURLList").children();
@@ -751,7 +748,7 @@ function parseEmotesInForm(form) {
 			textareaData = textareaData.split(nameList.eq(i).html()).join("[img]" + urlList.eq(i).html() + "[/img] ");
 		}
 
-		$(form).find("textarea[name='comment']").val(textareaData);
+		$("#comment_comment").val(textareaData);
 
 	}
 

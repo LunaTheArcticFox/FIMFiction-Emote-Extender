@@ -123,7 +123,7 @@ function initialize() {
 			display: block !important;\
 			border: none !important;\
 		}\
-		
+		\
 		.customEmote {\
 			box-shadow: #000 0em 0em 0em;\
 			opacity: 0.75;\
@@ -139,7 +139,7 @@ function initialize() {
 			user-select: none;\
 			margin: 5px;\
 		}\
-		
+		\
 		.customEmote:hover {\
 			opacity: 1;\
 			transition: opacity .2s ease-in;\
@@ -148,7 +148,7 @@ function initialize() {
 			-o-transition: opacity .2s ease-in;\
 			cursor: pointer;\
 		}\
-		
+		\
 		.emoteTabButton {\
 			width: auto;\
 			height: 23px;\
@@ -175,7 +175,7 @@ function initialize() {
 			background-color: #abc156;\
 			color: #ffffff\
 		}\
-		
+		\
 		.emotePageTabButton {\
 			opacity: 0.5;\
 			width: 15px;\
@@ -201,7 +201,7 @@ function initialize() {
 			background-color: #00a9f0;\
 			color: #ffffff\
 		}\
-
+		\
 		.emoteTabButton:hover {\
 			cursor: pointer;\
 			opacity: 0.8;\
@@ -210,7 +210,7 @@ function initialize() {
 			-webkit-transition: opacity .2s ease-out;\
 			-o-transition: opacity .2s ease-out;\
 		}\
-
+		\
 		.emotePageTabButton:hover {\
 			cursor: pointer;\
 			opacity: 1.0;\
@@ -219,19 +219,19 @@ function initialize() {
 			-webkit-transition: opacity .2s ease-out;\
 			-o-transition: opacity .2s ease-out;\
 		}\
-		
+		\
 		.inner_padding {\
 			margin-top: 0px !important;\
 		}\
-		
+		\
 		.add_comment {\
 			background-color: #faf8f3 !important;\
 		}\
-		
+		\
 		#comment_comment {\
 			border-right: 1px solid #e8e5db !important;\
 		}\
-
+		\
 		#emoteAPITabContainer {\
 			margin-top: 0px;\
 			margin-left: 12px;\
@@ -240,7 +240,7 @@ function initialize() {
 			clear: both;\
 			width: 279px;\
 		}\
-		
+		\
 		#emotePageTabContainer {\
 			margin-bottom: 8px;\
 			float: left;\
@@ -248,7 +248,7 @@ function initialize() {
 			width: 279px;\
 			text-align: center;\
 		}\
-
+		\
 		.emoteTable {\
 			display: none;\
 			margin: 0 auto 0 auto;\
@@ -256,7 +256,7 @@ function initialize() {
 			clear: both;\
 			text-align: center;\
 		}\
-
+		\
 		.emotescript_both_curved {\
 			-webkit-border-radius: 4px;\
 			-moz-border-radius: 4px;\

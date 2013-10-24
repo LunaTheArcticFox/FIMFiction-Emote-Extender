@@ -87,6 +87,11 @@ function initialize() {
 		$(".emoticons_panel").after("<p style='display: block;'>Blog post support for the emote script is undergoing development. While it should be fully functional, the styling is actively being worked on and looks this way intentionally. Kind of.</p>");
 
 	}
+
+	$(".comment").each(function(index) {
+		var commentData = $(".comment").eq(index).has("textarea[name=comment]");
+		commentData.html(imagesToEmoteShorthand(commentData.html()));
+	});
 	
 	if (sitePage == pageOther) {
 		return;
@@ -755,6 +760,10 @@ function parseCommentSubmission() {
 
 }
 
+function parseCommentEdit(form, comment) {
+
+}
+
 function emoteShorthandToImages(textToConvert) {
 
 	var nameList = $("#emoteNameList").children();
@@ -762,6 +771,19 @@ function emoteShorthandToImages(textToConvert) {
 
 	for (var i = 0; i < nameList.length; i++) {
 		textToConvert = textToConvert.split(nameList.eq(i).html()).join("[img]" + urlList.eq(i).html() + "[/img] ");
+	}
+
+	return textToConvert;
+
+}
+
+function imagesToEmoteShorthand(textToConvert) {
+
+	var nameList = $("#emoteNameList").children();
+	var urlList = $("#emoteURLList").children();
+
+	for (var i = 0; i < nameList.length; i++) {
+		textToConvert = textToConvert.split("[img]" + urlList.eq(i).html() + "[/img]").join(nameList.eq(i).html());
 	}
 
 	return textToConvert;

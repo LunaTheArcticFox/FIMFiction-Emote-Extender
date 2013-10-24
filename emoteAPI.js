@@ -116,152 +116,152 @@ function initialize() {
 	
 	var theCSS = 
 		
-		".emoticons_panel {" +
-			"height: auto !important;" +
-			"min-height: 285px !important;" +
-			"padding-top: 15px !important;" +
-			"display: block !important;" +
-			"border: none !important;" +
-		"}" +
+		".emoticons_panel {\
+			height: auto !important;\
+			min-height: 285px !important;\
+			padding-top: 15px !important;\
+			display: block !important;\
+			border: none !important;\
+		}\
 		
-		".customEmote {" +
-			"box-shadow: #000 0em 0em 0em;" +
-			"opacity: 0.75;" +
-			"transition: opacity .2s ease-out;" +
-			"-moz-transition: opacity .2s ease-out;" +
-			"-webkit-transition: opacity .2s ease-out;" +
-			"-o-transition: opacity .2s ease-out;" +
-			"-webkit-touch-callout: none;" +
-			"-webkit-user-select: none;" +
-			"-khtml-user-select: none;" +
-			"-moz-user-select: none;" +
-			"-ms-user-select: none;" +
-			"user-select: none;" +
-			"margin: 5px;" +
-		"}" +
+		.customEmote {\
+			box-shadow: #000 0em 0em 0em;\
+			opacity: 0.75;\
+			transition: opacity .2s ease-out;\
+			-moz-transition: opacity .2s ease-out;\
+			-webkit-transition: opacity .2s ease-out;\
+			-o-transition: opacity .2s ease-out;\
+			-webkit-touch-callout: none;\
+			-webkit-user-select: none;\
+			-khtml-user-select: none;\
+			-moz-user-select: none;\
+			-ms-user-select: none;\
+			user-select: none;\
+			margin: 5px;\
+		}\
 		
-		".customEmote:hover {" +
-			"opacity: 1;" +
-			"transition: opacity .2s ease-in;" +
-			"-moz-transition: opacity .2s ease-in;" +
-			"-webkit-transition: opacity .2s ease-in;" +
-			"-o-transition: opacity .2s ease-in;" +
-			"cursor: pointer;" +
-		"}" +
+		.customEmote:hover {\
+			opacity: 1;\
+			transition: opacity .2s ease-in;\
+			-moz-transition: opacity .2s ease-in;\
+			-webkit-transition: opacity .2s ease-in;\
+			-o-transition: opacity .2s ease-in;\
+			cursor: pointer;\
+		}\
 		
-		".emoteTabButton {" +
-			"width: auto;" +
-			"height: 23px;" +
-			"float: left;" +
-			"text-align: center;" +
-			"padding: 5px 8px 0px 8px !important;" +
-			"margin: 5px 0px 0px 5px !important;" +
-			"font-family: \"Arial\" !important;" +
-			"font-size: 16px !important;" +
-			"-webkit-touch-callout: none;" +
-			"-webkit-user-select: none;" +
-			"-khtml-user-select: none;" +
-			"-moz-user-select: none;" +
-			"-ms-user-select: none;" +
-			"user-select: none;" +
-			"opacity: 1;" +
-			"transition: opacity .2s ease-in;" +
-			"-moz-transition: opacity .2s ease-in;" +
-			"-webkit-transition: opacity .2s ease-in;" +
-			"-o-transition: opacity .2s ease-in;" +
-			"-webkit-border-radius: 3px;" +
-			"-moz-border-radius: 3px;" +
-			"border-radius: 3px;" +
-			"background-color: #abc156;" +
-			"color: #ffffff" +
-		"}" +
+		.emoteTabButton {\
+			width: auto;\
+			height: 23px;\
+			float: left;\
+			text-align: center;\
+			padding: 5px 8px 0px 8px !important;\
+			margin: 5px 0px 0px 5px !important;\
+			font-family: \"Arial\" !important;\
+			font-size: 16px !important;\
+			-webkit-touch-callout: none;\
+			-webkit-user-select: none;\
+			-khtml-user-select: none;\
+			-moz-user-select: none;\
+			-ms-user-select: none;\
+			user-select: none;\
+			opacity: 1;\
+			transition: opacity .2s ease-in;\
+			-moz-transition: opacity .2s ease-in;\
+			-webkit-transition: opacity .2s ease-in;\
+			-o-transition: opacity .2s ease-in;\
+			-webkit-border-radius: 3px;\
+			-moz-border-radius: 3px;\
+			border-radius: 3px;\
+			background-color: #abc156;\
+			color: #ffffff\
+		}\
 		
-		".emotePageTabButton {" +
-			"opacity: 0.5;" +
-			"width: 15px;" +
-			"height: 15px;" +
-			"display: inline-block;" +
-			"text-align: center;" +
-			"padding: 0px;" +
-			"margin-left: 5px;" +
-			"font: 13px normal \"Segoe UI\" !important;" +
-			"-webkit-touch-callout: none;" +
-			"-webkit-user-select: none;" +
-			"-khtml-user-select: none;" +
-			"-moz-user-select: none;" +
-			"-ms-user-select: none;" +
-			"user-select: none;" +
-			"transition: opacity .2s ease-in;" +
-			"-moz-transition: opacity .2s ease-in;" +
-			"-webkit-transition: opacity .2s ease-in;" +
-			"-o-transition: opacity .2s ease-in;" +
-			"-webkit-border-radius: 10px;" +
-			"-moz-border-radius: 10px;" +
-			"border-radius: 15px;" +
-			"background-color: #00a9f0;" +
-			"color: #ffffff" +
-		"}" +
+		.emotePageTabButton {\
+			opacity: 0.5;\
+			width: 15px;\
+			height: 15px;\
+			display: inline-block;\
+			text-align: center;\
+			padding: 0px;\
+			margin-left: 5px;\
+			font: 13px normal \"Segoe UI\" !important;\
+			-webkit-touch-callout: none;\
+			-webkit-user-select: none;\
+			-khtml-user-select: none;\
+			-moz-user-select: none;\
+			-ms-user-select: none;\
+			user-select: none;\
+			transition: opacity .2s ease-in;\
+			-moz-transition: opacity .2s ease-in;\
+			-webkit-transition: opacity .2s ease-in;\
+			-o-transition: opacity .2s ease-in;\
+			-webkit-border-radius: 10px;\
+			-moz-border-radius: 10px;\
+			border-radius: 15px;\
+			background-color: #00a9f0;\
+			color: #ffffff\
+		}\
 
-		".emoteTabButton:hover {" +
-			"cursor: pointer;" +
-			"opacity: 0.8;" +
-			"transition: opacity .2s ease-out;" +
-			"-moz-transition: opacity .2s ease-out;" +
-			"-webkit-transition: opacity .2s ease-out;" +
-			"-o-transition: opacity .2s ease-out;" +
-		"}" +
+		.emoteTabButton:hover {\
+			cursor: pointer;\
+			opacity: 0.8;\
+			transition: opacity .2s ease-out;\
+			-moz-transition: opacity .2s ease-out;\
+			-webkit-transition: opacity .2s ease-out;\
+			-o-transition: opacity .2s ease-out;\
+		}\
 
-		".emotePageTabButton:hover {" +
-			"cursor: pointer;" +
-			"opacity: 1.0;" +
-			"transition: opacity .2s ease-out;" +
-			"-moz-transition: opacity .2s ease-out;" +
-			"-webkit-transition: opacity .2s ease-out;" +
-			"-o-transition: opacity .2s ease-out;" +
-		"}" +
+		.emotePageTabButton:hover {\
+			cursor: pointer;\
+			opacity: 1.0;\
+			transition: opacity .2s ease-out;\
+			-moz-transition: opacity .2s ease-out;\
+			-webkit-transition: opacity .2s ease-out;\
+			-o-transition: opacity .2s ease-out;\
+		}\
 		
-		".inner_padding {" +
-			"margin-top: 0px !important;" +
-		"}" +
+		.inner_padding {\
+			margin-top: 0px !important;\
+		}\
 		
-		".add_comment {" +
-			"background-color: #faf8f3 !important;" +
-		"}" +
+		.add_comment {\
+			background-color: #faf8f3 !important;\
+		}\
 		
-		"#comment_comment {" +
-			"border-right: 1px solid #e8e5db !important;" +
-		"}" +
+		#comment_comment {\
+			border-right: 1px solid #e8e5db !important;\
+		}\
 
-		"#emoteAPITabContainer {" +
-			"margin-top: 0px;" +
-			"margin-left: 12px;" +
-			"margin-bottom: 15px;" +
-			"float: left;" +
-			"clear: both;" +
-			"width: 279px;" +
-		"}" +
+		#emoteAPITabContainer {\
+			margin-top: 0px;\
+			margin-left: 12px;\
+			margin-bottom: 15px;\
+			float: left;\
+			clear: both;\
+			width: 279px;\
+		}\
 		
-		"#emotePageTabContainer {" +
-			"margin-bottom: 8px;" +
-			"float: left;" +
-			"clear: both;" +
-			"width: 279px;" +
-			"text-align: center;" +
-		"}" +
+		#emotePageTabContainer {\
+			margin-bottom: 8px;\
+			float: left;\
+			clear: both;\
+			width: 279px;\
+			text-align: center;\
+		}\
 
-		".emoteTable {" +
-			"display: none;" +
-			"margin: 0 auto 0 auto;" +
-			"float: left;" +
-			"clear: both;" +
-			"text-align: center;" +
-		"}" +
+		.emoteTable {\
+			display: none;\
+			margin: 0 auto 0 auto;\
+			float: left;\
+			clear: both;\
+			text-align: center;\
+		}\
 
-		".emotescript_both_curved {" +
-			"-webkit-border-radius: 4px;" +
-			"-moz-border-radius: 4px;" +
-			"border-radius: 4px;" +
-		"}";
+		.emotescript_both_curved {\
+			-webkit-border-radius: 4px;\
+			-moz-border-radius: 4px;\
+			border-radius: 4px;\
+		}";
 	
 	addGlobalStyle(theCSS);
 	
@@ -694,59 +694,59 @@ function createSettingsPage() {
 }
 
 function getDefaultTableHTML() {
-	return "<div class=\"emoticons_panel\">" +
-				"<div class=\"inner_padding\">" +
-					"<a href=\"javascript:smilie(':ajbemused:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajbemused.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':ajsleepy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajsleepy.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':ajsmug:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajsmug.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':applecry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/applecry.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':applejackconfused:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/applejackconfused.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':applejackunsure:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/applejackunsure.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':coolphoto:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/coolphoto.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':derpyderp1:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/derpyderp1.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':derpyderp2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/derpyderp2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':derpytongue2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/derpytongue2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':fluttercry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttercry.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':flutterrage:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/flutterrage.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':fluttershbad:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttershbad.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':fluttershyouch:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttershyouch.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':fluttershysad:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttershysad.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':heart:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/heart.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiecrazy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiecrazy.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiegasp:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiegasp.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiehappy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiehappy.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiesad2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiesad2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiesick:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiesick.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiesmile:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiesmile.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowderp:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowderp.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowdetermined2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowdetermined2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowhuh:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowhuh.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowkiss:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowkiss.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowlaugh:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowlaugh.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowwild:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowwild.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':raritycry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritycry.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':raritydespair:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritydespair.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':raritystarry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritystarry.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':raritywink:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritywink.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':scootangel:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/scootangel.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':trixieshiftleft:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/trixieshiftleft.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':trixieshiftright:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/trixieshiftright.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightangry2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightangry2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightblush:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightblush.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightoops:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightoops.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightsheepish:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightsheepish.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightsmile:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightsmile.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twistnerd:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twistnerd.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':unsuresweetie:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/unsuresweetie.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':yay:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/yay.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':trollestia:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/trollestia.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':moustache:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/moustache.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':facehoof:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/facehoof.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':eeyup:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/eeyup.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':duck:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/duck.png\" style=\"margin:1px;\"></a>" +
-				"<br />Comments with more than 20 emoticons will have them stripped" +
-			"</div>" +
-		"</div>";
+	return "<div class=\"emoticons_panel\">\
+				<div class=\"inner_padding\">\
+					<a href=\"javascript:smilie(':ajbemused:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajbemused.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':ajsleepy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajsleepy.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':ajsmug:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajsmug.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':applecry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/applecry.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':applejackconfused:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/applejackconfused.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':applejackunsure:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/applejackunsure.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':coolphoto:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/coolphoto.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':derpyderp1:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/derpyderp1.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':derpyderp2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/derpyderp2.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':derpytongue2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/derpytongue2.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':fluttercry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttercry.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':flutterrage:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/flutterrage.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':fluttershbad:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttershbad.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':fluttershyouch:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttershyouch.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':fluttershysad:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttershysad.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':heart:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/heart.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':pinkiecrazy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiecrazy.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':pinkiegasp:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiegasp.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':pinkiehappy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiehappy.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':pinkiesad2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiesad2.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':pinkiesick:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiesick.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':pinkiesmile:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiesmile.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':rainbowderp:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowderp.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':rainbowdetermined2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowdetermined2.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':rainbowhuh:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowhuh.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':rainbowkiss:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowkiss.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':rainbowlaugh:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowlaugh.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':rainbowwild:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowwild.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':raritycry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritycry.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':raritydespair:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritydespair.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':raritystarry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritystarry.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':raritywink:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritywink.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':scootangel:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/scootangel.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':trixieshiftleft:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/trixieshiftleft.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':trixieshiftright:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/trixieshiftright.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':twilightangry2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightangry2.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':twilightblush:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightblush.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':twilightoops:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightoops.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':twilightsheepish:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightsheepish.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':twilightsmile:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightsmile.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':twistnerd:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twistnerd.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':unsuresweetie:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/unsuresweetie.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':yay:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/yay.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':trollestia:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/trollestia.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':moustache:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/moustache.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':facehoof:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/facehoof.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':eeyup:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/eeyup.png\" style=\"margin:1px;\"></a>\
+					<a href=\"javascript:smilie(':duck:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/duck.png\" style=\"margin:1px;\"></a>\
+				<br />Comments with more than 20 emoticons will have them stripped\
+			</div>\
+		</div>";
 }
 
 function parseEmotesInForm(form) {

@@ -13,6 +13,8 @@ $(document).ready(run());
 
 function run() {
 	
+	alert("Running!");
+
 	addEmote("http://i.imgur.com/NBEDt.png", "ajlie", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/5Tp73.png", "ajhappy", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/oa0BJ.png", "ajsup", "AJ", "Applejack", 1);

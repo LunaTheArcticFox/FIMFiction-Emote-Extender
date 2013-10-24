@@ -54,7 +54,7 @@ function addGlobalStyle(css) {
 
 function initialize() {
 	
-	//logInfo("Initializing...");
+	logInfo("Initializing...");
 
 	if(/\/manage_user\//.test(location.href)) {
 

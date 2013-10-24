@@ -89,7 +89,7 @@ function initialize() {
 	}
 
 	$(".comment").each(function(index) {
-		var commentData = $(".comment").eq(index).has("textarea[name=comment]");
+		var commentData = $(this).eq(index).has("textarea[name=comment]");
 		commentData.html(imagesToEmoteShorthand(commentData.html()));
 	});
 	

@@ -735,7 +735,7 @@ function parseEmotesInForm(form) {
 	var nameList = $("#emoteNameList");
 	var urlList = $("#emoteURLList");
 
-	logInfo(nameList.length);
+	logInfo(nameList.children().length);
 
 	if (textareaData != "") {
 

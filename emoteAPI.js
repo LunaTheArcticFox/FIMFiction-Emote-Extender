@@ -490,11 +490,11 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 	emoteName = ":" + emoteName + ":";
 
 	var container = $(document.createElement('span'));
-	container.innerHTML = emoteName;
+	container.text(emoteName);
 	$("#emoteNameList").append(container);
 
 	container = $(document.createElement('span'));
-	container.innerHTML = url;
+	container.text(url);
 	$("#emoteURLList").append(container);
 
 	var tableFound = false;

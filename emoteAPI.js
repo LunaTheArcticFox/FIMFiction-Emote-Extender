@@ -742,8 +742,6 @@ function parseEmotesInForm() {
 	var nameList = $("#emoteNameList").children();
 	var urlList = $("#emoteURLList").children();
 
-	logInfo(nameList.length);
-
 	if (textareaData != "") {
 
 		for (var i = 0; i < nameList.length; i++) {
@@ -754,46 +752,7 @@ function parseEmotesInForm() {
 
 	}
 
-	//AddComment(form.get());
-	if (form.find("textarea[name='comment']").val() == "") {
-		alert( "Please enter a comment" );
-		return false;
-	}
-					
-	form.find(".comment_success").hide();		
-	form.find(".add_comment_submit").hide();
-	form.find(".comment_processing").show();
-	$.post('/ajax/add_comment.php',
-		form.serialize(), 
-		function(xml) 
-		{ 			
-			if ( $("error",xml).length )
-			{
-				form.find("#comment_processing").hide( );					
-				ShowErrorWindow( $("error",xml).text( ) );
-			}
-			else
-			{
-				form.find(".comment_processing").hide( );					
-				form.find(".comment_success").show( );
-				if ( typeof( $(".comment_list").data( "order" ) ) == "undefined" || $(".comment_list").data( "order" ) == "ASC" )
-				{
-					$(".comment_list").append( "<div class='single_comment'>" + $("comment",xml).text( ) + "</div>" );
-				}
-				else
-				{
-					$(".comment_list").prepend( "<div class='single_comment'>" + $("comment",xml).text( ) + "</div>" );
-				}
-				$(".single_comment").fadeIn( );
-				$('html, body').animate({
-					scrollTop: $(".comment_list").find(".single_comment").offset().top
-				}, 0);
-				form.find("textarea").val( "" );
-			}
-		} 
-	);
-
-    return false;
+	AddComment(form);
 
 }
 

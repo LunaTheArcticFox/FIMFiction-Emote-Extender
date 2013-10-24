@@ -203,7 +203,6 @@ function run() {
 	addEmote("http://i.imgur.com/QoZIz.png", "rdhuh", "RD", "Rainbow Dash", 1);
 	addEmote("http://i.imgur.com/Y7iEz.png", "rdsalute", "RD", "Rainbow Dash", 1);
 	addEmote("http://i.imgur.com/DN4kI.png", "rdawwyeah", "RD", "Rainbow Dash", 1);
-	addEmote("http://i.imgur.com/1mJFi.png", "Emote", "RD", "Rainbow Dash", 1);
 	addEmote("http://i.imgur.com/fQFdk.png", "Emote", "RD", "Rainbow Dash", 1);
 	addEmote("http://i.imgur.com/5JXsL.png", "Emote", "RD", "Rainbow Dash", 1);
 	addEmote("http://i.imgur.com/drWSW.png", "Emote", "RD", "Rainbow Dash", 1);

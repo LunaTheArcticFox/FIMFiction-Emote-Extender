@@ -8,6 +8,7 @@ PLUS DARING DO
 - Emotes now have fimfiction style shorthand (Needs completion)
 - Automatic emote spoiler replacement on all pages (Thanks, Kits!)
 - Performance tweaks reduced run time by 350ms on my machine (when debugging). Script should run noticeably faster.
+- Removed an RD emote that I decided doesn't fit that nobody even used. Will find a suitable replacement.
 
 To Do:
 - Emote panel in PMs

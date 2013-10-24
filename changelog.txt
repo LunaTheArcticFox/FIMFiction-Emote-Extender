@@ -4,18 +4,18 @@ ADD A BAT PONY EMOTE, ADD A SOMBRA EMOTE
 PLUS DARING DO
 *******/
 
-- Blog posts now have an emote panel
-- Emotes now have fimfiction style shorthand (Needs completion)
-- Automatic emote spoiler replacement on all pages (Thanks, Kits!)
+- Blog posts now have an emote panel.
+- Emotes now have fimfiction style shorthand. (Needs completion)
+- Automatic emote spoiler replacement on all pages. (Thanks, Kits!)
 - Performance tweaks reduced run time by 350ms on my machine (when debugging). Script should run noticeably faster.
 - Removed an RD emote that I decided doesn't fit that nobody even used. Will find a suitable replacement.
 - Fix comment submission breaking when previewed first.
+- Add emotes to preview functionality.
 
 To Do:
-- Emote panel in PMs
-- Emote panel in new forum threads
-- Fix up CSS in added panels
+- Emote panel in PMs.
+- Emote panel in new forum threads.
+- Fix up CSS in added panels.
 - Clicking emotes inserts fimfiction style shortcuts instead of [img] links.
 - Emote resizing based on %. Allows use of non-standard emote sizes.
-- Add emotes to preview functionality
 - Pull a few new cheerilee and Twilight emotes from reddit. Check for others that might exist.

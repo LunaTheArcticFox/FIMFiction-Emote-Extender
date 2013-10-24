@@ -52,8 +52,6 @@ function addGlobalStyle(css) {
 
 function initialize() {
 	
-	logInfo("Initializing...");
-
 	if(/\/manage_user\//.test(location.href)) {
 
 		var settingsTabSpan = $("<span>Emote Script</span>");
@@ -491,11 +489,11 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 	emoteName = ":" + emoteName + ":";
 
-	var container = $(document.createElement("span"));
+	var container = $(document.createElement('span'));
 	container.innerHTML = emoteName;
 	$("#emoteNameList").append(container);
 
-	container = $(document.createElement("span"));
+	container = $(document.createElement('span'));
 	container.innerHTML = url;
 	$("#emoteURLList").append(container);
 
@@ -734,10 +732,15 @@ function parseEmotesInForm(form) {
 
 	var textareaData = $(form).find("textarea[name='comment']").val();
 
+	var nameList = $("#emoteNameList");
+	var urlList = $("#emoteURLList");
+
+	logInfo(nameList.length);
+
 	if (textareaData != "") {
 
-		for (var i = 0; i < $('#emoteNameList > span').length; i++) {
-			textareaData = textareaData.split($("#emoteNameList").eq(i)).join("[img]" + $("#emoteURLList").eq(i) + "[/img] ");
+		for (var i = 0; i < nameList.children().length; i++) {
+			textareaData = textareaData.split(nameList.eq(i)).join("[img]" + urlList.eq(i) + "[/img] ");
 		}
 
 		$(form).find("textarea[name='comment']").val(textareaData);

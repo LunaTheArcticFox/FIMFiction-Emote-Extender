@@ -1,10 +1,8 @@
 /*
- *	Fimfiction Emote Script v3.0
- *
- *	Written by KrazyTheFox
- *	Emote expander code courtesy of Kits.
- *
- */
+*        Fimfiction Emote Script v2.0 Release
+*
+*        Written by KrazyTheFox
+*/
 
 "use strict";
 
@@ -20,584 +18,543 @@ var emotePreviewSize = 58;
 
 var currentTables = [];
 var majorTables = [];
-var emoteNameList = [];
-var emoteURLList = [];
 
 var sitePage = pageOther;
 
 function logInfo(message) {
-	console.log("Emote API [INFO]: " + message);
+        console.log("Emote API [INFO]: " + message);
 }
 
 function logError(message) {
-	console.log("Emote API [ERROR]: " + message);
+        console.log("Emote API [ERROR]: " + message);
 }
 
 // GM function replacements are from https://raw.github.com/gist/3123124
 function addGlobalStyle(css) {
-	
-	try {
-		var elmHead, elmStyle;
-		elmHead = document.getElementsByTagName('head')[0];
-		elmStyle = document.createElement('style');
-		elmStyle.type = 'text/css';
-		elmHead.appendChild(elmStyle);
-		elmStyle.innerHTML = css;
-	} catch (e) {
-		if (!document.styleSheets.length) {
-			document.createStyleSheet();
-		}
-		document.styleSheets[0].cssText += css;
-	}
-	
+        
+        try {
+                var elmHead, elmStyle;
+                elmHead = document.getElementsByTagName('head')[0];
+                elmStyle = document.createElement('style');
+                elmStyle.type = 'text/css';
+                elmHead.appendChild(elmStyle);
+                elmStyle.innerHTML = css;
+        } catch (e) {
+                if (!document.styleSheets.length) {
+                        document.createStyleSheet();
+                }
+                document.styleSheets[0].cssText += css;
+        }
+        
 }
 
 function initialize() {
-	
-	//logInfo("Initializing...");
+        
+        logInfo("Initializing...");
 
-	if(/\/manage_user\//.test(location.href)) {
+        if(/\/manage_user\//.test(location.href)) {
 
-		var settingsTabSpan = $("<span>Emote Script</span>");
-		var settingsTabImg  = $("<img src='//www.fimfiction-static.net/images/icons/white/settings.png'></img>");
-		var settingsTabLink = $("<a href='/manage_user/emote_script_settings'></a>");
-		var settingsTabList = $("<li class='tab'></li>");
+                if (sitePage == pageScriptSettings) {
+                        createSettingsPage();
+                }
 
-		settingsTabLink.append(settingsTabImg);
-		settingsTabLink.append(settingsTabSpan);
-		settingsTabList.append(settingsTabLink);
-		
-		var settingsTabContainer = $("div.tabs");
-		settingsTabContainer.children(0).append(settingsTabList);
+                var settingsTabSpan = $("<span>Emote Script</span>");
+                var settingsTabImg = $("<img src='//www.fimfiction-static.net/images/icons/white/settings.png'></img>");
+                var settingsTabLink = $("<a href='/manage_user/emote_script_settings'></a>");
+                var settingsTabList = $("<li class='tab'></li>");
 
-		if (sitePage == pageScriptSettings) {
+                settingsTabLink.append(settingsTabImg);
+                settingsTabLink.append(settingsTabSpan);
+                settingsTabList.append(settingsTabLink);
+                
+                var settingsTabContainer = $("div.tabs");
+                settingsTabContainer.children(0).append(settingsTabList);
 
-			createSettingsPage();
+                $("body").append("<div id='emoteScriptInitialized'></div>");
+                initialized = true;
+                return;
 
-			$("body").append("<div id='emoteScriptInitialized'></div>");
-			initialized = true;
-			return;
+        }
+        
+        if (sitePage == pageOther) {
+                return;
+        }
+        
+        $("body").append("<div id='emoteScriptInitialized'></div>");
+        initialized = true;
+        
+        if (GM_getValue("verbose", false) == "true") {
+                logInfo("Verbose settings detected.");
+                $("body").append("<div id='verboseEnabled'></div>");
+                useVerbose = true;
+        } else {
+                logInfo("Concise settings detected.");
+                $("body").append("<div id='verboseDisabled'></div>");
+        }
 
-		}
+        var theCSS = [];
+        
+        theCSS.push(
+                
+                ".emoticons_panel {",
+                        "height: auto !important;",
+                        "min-height: 285px !important;",
+                        "padding-top: 15px !important;",
+                        "display: block !important;",
+                        "border: none !important;",
+                "}",
+                
+                ".customEmote {",
+                        "box-shadow: #000 0em 0em 0em;",
+                        "opacity: 0.75;",
+                        "transition: opacity .2s ease-out;",
+                        "-moz-transition: opacity .2s ease-out;",
+                        "-webkit-transition: opacity .2s ease-out;",
+                        "-o-transition: opacity .2s ease-out;",
+                        "-webkit-touch-callout: none;",
+                        "-webkit-user-select: none;",
+                        "-khtml-user-select: none;",
+                        "-moz-user-select: none;",
+                        "-ms-user-select: none;",
+                        "user-select: none;",
+                        "margin: 5px;",
+                "}",
+                
+                ".customEmote:hover {",
+                        "opacity: 1;",
+                        "transition: opacity .2s ease-in;",
+                        "-moz-transition: opacity .2s ease-in;",
+                        "-webkit-transition: opacity .2s ease-in;",
+                        "-o-transition: opacity .2s ease-in;",
+                        "cursor: pointer;",
+                "}",
+                
+                ".emoteTabButton {",
+                        "width: auto;",
+                        "height: 23px;",
+                        "float: left;",
+                        "text-align: center;",
+                        "padding: 5px 8px 0px 8px;",
+                        "margin: 5px 0px 0px 5px;",
+                        "font: 13px normal \"Segoe UI\" !important;",
+                        "-webkit-touch-callout: none;",
+                        "-webkit-user-select: none;",
+                        "-khtml-user-select: none;",
+                        "-moz-user-select: none;",
+                        "-ms-user-select: none;",
+                        "user-select: none;",
+                        "opacity: 1;",
+                        "transition: opacity .2s ease-in;",
+                        "-moz-transition: opacity .2s ease-in;",
+                        "-webkit-transition: opacity .2s ease-in;",
+                        "-o-transition: opacity .2s ease-in;",
+                        "-webkit-border-radius: 3px;",
+                        "-moz-border-radius: 3px;",
+                        "border-radius: 3px;",
+                        "background-color: #abc156;",
+                        "color: #ffffff",
+                "}",
+                
+                ".emotePageTabButton {",
+                        "opacity: 0.5;",
+                        "width: 15px;",
+                        "height: 15px;",
+                        "display: inline-block;",
+                        "text-align: center;",
+                        "padding: 0px;",
+                        "margin-left: 5px;",
+                        "font: 13px normal \"Segoe UI\" !important;",
+                        "-webkit-touch-callout: none;",
+                        "-webkit-user-select: none;",
+                        "-khtml-user-select: none;",
+                        "-moz-user-select: none;",
+                        "-ms-user-select: none;",
+                        "user-select: none;",
+                        "transition: opacity .2s ease-in;",
+                        "-moz-transition: opacity .2s ease-in;",
+                        "-webkit-transition: opacity .2s ease-in;",
+                        "-o-transition: opacity .2s ease-in;",
+                        "-webkit-border-radius: 10px;",
+                        "-moz-border-radius: 10px;",
+                        "border-radius: 15px;",
+                        "background-color: #00a9f0;",
+                        "color: #ffffff",
+                "}",
 
-	}
+                ".emoteTabButton:hover {",
+                        "cursor: pointer;",
+                        "opacity: 0.8;",
+                        "transition: opacity .2s ease-out;",
+                        "-moz-transition: opacity .2s ease-out;",
+                        "-webkit-transition: opacity .2s ease-out;",
+                        "-o-transition: opacity .2s ease-out;",
+                "}",
 
-	if (sitePage == pageBlogEdit) {
-		$(".light_toolbar").removeClass("no_margin");
-		$(".light_toolbar").after(getDefaultTableHTML());
-		$("#blog_post_content").parent().css("margin-right", "300px");
-		$(".emoticons_panel").after("<p style='display: block;'>Blog post support for the emote script is undergoing development. While it should be fully functional, the styling is actively being worked on and looks this way intentionally. Kind of.</p>");
+                ".emotePageTabButton:hover {",
+                        "cursor: pointer;",
+                        "opacity: 1.0;",
+                        "transition: opacity .2s ease-out;",
+                        "-moz-transition: opacity .2s ease-out;",
+                        "-webkit-transition: opacity .2s ease-out;",
+                        "-o-transition: opacity .2s ease-out;",
+                "}",
+                
+                ".inner_padding {",
+                        "margin-top: 0px !important;",
+                "}",
+                
+                ".add_comment {",
+                        "background-color: #faf8f3 !important;",
+                "}",
+                
+                "#comment_comment {",
+                        "border-right: 1px solid #e8e5db !important;",
+                "}",
 
-	}
-	
-	if (sitePage == pageOther) {
-		return;
-	}
+                "#emoteAPITabContainer {",
+                        "margin-top: 0px;",
+                        "margin-left: 12px;",
+                        "margin-bottom: 15px;",
+                        "float: left;",
+                        "clear: both;",
+                        "width: 279px;",
+                "}",
+                
+                "#emotePageTabContainer {",
+                        "margin-bottom: 8px;",
+                        "float: left;",
+                        "clear: both;",
+                        "width: 279px;",
+                        "text-align: center;",
+                "}",
 
-	$(".add_comment form").attr("onsubmit", "");
+                ".emoteTable {",
+                        "display: none;",
+                        "margin: 0 auto 0 auto;",
+                        "float: left;",
+                        "clear: both;",
+                        "text-align: center;",
+                "}",
 
-	$(".add_comment form").submit(function(e) {
-		e.preventDefault();
-		e.stopPropagation();
-		parseEmotesInForm($(".add_comment form"));
-	});
+                ".emotescript_both_curved {",
+                        "-webkit-border-radius: 4px;",
+                        "-moz-border-radius: 4px;",
+                        "border-radius: 4px;",
+                "}"
+                
+        );
+        
+        addGlobalStyle(theCSS.join(''));
+        
+        logInfo("Added CSS.");
+        
+        $('.emoticons_panel > .inner_padding').attr("id", tablePrefix + "FF_Area");
 
-	$("body").append("<div id='emoteScriptInitialized'></div>");
-	initialized = true;
-	
-	if (GM_getValue("verbose", false) == "true") {
-		//logInfo("Verbose settings detected.");
-		$("body").append("<div id='verboseEnabled'></div>");
-		useVerbose = true;
-	} else {
-		//logInfo("Concise settings detected.");
-		$("body").append("<div id='verboseDisabled'></div>");
-	}
-	
-	var theCSS = 
-		
-		".emoticons_panel {" +
-			"height: auto !important;" +
-			"min-height: 285px !important;" +
-			"padding-top: 15px !important;" +
-			"display: block !important;" +
-			"border: none !important;" +
-		"}" +
-		
-		".customEmote {" +
-			"box-shadow: #000 0em 0em 0em;" +
-			"opacity: 0.75;" +
-			"transition: opacity .2s ease-out;" +
-			"-moz-transition: opacity .2s ease-out;" +
-			"-webkit-transition: opacity .2s ease-out;" +
-			"-o-transition: opacity .2s ease-out;" +
-			"-webkit-touch-callout: none;" +
-			"-webkit-user-select: none;" +
-			"-khtml-user-select: none;" +
-			"-moz-user-select: none;" +
-			"-ms-user-select: none;" +
-			"user-select: none;" +
-			"margin: 5px;" +
-		"}" +
-		
-		".customEmote:hover {" +
-			"opacity: 1;" +
-			"transition: opacity .2s ease-in;" +
-			"-moz-transition: opacity .2s ease-in;" +
-			"-webkit-transition: opacity .2s ease-in;" +
-			"-o-transition: opacity .2s ease-in;" +
-			"cursor: pointer;" +
-		"}" +
-		
-		".emoteTabButton {" +
-			"width: auto;" +
-			"height: 23px;" +
-			"float: left;" +
-			"text-align: center;" +
-			"padding: 5px 8px 0px 8px !important;" +
-			"margin: 5px 0px 0px 5px !important;" +
-			"font-family: \"Arial\" !important;" +
-			"font-size: 16px !important;" +
-			"-webkit-touch-callout: none;" +
-			"-webkit-user-select: none;" +
-			"-khtml-user-select: none;" +
-			"-moz-user-select: none;" +
-			"-ms-user-select: none;" +
-			"user-select: none;" +
-			"opacity: 1;" +
-			"transition: opacity .2s ease-in;" +
-			"-moz-transition: opacity .2s ease-in;" +
-			"-webkit-transition: opacity .2s ease-in;" +
-			"-o-transition: opacity .2s ease-in;" +
-			"-webkit-border-radius: 3px;" +
-			"-moz-border-radius: 3px;" +
-			"border-radius: 3px;" +
-			"background-color: #abc156;" +
-			"color: #ffffff" +
-		"}" +
-		
-		".emotePageTabButton {" +
-			"opacity: 0.5;" +
-			"width: 15px;" +
-			"height: 15px;" +
-			"display: inline-block;" +
-			"text-align: center;" +
-			"padding: 0px;" +
-			"margin-left: 5px;" +
-			"font: 13px normal \"Segoe UI\" !important;" +
-			"-webkit-touch-callout: none;" +
-			"-webkit-user-select: none;" +
-			"-khtml-user-select: none;" +
-			"-moz-user-select: none;" +
-			"-ms-user-select: none;" +
-			"user-select: none;" +
-			"transition: opacity .2s ease-in;" +
-			"-moz-transition: opacity .2s ease-in;" +
-			"-webkit-transition: opacity .2s ease-in;" +
-			"-o-transition: opacity .2s ease-in;" +
-			"-webkit-border-radius: 10px;" +
-			"-moz-border-radius: 10px;" +
-			"border-radius: 15px;" +
-			"background-color: #00a9f0;" +
-			"color: #ffffff" +
-		"}" +
+        logInfo("Added default table.");
+        
+        var tempContainer = $("<div id='emotePageTabContainer'></div>");
+        $('.emoticons_panel').prepend(tempContainer);
 
-		".emoteTabButton:hover {" +
-			"cursor: pointer;" +
-			"opacity: 0.8;" +
-			"transition: opacity .2s ease-out;" +
-			"-moz-transition: opacity .2s ease-out;" +
-			"-webkit-transition: opacity .2s ease-out;" +
-			"-o-transition: opacity .2s ease-out;" +
-		"}" +
+        tempContainer = $("<div id='emoteAPITabContainer'></div>");
+        $('.emoticons_panel').prepend(tempContainer);
 
-		".emotePageTabButton:hover {" +
-			"cursor: pointer;" +
-			"opacity: 1.0;" +
-			"transition: opacity .2s ease-out;" +
-			"-moz-transition: opacity .2s ease-out;" +
-			"-webkit-transition: opacity .2s ease-out;" +
-			"-o-transition: opacity .2s ease-out;" +
-		"}" +
-		
-		".inner_padding {" +
-			"margin-top: 0px !important;" +
-		"}" +
-		
-		".add_comment {" +
-			"background-color: #faf8f3 !important;" +
-		"}" +
-		
-		"#comment_comment {" +
-			"border-right: 1px solid #e8e5db !important;" +
-		"}" +
+        tempContainer = $("<div id='emoteURLList' style='display: none;'></div>");
+        $('body').append(tempContainer);
+        
+        logInfo("Added tab container.");
 
-		"#emoteAPITabContainer {" +
-			"margin-top: 0px;" +
-			"margin-left: 12px;" +
-			"margin-bottom: 15px;" +
-			"float: left;" +
-			"clear: both;" +
-			"width: 279px;" +
-		"}" +
-		
-		"#emotePageTabContainer {" +
-			"margin-bottom: 8px;" +
-			"float: left;" +
-			"clear: both;" +
-			"width: 279px;" +
-			"text-align: center;" +
-		"}" +
+        createTableLink("FF", "FF");
 
-		".emoteTable {" +
-			"display: none;" +
-			"margin: 0 auto 0 auto;" +
-			"float: left;" +
-			"clear: both;" +
-			"text-align: center;" +
-		"}" +
+        logInfo("Creating settings tab button.");
 
-		".emotescript_both_curved {" +
-			"-webkit-border-radius: 4px;" +
-			"-moz-border-radius: 4px;" +
-			"border-radius: 4px;" +
-		"}";
-	
-	addGlobalStyle(theCSS);
-	
-	//logInfo("Added CSS.");
-	
-	$('.emoticons_panel > .inner_padding').attr("id", tablePrefix + "FF_Area");
+        var settingsImage = $("<img width='16' height='16' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAM1SURBVHjadJNNSCN3GMZ/k0y+NImLTMIkNUYwJMqmkVkPBrFQe0u8FEEpgoc9pfS0PfTUntvj9tLLXmVDb0XBbdlDS6gtEbPxYv3AiMQaIjpDo/nwHzNjeui6h9K+p/fw/Hh43odX4n9mdXX1VSKRyAAcHR39uLa2lv0vne1hSafTz3K53JuJiYmPAVRV1bLZLNlsFlVVNYBUKrWay+XepNPpZw+c/AAvLy8/n56eZnJy8odSqfRaURRVlmUAFEVRnz59+uvU1NScpmkkEoknAMVi8Vs7QCaT+W5+fj40PDxMNBolGAyOJ5NJLMvCNE0ikQiqqo5qmobb7cbr9aLrerBcLr+wA7Tb7ctAIPCJ3++n1+sRCARwOByYpgmA0+nE7/fTbDa5ubmhVCqxsbHxmWEYh3YAwzAOg8HgrM/nG/f5fPT7ffb399nZ2RGVSsUSQsherxchBCcnJ5RKpdeFQuErAGlpaemVoiiaoihqMpnE6/VSrVbZ2tr6OZ/PLwCsrKxszs3NfRSNRmm1Wuzt7aHr+oWu67vy6OhoRtM0XC4XnU4HSZI4PT0Vb2EBkM/nF0ZGRv4KBAJuIQSpVIput6vu7u5mZCEEZ2dn2Gw2JEkiFAphWZb07757vZ7U6XS4uLig3+9zf3+PEAJ7OByebTQavmazOWiaJh6PB4fDIQ8NDX1wcHDwPSAvLi7+FI/Hx/v9Pufn59TrdWq12qVhGL+9c1pYWPhFVdUPFUUhFotRr9epVqtdgGg06gqFQlQqFXRdR9f17fX19TSAHSAejy/F4/EvwuEwjUaD6+trwuEwY2NjciQSkR0OB8fHx7RaLQKBAHd3dyOmaf55dXW1K71134vFYo+FENze3tJut3E6nXi9XizLotvtIoRgcHAQj8eD2+2mUqn8sbm5mZQB6vX6S8uyvna5XHS7XSzLKtvt9ic22z+vYhgGvV7v93a7Pfuguby8fPkuQr1e3/L7/T1Zlt+r1WpfFovFnKqqn0uS5BZC0Gw2rwuFwqTNZjscGBh4rOv683K5/A3AwxHtgBt4BPgkSXo0MzPzwjTN9wFkWd7b3t7+tN/vd4BroAF0gO7fAwAtE2jf5kCQVgAAAABJRU5ErkJggg==' />");
+        var settingsLink = $("<a class='emotescript_both_curved' href='/manage_user/emote_script_settings' title='Emote Script Settings'></a>");
+        var settingsListObj = $("<li></li>");
+        var settingsList = $("<ul class='toolbar_buttons'></ul>");
 
-	//logInfo("Added default table.");
-	
-	var tempContainer = $("<div id='emotePageTabContainer'></div>");
-	$('.emoticons_panel').prepend(tempContainer);
+        settingsLink.append(settingsImage);
+        settingsListObj.append(settingsLink);
+        settingsList.append(settingsListObj);
 
-	tempContainer = $("<div id='emoteAPITabContainer'></div>");
-	$('.emoticons_panel').prepend(tempContainer);
-	
-	//logInfo("Added tab container.");
+        $('.add_comment form div.light_toolbar').append(settingsList);
 
-	createTableLink("FF", "FF");
+        showTable(tablePrefix + "FF");
 
-	//logInfo("Creating settings tab button.");
-
-	var settingsImage = $("<img width='16' height='16' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAM1SURBVHjadJNNSCN3GMZ/k0y+NImLTMIkNUYwJMqmkVkPBrFQe0u8FEEpgoc9pfS0PfTUntvj9tLLXmVDb0XBbdlDS6gtEbPxYv3AiMQaIjpDo/nwHzNjeui6h9K+p/fw/Hh43odX4n9mdXX1VSKRyAAcHR39uLa2lv0vne1hSafTz3K53JuJiYmPAVRV1bLZLNlsFlVVNYBUKrWay+XepNPpZw+c/AAvLy8/n56eZnJy8odSqfRaURRVlmUAFEVRnz59+uvU1NScpmkkEoknAMVi8Vs7QCaT+W5+fj40PDxMNBolGAyOJ5NJLMvCNE0ikQiqqo5qmobb7cbr9aLrerBcLr+wA7Tb7ctAIPCJ3++n1+sRCARwOByYpgmA0+nE7/fTbDa5ubmhVCqxsbHxmWEYh3YAwzAOg8HgrM/nG/f5fPT7ffb399nZ2RGVSsUSQsherxchBCcnJ5RKpdeFQuErAGlpaemVoiiaoihqMpnE6/VSrVbZ2tr6OZ/PLwCsrKxszs3NfRSNRmm1Wuzt7aHr+oWu67vy6OhoRtM0XC4XnU4HSZI4PT0Vb2EBkM/nF0ZGRv4KBAJuIQSpVIput6vu7u5mZCEEZ2dn2Gw2JEkiFAphWZb07757vZ7U6XS4uLig3+9zf3+PEAJ7OByebTQavmazOWiaJh6PB4fDIQ8NDX1wcHDwPSAvLi7+FI/Hx/v9Pufn59TrdWq12qVhGL+9c1pYWPhFVdUPFUUhFotRr9epVqtdgGg06gqFQlQqFXRdR9f17fX19TSAHSAejy/F4/EvwuEwjUaD6+trwuEwY2NjciQSkR0OB8fHx7RaLQKBAHd3dyOmaf55dXW1K71134vFYo+FENze3tJut3E6nXi9XizLotvtIoRgcHAQj8eD2+2mUqn8sbm5mZQB6vX6S8uyvna5XHS7XSzLKtvt9ic22z+vYhgGvV7v93a7Pfuguby8fPkuQr1e3/L7/T1Zlt+r1WpfFovFnKqqn0uS5BZC0Gw2rwuFwqTNZjscGBh4rOv683K5/A3AwxHtgBt4BPgkSXo0MzPzwjTN9wFkWd7b3t7+tN/vd4BroAF0gO7fAwAtE2jf5kCQVgAAAABJRU5ErkJggg==' />");
-	var settingsLink = $("<a class='emotescript_both_curved' href='/manage_user/emote_script_settings' title='Emote Script Settings'></a>");
-	var settingsListObj = $("<li></li>");
-	var settingsList = $("<ul class='toolbar_buttons'></ul>");
-
-	settingsLink.append(settingsImage);
-	settingsListObj.append(settingsLink);
-	settingsList.append(settingsListObj);
-
-	$('.add_comment form div.light_toolbar').append(settingsList);
-
-	showTable(tablePrefix + "FF");
-
-	//logInfo("Initialized successfully.");
-	
+        logInfo("Initialized successfully.");
+        
 }
 
 function createTableLink(shortTableName, longTableName, tablePage) {
 
-	var displayName = shortTableName;
+        var displayName = shortTableName;
 
-	if (useVerbose) {
-		displayName = longTableName;
-	}
+        if (useVerbose) {
+                displayName = longTableName;
+        }
 
-	if (majorTables.indexOf((tablePrefix + shortTableName)) == -1 && shortTableName != "FF") {
+        if (majorTables.indexOf((tablePrefix + shortTableName)) == -1 && shortTableName != "FF") {
 
-		var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
+                var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + shortTableName) + "'>" + displayName + "</span>");
 
-		tableLink.click(function() {
-			showTableCycle(this.id);
-			showPageTab(this.id);
-		});
+                tableLink.click(function() {
+                        showTableCycle(this.id);
+                        showPageTab(this.id);
+                });
 
-		$("#emoteAPITabContainer").append(tableLink);
+                $("#emoteAPITabContainer").append(tableLink);
 
-		majorTables.push((tablePrefix + shortTableName));
+                majorTables.push((tablePrefix + shortTableName));
 
-	}
+        }
 
-	if (shortTableName === "FF") {
+        if (shortTableName === "FF") {
 
-		var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + "FF") + "'>" + displayName + "</span>");
+                var tableLink = $("<span class='emoteTabButton' id='" + (tablePrefix + "FF") + "'>" + displayName + "</span>");
 
-		tableLink.click(function() {
-			showTable(this.id);
-			showPageTab("FF");
-		});
+                tableLink.click(function() {
+                        showTable(this.id);
+                        showPageTab("FF");
+                });
 
-		$("#emoteAPITabContainer").append(tableLink);
+                $("#emoteAPITabContainer").append(tableLink);
 
-	} else {
+        } else {
 
-		var tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' style='display: none;' id='" + (tablePrefix + shortTableName + tablePage) + "'> </span>");
+                var tableLink = $("<span class='emotePageTabButton " + (tablePrefix + shortTableName) + "pagetab' style='display: none;' id='" + (tablePrefix + shortTableName + tablePage) + "'> </span>");
 
-		tableLink.click(function() {
-			showTable(this.id);
-		});
+                tableLink.click(function() {
+                        showTable(this.id);
+                });
 
-		$("#emotePageTabContainer").append(tableLink);
+                $("#emotePageTabContainer").append(tableLink);
 
-	}
+        }
 
 }
 
 function showPageTab(tabID) {
 
-	if (tabID === "FF") {
-		$('#emotePageTabContainer').children().each(function () {
-			var currentDiv = $(this);
-			currentDiv.css('display', 'none');
-		});
-	} else {
-		$('#emotePageTabContainer').children().each(function () {
-			var currentDiv = $(this);
-			if (currentDiv.attr("class") == "emotePageTabButton " + tabID + "pagetab") {
-				currentDiv.css('display', 'inline-block');
-			} else {
-				currentDiv.css('display', 'none');
-			}
-		});
-	}
+        if (tabID === "FF") {
+                $('#emotePageTabContainer').children().each(function () {
+                        var currentDiv = $(this);
+                        currentDiv.css('display', 'none');
+                });
+        } else {
+                $('#emotePageTabContainer').children().each(function () {
+                        var currentDiv = $(this);
+                        if (currentDiv.attr("class") == "emotePageTabButton " + tabID + "pagetab") {
+                                currentDiv.css('display', 'inline-block');
+                        } else {
+                                currentDiv.css('display', 'none');
+                        }
+                });
+        }
 
-	setTimeout(function() {
-		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-	}, 2);
+        setTimeout(function() {
+                $("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+                $("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+        }, 2);
 
 }
 
 function showTable(tableID) {
 
-	//logInfo("Showing table: " + tableID + "_Area");
+        logInfo("Showing table: " + tableID + "_Area");
 
-	$('.emoticons_panel').children().each(function () {
-		var currentDiv = $(this);
-		
-		if (currentDiv.attr("id") == tableID + "_Area") {
-			currentDiv.css('display', 'block');
-		} else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
-			currentDiv.css('display', 'none');
-		}
+        $('.emoticons_panel').children().each(function () {
+                var currentDiv = $(this);
+                
+                if (currentDiv.attr("id") == tableID + "_Area") {
+                        currentDiv.css('display', 'block');
+                } else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
+                        currentDiv.css('display', 'none');
+                }
 
-	});
+        });
 
-	$('#emotePageTabContainer').children().each(function () {
+        $('#emotePageTabContainer').children().each(function () {
 
-		var currentDiv = $(this);
-		currentDiv.css('background-color', "#00a9f0");
+                var currentDiv = $(this);
+                currentDiv.css('background-color', "#00a9f0");
 
-		if (currentDiv.attr("id") == tableID) {
-			currentDiv.css('background-color', "#003fe0");
-		}
+                if (currentDiv.attr("id") == tableID) {
+                        currentDiv.css('background-color', "#003fe0");
+                }
 
-	});
+        });
 
-	setTimeout(function() {
-		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-	}, 2);
-	
+        setTimeout(function() {
+                $("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+                $("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+        }, 2);
+        
 }
 
 function showTableCycle(tableID) {
 
-	var currPage = 0;
-	var totalPages = 0;
+        var currPage = 0;
+        var totalPages = 0;
 
-	$('.emoticons_panel').children().each(function () {
-		var currentDiv = $(this);
-		if (currentDiv.attr("id") == tableID + (totalPages + 1) + "_Area") {
-			totalPages++;
-			if (currentDiv.css("display") === "block") {
-				currPage = totalPages;
-			}
-		}
-	});
+        $('.emoticons_panel').children().each(function () {
+                var currentDiv = $(this);
+                if (currentDiv.attr("id") == tableID + (totalPages + 1) + "_Area") {
+                        totalPages++;
+                        if (currentDiv.css("display") === "block") {
+                                currPage = totalPages;
+                        }
+                }
+        });
 
-	var nextPage = currPage + 1;
+        var nextPage = currPage + 1;
 
-	if (nextPage > totalPages) {
-		nextPage = 1;
-	}
+        if (nextPage > totalPages) {
+                nextPage = 1;
+        }
 
-	//logInfo("Showing table: " + tableID + nextPage + "_Area");
+        logInfo("Showing table: " + tableID + nextPage + "_Area");
 
-	$('.emoticons_panel').children().each(function () {
+        $('.emoticons_panel').children().each(function () {
 
-		var currentDiv = $(this);
-		if (currentDiv.attr("id") == tableID + nextPage + "_Area") {
-			currentDiv.css('display', 'block');
-		} else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
-			currentDiv.css('display', 'none');
-		}
+                var currentDiv = $(this);
+                if (currentDiv.attr("id") == tableID + nextPage + "_Area") {
+                        currentDiv.css('display', 'block');
+                } else if (currentDiv.attr("id") != "emoteAPITabContainer" && currentDiv.attr("id") != "emotePageTabContainer") {
+                        currentDiv.css('display', 'none');
+                }
 
-	});
+        });
 
-	$('#emotePageTabContainer').children().each(function () {
+        $('#emotePageTabContainer').children().each(function () {
 
-		var currentDiv = $(this);
-		currentDiv.css('background-color', "#00a9f0");
+                var currentDiv = $(this);
+                currentDiv.css('background-color', "#00a9f0");
 
-		if (currentDiv.attr("id") == tableID + nextPage) {
-			currentDiv.css('background-color', "#003fe0");
-		}
+                if (currentDiv.attr("id") == tableID + nextPage) {
+                        currentDiv.css('background-color', "#003fe0");
+                }
 
-	});
+        });
 
-	if (sitePage == pageBlogEdit) {
-		setTimeout(function() {
-			$("textarea#blog_post_content").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-			$("textarea#blog_post_content").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-		}, 2);
-	} else {
-		setTimeout(function() {
-			$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-			$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-		}, 2);
-	}
-	
+        setTimeout(function() {
+                $("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+                $("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+        }, 2);
+        
 }
 
 function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
-	if (!initialized) {
+        if (!initialized) {
 
-		getSitePage();
+                getSitePage();
 
-		emotePreviewSize = GM_getValue('emotePreviewSize', 58);
+                emotePreviewSize = GM_getValue('emotePreviewSize', 58);
 
-		if ($('div#verboseEnabled').length > 0) {
-			useVerbose = true;
-		} else if ($('div#verboseDisabled').length > 0) {
-			useVerbose = false;
-		}
+                if ($('div#verboseEnabled').length > 0) {
+                        useVerbose = true;
+                } else if ($('div#verboseDisabled').length > 0) {
+                        useVerbose = false;
+                }
 
-		if ($('div#emoteScriptInitialized').length > 0) {
-			initialized = true;
-			//logInfo("Already initialized.");
-		} else {
-			initialize();
-		}
+                if ($('div#emoteScriptInitialized').length > 0) {
+                        initialized = true;
+                        logInfo("Already initialized.");
+                } else {
+                        initialize();
+                }
 
-	}
+        }
 
-	if (sitePage != pageGroupThread && sitePage != pageBlogEdit) {
+        if (sitePage != pageGroupThread && sitePage != pageBlogEdit) {
+                return;
+        }
 
-	    $("a.user_image_link").each(function(index) {
+        var tableFound = false;
 
-	        if ($(this).attr("href") == url) {
-	            $(this).parent().replaceWith('<img src="' + url + '" />');
-	        }    
+        if (currentTables.indexOf(tablePrefix + shortTableName + tablePage + "_Area") == -1) {
+                
+                var tableID = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
 
-	    });
+                if($(tableID).length > 0) {
+                        tableFound = true;
+                        currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
+                }
 
-		return;
+        } else {
+                tableFound = true;
+        }
 
-	}
-
-	emoteName = ":" + emoteName + ":";
-
-	emoteNameList.push(emoteName);
-	emoteURLList.push(url);
-
-	var tableFound = false;
-
-	if (currentTables.indexOf(tablePrefix + shortTableName + tablePage + "_Area") == -1) {
-		
-		var tableID = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
-
-		if($(tableID).length > 0) {
-			tableFound = true;
-			currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
-		}
-
-	} else {
-		tableFound = true;
-	}
-
-	if (tableFound) {
-		createNewEmote(url, emoteName, shortTableName, tablePage);
-	} else {
-		createNewTable(shortTableName, longTableName, tablePage);
-		createNewEmote(url, emoteName, shortTableName, tablePage);
-	}
-	
+        if (tableFound) {
+                createNewEmote(url, emoteName, shortTableName, tablePage);
+        } else {
+                createNewTable(shortTableName, longTableName, tablePage);
+                createNewEmote(url, emoteName, shortTableName, tablePage);
+        }
+        
 }
 
 function createNewEmote(url, emoteName, shortTableName, tablePage) {
 
-	//logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
+        var urlSpan = $("<span>" + url + "</span>");
+        $("div#emoteURLList").append(urlSpan);
 
-	var image = $(document.createElement('img'));
-	image.attr({
-		"id": url,
-		"class": "customEmote",
-		"src": url,
-		"width": emotePreviewSize,
-		"height": emotePreviewSize,
-		"title": emoteName
-	});
-	image.click(function() { addEmoteToCommentBox(this.id); });
+        logInfo("Creating emote: " + emoteName + " for table " + shortTableName);
 
-	var selector = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
+        var image = $("<img />");
+        image.attr("id", url);
+        image.attr("class", "customEmote");
+        image.attr("src", url);
+        image.attr("width", String(emotePreviewSize));
+        image.attr("height", String(emotePreviewSize));
+        image.attr("title", emoteName);
+        image.click(function() { addEmoteToCommentBox(this.id); });
 
-	$(selector).append(image);
+        var selector = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
+
+        $(selector).append(image);
 
 }
 
 function createNewTable(shortTableName, longTableName, tablePage) {
 
-	//logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
+        logInfo("Creating emoticon table: " + longTableName + "(" + shortTableName + ")");
 
-	currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
+        currentTables.push(tablePrefix + shortTableName + tablePage + "_Area");
 
-	var emoteTable = $("<div class='emoteTable'></div>");
-	$("div.emoticons_panel").append(emoteTable);
-	emoteTable.attr("id", tablePrefix + shortTableName + tablePage + "_Area");
+        var emoteTable = $("<div class='emoteTable'></div>");
+        $("div.emoticons_panel").append(emoteTable);
+        emoteTable.attr("id", tablePrefix + shortTableName + tablePage + "_Area");
 
-	createTableLink(shortTableName, longTableName, tablePage);
+        createTableLink(shortTableName, longTableName, tablePage);
 
 }
 
 function getSitePage() {
-	
-	sitePage = pageOther;
+        
+        sitePage = pageOther;
 
-	if(/\/manage_user\/edit_blog_post/.test(location.href)) {
-		sitePage = pageBlogEdit;
-		//logInfo("Site page set to blog editor.");
-	} else if(/\/group\//.test(location.href)) {
-		if (/\/thread\//.test(location.href)) {
-			sitePage = pageGroupThread;
-			//logInfo("Site page set to group thread.");
-		}
-	} else if(/\/emote_script_settings/.test(location.href)) {
-		sitePage = pageScriptSettings;
-		//logInfo("Site page set to script settings.");
-	}
-	
+        if(/\/manage_user\/edit_blog_post/.test(location.href)) {
+                sitePage = pageBlogEdit;
+                logInfo("Site page set to blog editor.");
+        } else if(/\/group\//.test(location.href)) {
+                if (/\/thread\//.test(location.href)) {
+                        sitePage = pageGroupThread;
+                        logInfo("Site page set to group thread.");
+                }
+        } else if(/\/emote_script_settings/.test(location.href)) {
+                sitePage = pageScriptSettings;
+                logInfo("Site page set to script settings.");
+        }
+        
 }
 
 function addEmoteToCommentBox(url) {
-
-	if (sitePage == pageBlogEdit) {
-		replaceSelectedText(document.getElementById("blog_post_content"), "[img]" + url + "[/img] ");
-	} else {
-		replaceSelectedText(document.getElementById("comment_comment"), "[img]" + url + "[/img] ");
-	}
-
+        replaceSelectedText(document.getElementById("comment_comment"), "[img]" + url + "[/img] ");
 }
 
 function replaceSelectedText(el, text) {
-	var sel = getInputSelection(el), val = el.value;
-	el.value = val.slice(0, sel.start) + text + val.slice(sel.end);
+        var sel = getInputSelection(el), val = el.value;
+        el.value = val.slice(0, sel.start) + text + val.slice(sel.end);
 }
 
 function getInputSelection(el) {
@@ -641,129 +598,55 @@ function getInputSelection(el) {
         }
     }
 
-	return {
-	start: _start,
-	end: _end
-	};
+        return {
+        start: _start,
+        end: _end
+        };
 
 }
 
 Object.size = function(obj) {
-	var size = 0, key;
-	for(key in obj) {
-		if(obj.hasOwnProperty(key)) {
-			size++;
-		}
-	}
-	return size;
+        var size = 0, key;
+        for(key in obj) {
+                if(obj.hasOwnProperty(key)) {
+                        size++;
+                }
+        }
+        return size;
 };
 
 function createSettingsPage() {
 
-	$("div.main").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='margin: 15px; padding: 5px;' />"));
-	$("div.main").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='margin: 15px; padding: 5px;' />"));
-	$("div.main").append($("<input type='button' id='regSizeButton' value='Regular Size Previews' style='margin: 15px; padding: 5px; margin-left: 25px;' />"));
-	$("div.main").append($("<input type='button' id='largeSizeButton' value='Large Size Previews' style='margin: 15px; padding: 5px;' />"));
-	$("div.main").append($("<input type='button' id='smallSizeButton' value='Small Size Previews' style='margin: 15px; padding: 5px;' />"));
+        $("div.main").append($("<input type='button' id='useConciseButton' value='Use Concise Tabs' style='margin: 15px; padding: 5px;' />"));
+        $("div.main").append($("<input type='button' id='useVerboseButton' value='Use Verbose Tabs' style='margin: 15px; padding: 5px;' />"));
+        $("div.main").append($("<input type='button' id='regSizeButton' value='Regular Size Previews' style='margin: 15px; padding: 5px; margin-left: 25px;' />"));
+        $("div.main").append($("<input type='button' id='largeSizeButton' value='Large Size Previews' style='margin: 15px; padding: 5px;' />"));
+        $("div.main").append($("<input type='button' id='smallSizeButton' value='Small Size Previews' style='margin: 15px; padding: 5px;' />"));
 
-	$("#useVerboseButton").click(function() {
-		GM_setValue("verbose", "true");
-		alert("Now using verbose tabs.");
-	});
+        $("#useVerboseButton").click(function() {
+                GM_setValue("verbose", "true");
+                alert("Now using verbose tabs.");
+        });
 
-	$("#useConciseButton").click(function() {
-		GM_setValue("verbose", "false");
-		alert("Now using concise tabs.");
-	});
+        $("#useConciseButton").click(function() {
+                GM_setValue("verbose", "false");
+                alert("Now using concise tabs.");
+        });
 
-	$("#largeSizeButton").click(function() {
-		GM_setValue("emotePreviewSize", 70);
-		alert("Now using large emote preview size.");
-	});
+        $("#largeSizeButton").click(function() {
+                GM_setValue("emotePreviewSize", 70);
+                alert("Now using large emote preview size.");
+        });
 
-	$("#regSizeButton").click(function() {
-		GM_setValue("emotePreviewSize", 58);
-		alert("Now using regular emote preview size.");
-	});
+        $("#regSizeButton").click(function() {
+                GM_setValue("emotePreviewSize", 58);
+                alert("Now using regular emote preview size.");
+        });
 
-	$("#smallSizeButton").click(function() {
-		GM_setValue("emotePreviewSize", 40);
-		alert("Now using small emote preview size.");
-	});
-
-}
-
-function getDefaultTableHTML() {
-	return "<div class=\"emoticons_panel\">" +
-				"<div class=\"inner_padding\">" +
-					"<a href=\"javascript:smilie(':ajbemused:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajbemused.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':ajsleepy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajsleepy.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':ajsmug:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/ajsmug.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':applecry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/applecry.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':applejackconfused:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/applejackconfused.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':applejackunsure:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/applejackunsure.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':coolphoto:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/coolphoto.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':derpyderp1:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/derpyderp1.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':derpyderp2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/derpyderp2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':derpytongue2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/derpytongue2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':fluttercry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttercry.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':flutterrage:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/flutterrage.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':fluttershbad:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttershbad.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':fluttershyouch:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttershyouch.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':fluttershysad:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/fluttershysad.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':heart:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/heart.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiecrazy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiecrazy.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiegasp:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiegasp.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiehappy:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiehappy.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiesad2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiesad2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiesick:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiesick.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':pinkiesmile:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/pinkiesmile.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowderp:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowderp.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowdetermined2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowdetermined2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowhuh:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowhuh.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowkiss:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowkiss.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowlaugh:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowlaugh.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':rainbowwild:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/rainbowwild.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':raritycry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritycry.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':raritydespair:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritydespair.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':raritystarry:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritystarry.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':raritywink:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/raritywink.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':scootangel:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/scootangel.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':trixieshiftleft:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/trixieshiftleft.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':trixieshiftright:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/trixieshiftright.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightangry2:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightangry2.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightblush:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightblush.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightoops:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightoops.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightsheepish:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightsheepish.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twilightsmile:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twilightsmile.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':twistnerd:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/twistnerd.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':unsuresweetie:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/unsuresweetie.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':yay:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/yay.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':trollestia:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/trollestia.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':moustache:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/moustache.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':facehoof:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/facehoof.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':eeyup:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/eeyup.png\" style=\"margin:1px;\"></a>" +
-					"<a href=\"javascript:smilie(':duck:');\"><img src=\"//www.fimfiction-static.net/images/emoticons/duck.png\" style=\"margin:1px;\"></a>" +
-				"<br />Comments with more than 20 emoticons will have them stripped" +
-			"</div>" +
-		"</div>";
-}
-
-function parseEmotesInForm(form) {
-
-	var textareaData = $(form).find("textarea[name='comment']").val();
-
-	if (textareaData != "") {
-
-		for (var i = 0; i < emoteNameList.length; i++) {
-			textareaData = textareaData.split(emoteNameList[i]).join("[img]" + emoteURLList[i] + "[/img] ");
-		}
-
-		$(form).find("textarea[name='comment']").val(textareaData);
-
-	}
-
-	AddComment(form);
+        $("#smallSizeButton").click(function() {
+                GM_setValue("emotePreviewSize", 40);
+                alert("Now using small emote preview size.");
+        });
 
 }
 
@@ -772,36 +655,36 @@ const __GM_STORAGE_PREFIX = [
 
 // All of the GM_*Value methods rely on DOM Storage's localStorage facility.
 // They work like always, but the values are scoped to a domain, unlike the
-// original functions.  The content page's scripts can access, set, and
+// original functions. The content page's scripts can access, set, and
 // remove these values.
 // https://raw.github.com/gist/3123124
 function GM_deleteValue(aKey) {
-	'use strict';
-	localStorage.removeItem(__GM_STORAGE_PREFIX + aKey);
+        'use strict';
+        localStorage.removeItem(__GM_STORAGE_PREFIX + aKey);
 }
 
 function GM_getValue(aKey, aDefault) {
-	'use strict';
-	let val = localStorage.getItem(__GM_STORAGE_PREFIX + aKey)
-	if (null === val && 'undefined' != typeof aDefault) return aDefault;
-	return val;
+        'use strict';
+        let val = localStorage.getItem(__GM_STORAGE_PREFIX + aKey)
+        if (null === val && 'undefined' != typeof aDefault) return aDefault;
+        return val;
 }
 
 function GM_listValues() {
-	'use strict';
-	let prefixLen = __GM_STORAGE_PREFIX.length;
-	let values = [];
-	let i = 0;
-	for (let i = 0; i < localStorage.length; i++) {
-		let k = localStorage.key(i);
-		if (k.substr(0, prefixLen) === __GM_STORAGE_PREFIX) {
-			values.push(k.substr(prefixLen));
-		}
-	}
-	return values;
+        'use strict';
+        let prefixLen = __GM_STORAGE_PREFIX.length;
+        let values = [];
+        let i = 0;
+        for (let i = 0; i < localStorage.length; i++) {
+                let k = localStorage.key(i);
+                if (k.substr(0, prefixLen) === __GM_STORAGE_PREFIX) {
+                        values.push(k.substr(prefixLen));
+                }
+        }
+        return values;
 }
 
 function GM_setValue(aKey, aVal) {
-	'use strict';
-	localStorage.setItem(__GM_STORAGE_PREFIX + aKey, aVal);
+        'use strict';
+        localStorage.setItem(__GM_STORAGE_PREFIX + aKey, aVal);
 }

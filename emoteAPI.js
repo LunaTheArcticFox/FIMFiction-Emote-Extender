@@ -752,7 +752,7 @@ function parseEmotesInForm(form) {
 
 	}
 
-	AddComment(form);
+	AddComment($(".add_comment form"));
 
 }
 

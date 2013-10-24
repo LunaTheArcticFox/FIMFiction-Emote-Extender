@@ -83,6 +83,7 @@ function initialize() {
 	}
 
 	if (sitePage == pageBlogEdit) {
+		alert("Blog Page");
 		$(".light_toolbar").removeClass("no_margin");
 		$(".light_toolbar").after(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");

@@ -13,7 +13,7 @@ $(document).ready(run());
 
 function run() {
 	
-	addEmote("http://i.imgur.com/NBEDt.png", "ajlie", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/NBEDt.png", "ajlie", "AJ", "Applejack", 1);/*
 	addEmote("http://i.imgur.com/5Tp73.png", "ajhappy", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/oa0BJ.png", "ajsup", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/oaEI1BM.png", "ajderp", "AJ", "Applejack", 1);
@@ -380,6 +380,6 @@ function run() {
 	addEmote("http://i.imgur.com/MGw7s.png", "thehorror", "MISC", "Other", 2);
 	addEmote("http://i.imgur.com/lx5pI.png", "snails", "MISC", "Other", 2);
 	addEmote("http://i.imgur.com/eWyjh.png", "cockatrice", "MISC", "Other", 2);
-	addEmote("http://i.imgur.com/pjagI.png", "angelbunny", "MISC", "Other", 2);
+	addEmote("http://i.imgur.com/pjagI.png", "angelbunny", "MISC", "Other", 2);*/
 
 }

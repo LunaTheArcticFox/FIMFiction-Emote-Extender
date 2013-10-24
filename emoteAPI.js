@@ -468,6 +468,8 @@ function showTableCycle(tableID) {
 
 function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
+	alert("Emote add called.");
+
 	if (!initialized) {
 
 		alert("Not init");

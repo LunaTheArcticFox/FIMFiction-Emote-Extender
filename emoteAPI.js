@@ -92,12 +92,12 @@ function initialize() {
 		return;
 	}
 
-	$(".add_comment form").attr("onsubmit", "");
+	$(".add_comment").children().eq(0).attr("onsubmit", "");
 
-	$(".add_comment form").submit(function(e) {
+	$(".add_comment").children().eq(0).submit(function(e) {
 		e.preventDefault();
 		e.stopPropagation();
-		parseEmotesInForm($(".add_comment form"));
+		parseEmotesInForm();
 	});
 
 	$("body").append("<div id='emoteScriptInitialized'></div>");
@@ -733,7 +733,7 @@ function getDefaultTableHTML() {
 		</div>";
 }
 
-function parseEmotesInForm(form) {
+function parseEmotesInForm() {
 
 	var textareaData = $("#comment_comment").val();
 
@@ -752,7 +752,7 @@ function parseEmotesInForm(form) {
 
 	}
 
-	AddComment($(".add_comment form"));
+	AddComment($(".add_comment").children().eq(0));
 
 }
 

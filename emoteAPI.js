@@ -97,7 +97,7 @@ function initialize() {
 	$(".add_comment form").submit(function(e) {
 		e.preventDefault();
 		e.stopPropagation();
-		parseEmotesInForm();
+		parseEmotesInForm($(".add_comment form"));
 	});
 
 	$("body").append("<div id='emoteScriptInitialized'></div>");
@@ -733,14 +733,14 @@ function getDefaultTableHTML() {
 		</div>";
 }
 
-function parseEmotesInForm() {
+function parseEmotesInForm(form) {
 
-	var form = $(".add_comment form");
-
-	var textareaData = form.find("textarea[name='comment']").val();
+	var textareaData = $(form).find("textarea[name='comment']").val();
 
 	var nameList = $("#emoteNameList").children();
 	var urlList = $("#emoteURLList").children();
+
+	logInfo(nameList.length);
 
 	if (textareaData != "") {
 
@@ -748,7 +748,7 @@ function parseEmotesInForm() {
 			textareaData = textareaData.split(nameList.eq(i).html()).join("[img]" + urlList.eq(i).html() + "[/img] ");
 		}
 
-		form.find("textarea[name='comment']").val(textareaData);
+		$(form).find("textarea[name='comment']").val(textareaData);
 
 	}
 

@@ -735,6 +735,9 @@ function getDefaultTableHTML() {
 
 function parseEmotesInForm(form) {
 
+	$("#comment_preview").style("display", "none");
+	$("#comment_preview").html("");
+
 	var textareaData = $(form).find("textarea[name='comment']").val();
 
 	var nameList = $("#emoteNameList").children();

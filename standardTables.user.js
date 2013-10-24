@@ -176,7 +176,7 @@ function run() {
 	addEmote("http://i.imgur.com/H93RXx3.png", "Emote", "R", "Rarity", 2);
 	addEmote("http://i.imgur.com/rqasPvb.png", "Emote", "R", "Rarity", 2);
 	addEmote("http://i.imgur.com/qrNLnm7.png", "Emote", "R", "Rarity", 2);
-	addEmote("http://i.imgur.com/gSUBQJo.png", "Emote", "R", "Rarity", 2);
+	addEmote("http://i.imgur.com/gSUBQJo.png", "raritroll", "R", "Rarity", 2);
 	addEmote("http://i.imgur.com/L82FBf7.png", "Emote", "R", "Rarity", 2);
 	addEmote("http://i.imgur.com/uUFRVSw.png", "Emote", "R", "Rarity", 2);
 	addEmote("http://i.imgur.com/9cktQCa.png", "Emote", "R", "Rarity", 2);

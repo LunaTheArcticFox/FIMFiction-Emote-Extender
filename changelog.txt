@@ -4,6 +4,11 @@ ADD A BAT PONY EMOTE, ADD A SOMBRA EMOTE
 PLUS DARING DO
 *******/
 
+New Credits:
+Lion for Emote Names
+Kits for Expander code
+Jake for Emote Name
+
 - Blog posts now have an emote panel
 - Emotes now have fimfiction style shorthand (Needs completion)
 - Automatic emote spoiler replacement on all pages (Thanks, Kits!)

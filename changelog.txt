@@ -15,3 +15,4 @@ To Do:
 - Fix up CSS in added panels
 - Clicking emotes inserts fimfiction style shortcuts instead of [img] links.
 - Emote resizing based on %. Allows use of non-standard emote sizes.
+- Add emotes to preview functionality

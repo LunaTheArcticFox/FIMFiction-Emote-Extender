@@ -37,7 +37,7 @@ function run() {
 	addEmote("http://i.imgur.com/lGb8P.png", "ajcurious", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/0zTKq.png", "ajsmirk", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/BeQHk.png", "ajbiggrin", "AJ", "Applejack", 1);
-	addEmote("http://i.imgur.com/fl6ox.png", "ajsad", "AJ", "Applejack", 1);
+	addEmote("http://i.imgur.com/fl6ox.png", "ajcry", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/mbZjl.png", "ajmoustache", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/r19vB.png", "ajbashful", "AJ", "Applejack", 1);
 	addEmote("http://i.imgur.com/hMgvT.png", "ajunamused", "AJ", "Applejack", 1);
@@ -54,17 +54,17 @@ function run() {
 	addEmote("http://i.imgur.com/yAmRYea.png", "ajangry", "AJ", "Applejack", 2);
 	addEmote("http://i.imgur.com/pww1wjm.png", "ajstubborn", "AJ", "Applejack", 2);
 	addEmote("http://i.imgur.com/KZHFE8U.png", "ajno", "AJ", "Applejack", 2);
-	addEmote("http://i.imgur.com/MZsrxQK.png", "Emote", "AJ", "Applejack", 2);
-	addEmote("http://i.imgur.com/aHVIEJf.png", "Emote", "AJ", "Applejack", 2);
+	addEmote("http://i.imgur.com/MZsrxQK.png", "ajunsure", "AJ", "Applejack", 2);
+	addEmote("http://i.imgur.com/aHVIEJf.png", "ajfearful", "AJ", "Applejack", 2);
 	addEmote("http://i.imgur.com/DPk2NZn.png", "ajnotlying", "AJ", "Applejack", 2);
 	addEmote("http://i.imgur.com/ogtnDnC.png", "ajexcited", "AJ", "Applejack", 2);
 	addEmote("http://i.imgur.com/oBAx788.png", "ajwink", "AJ", "Applejack", 2);
-	addEmote("http://i.imgur.com/myOBKB4.png", "Emote", "AJ", "Applejack", 2);
+	addEmote("http://i.imgur.com/myOBKB4.png", "ajfaint", "AJ", "Applejack", 2);
 	addEmote("http://i.imgur.com/LRD2W70.png", "Emote", "AJ", "Applejack", 2);
-	addEmote("http://i.imgur.com/MIrVmT7.png", "Emote", "AJ", "Applejack", 2);
-	addEmote("http://i.imgur.com/yyfj6BZ.png", "Emote", "AJ", "Applejack", 2);
-	addEmote("http://i.imgur.com/6DvjrRv.png", "Emote", "AJ", "Applejack", 2);
-	addEmote("http://i.imgur.com/0REqcvr.png", "Emote", "AJ", "Applejack", 2);
+	addEmote("http://i.imgur.com/MIrVmT7.png", "ajsad", "AJ", "Applejack", 2);
+	addEmote("http://i.imgur.com/yyfj6BZ.png", "fillyaj", "AJ", "Applejack", 2);
+	addEmote("http://i.imgur.com/6DvjrRv.png", "ajrage", "AJ", "Applejack", 2);
+	addEmote("http://i.imgur.com/0REqcvr.png", "ajcanthearyou", "AJ", "Applejack", 2);
 
 	addEmote("http://i.imgur.com/hCkff.png", "flutterjerk", "FS", "Fluttershy", 1);
 	addEmote("http://i.imgur.com/FlxUX.png", "flutterroll", "FS", "Fluttershy", 1);

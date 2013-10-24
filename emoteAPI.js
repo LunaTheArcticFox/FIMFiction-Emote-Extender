@@ -740,7 +740,7 @@ function parseEmotesInForm(form) {
 	if (textareaData != "") {
 
 		for (var i = 0; i < nameList.length; i++) {
-			textareaData = textareaData.split(nameList.eq(i)).join("[img]" + urlList.eq(i) + "[/img] ");
+			textareaData = textareaData.split(nameList.eq(i).text()).join("[img]" + urlList.eq(i).text() + "[/img] ");
 		}
 
 		$(form).find("textarea[name='comment']").val(textareaData);

@@ -754,7 +754,7 @@ function parseEmotesInForm() {
 
 	}
 
-	AddComment(form);
+	AddComment(form.get());
 
 }
 

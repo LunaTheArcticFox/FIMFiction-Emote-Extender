@@ -101,7 +101,7 @@ function initialize() {
 	});
 
 	$("#preview_comment").off();
-	$("#preview_comment").on("click", function() {
+	$(document).on("click", "#preview_comment", function(e) {
 		$.post('/ajax/preview_comment.php',
 			{ "comment" : emoteShorthandToImages($("#comment_comment").val()) }, 
 			function(xml) { 

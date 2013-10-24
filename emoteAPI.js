@@ -573,15 +573,15 @@ function getSitePage() {
 
 	if(/\/manage_user\/edit_blog_post/.test(location.href)) {
 		sitePage = pageBlogEdit;
-		//logInfo("Site page set to blog editor.");
+		logInfo("Site page set to blog editor.");
 	} else if(/\/group\//.test(location.href)) {
 		if (/\/thread\//.test(location.href)) {
 			sitePage = pageGroupThread;
-			//logInfo("Site page set to group thread.");
+			logInfo("Site page set to group thread.");
 		}
 	} else if(/\/emote_script_settings/.test(location.href)) {
 		sitePage = pageScriptSettings;
-		//logInfo("Site page set to script settings.");
+		logInfo("Site page set to script settings.");
 	}
 	
 }

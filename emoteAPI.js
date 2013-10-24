@@ -736,7 +736,7 @@ function parseEmotesInForm(form) {
 
 	if (textareaData != "") {
 
-		for (var i = 0; i < document.querySelectorAll('#emoteNameList span').length; i++) {
+		for (var i = 0; i < $('#emoteNameList > span').length; i++) {
 			textareaData = textareaData.split($("#emoteNameList").eq(i)).join("[img]" + $("#emoteURLList").eq(i) + "[/img] ");
 		}
 

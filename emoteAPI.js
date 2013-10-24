@@ -20,8 +20,6 @@ var emotePreviewSize = 58;
 
 var currentTables = [];
 var majorTables = [];
-var emoteNameList = [];
-var emoteURLList = [];
 
 var sitePage = pageOther;
 
@@ -271,6 +269,12 @@ function initialize() {
 	tempContainer = $("<div id='emoteAPITabContainer'></div>");
 	$('.emoticons_panel').prepend(tempContainer);
 
+	tempContainer = $("<div id='emoteNameList' style='display: none;'></div>");
+	$("body").append(tempContainer);
+
+	tempContainer = $("<div id='emoteURLList' style='display: none;'></div>");
+	$("body").append(tempContainer);
+
 	createTableLink("FF", "FF");
 
 	var settingsImage = $("<img width='16' height='16' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAM1SURBVHjadJNNSCN3GMZ/k0y+NImLTMIkNUYwJMqmkVkPBrFQe0u8FEEpgoc9pfS0PfTUntvj9tLLXmVDb0XBbdlDS6gtEbPxYv3AiMQaIjpDo/nwHzNjeui6h9K+p/fw/Hh43odX4n9mdXX1VSKRyAAcHR39uLa2lv0vne1hSafTz3K53JuJiYmPAVRV1bLZLNlsFlVVNYBUKrWay+XepNPpZw+c/AAvLy8/n56eZnJy8odSqfRaURRVlmUAFEVRnz59+uvU1NScpmkkEoknAMVi8Vs7QCaT+W5+fj40PDxMNBolGAyOJ5NJLMvCNE0ikQiqqo5qmobb7cbr9aLrerBcLr+wA7Tb7ctAIPCJ3++n1+sRCARwOByYpgmA0+nE7/fTbDa5ubmhVCqxsbHxmWEYh3YAwzAOg8HgrM/nG/f5fPT7ffb399nZ2RGVSsUSQsherxchBCcnJ5RKpdeFQuErAGlpaemVoiiaoihqMpnE6/VSrVbZ2tr6OZ/PLwCsrKxszs3NfRSNRmm1Wuzt7aHr+oWu67vy6OhoRtM0XC4XnU4HSZI4PT0Vb2EBkM/nF0ZGRv4KBAJuIQSpVIput6vu7u5mZCEEZ2dn2Gw2JEkiFAphWZb07757vZ7U6XS4uLig3+9zf3+PEAJ7OByebTQavmazOWiaJh6PB4fDIQ8NDX1wcHDwPSAvLi7+FI/Hx/v9Pufn59TrdWq12qVhGL+9c1pYWPhFVdUPFUUhFotRr9epVqtdgGg06gqFQlQqFXRdR9f17fX19TSAHSAejy/F4/EvwuEwjUaD6+trwuEwY2NjciQSkR0OB8fHx7RaLQKBAHd3dyOmaf55dXW1K71134vFYo+FENze3tJut3E6nXi9XizLotvtIoRgcHAQj8eD2+2mUqn8sbm5mZQB6vX6S8uyvna5XHS7XSzLKtvt9ic22z+vYhgGvV7v93a7Pfuguby8fPkuQr1e3/L7/T1Zlt+r1WpfFovFnKqqn0uS5BZC0Gw2rwuFwqTNZjscGBh4rOv683K5/A3AwxHtgBt4BPgkSXo0MzPzwjTN9wFkWd7b3t7+tN/vd4BroAF0gO7fAwAtE2jf5kCQVgAAAABJRU5ErkJggg==' />");
@@ -487,8 +491,13 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 
 	emoteName = ":" + emoteName + ":";
 
-	emoteNameList.push(emoteName);
-	emoteURLList.push(url);
+	var container = $(document.createElement("span"));
+	container.innerHTML = emoteName;
+	$("#emoteNameList").append(container);
+
+	container = $(document.createElement("span"));
+	container.innerHTML = url;
+	$("#emoteURLList").append(container);
 
 	var tableFound = false;
 
@@ -727,8 +736,8 @@ function parseEmotesInForm(form) {
 
 	if (textareaData != "") {
 
-		for (var i = 0; i < emoteNameList.length; i++) {
-			textareaData = textareaData.split(emoteNameList[i]).join("[img]" + emoteURLList[i] + "[/img] ");
+		for (var i = 0; i < document.querySelectorAll('#emoteNameList span').length; i++) {
+			textareaData = textareaData.split($("#emoteNameList").eq(i)).join("[img]" + $("#emoteURLList").eq(i) + "[/img] ");
 		}
 
 		$(form).find("textarea[name='comment']").val(textareaData);

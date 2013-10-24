@@ -18,3 +18,4 @@ To Do:
 - Emote resizing based on %. Allows use of non-standard emote sizes.
 - Add emotes to preview functionality
 - Pull a few new cheerilee and Twilight emotes from reddit. Check for others that might exist.
+- Fix comment submission breaking when previewed first.

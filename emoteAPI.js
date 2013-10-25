@@ -96,28 +96,26 @@ function initialize() {
 		});
 	});
 
-	$(function() {
-		$(".data form").each(function(index) {
-			//$(this).attr("onsubmit", "");
-			$(this).submit(function(e) {
+	$(".data form").each(function(index) {
+		$(this).attr("onsubmit", "");
+		$(this).submit(function(e) {
 
-				alert("!");
+			e.preventDefault();
+			e.stopPropagation();
 
-				e.preventDefault();
-				e.stopPropagation();
+			var tempForm = $(this);
 
-				var tempForm = $(this);
-
-				$(".textarea_padding textarea").each(function(index) {
-					$(this).html(emoteShorthandToImages($(this).html()));
-				});
-
-				var commentID = tempForm.attr("id");
-				commentID = "#" + commentID.split("_")[3];
-
-				EditComment(this, $(commentID));
-
+			$(".textarea_padding textarea").each(function(index) {
+				$(this).html(emoteShorthandToImages($(this).html()));
 			});
+
+			var commentID = tempForm.attr("id");
+			commentID = "#" + commentID.split("_")[3];
+
+			EditComment(this, $(commentID));
+
+			return false;
+
 		});
 	});
 

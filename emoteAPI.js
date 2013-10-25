@@ -88,7 +88,7 @@ function initialize() {
 
 	}
 
-	$(".toolbar a").eq(1).each(function(index) {
+	$(".toolbar a:odd").each(function(index) {
 		$(this).on("click", function(index) {
 			$(".textarea_padding textarea").each(function(index) {
 				$(this).html(imagesToEmoteShorthand($(this).html()));

@@ -89,9 +89,8 @@ function initialize() {
 
 	$("a[title='Edit this comment']").each(function(index) {
 		$(this).on("click", function(e) {
-			$(".textarea_padding textarea").each(function(index) {
-				$(this).val(imagesToEmoteShorthand($(this).val()));
-			});
+			var ta = $(this).parents().eq(4).children("form .edit_area .textarea_padding textarea")[0];
+			ta.val(imagesToEmoteShorthand(ta.val()));
 		});
 	});
 

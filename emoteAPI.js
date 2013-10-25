@@ -96,14 +96,9 @@ function initialize() {
 		});
 	});
 
-	var forms = $(".data form");
-
-	for (int i = 0; i < forms.length; i++) {
-
-		var currForm = forms[i];
-
-		currForm.attr("onsubmit", "");
-		currForm.submit(function(e) {
+	$(".data form").each(function(index) {
+		$(this).attr("onsubmit", "");
+		$(this).submit(function(e) {
 
 			e.preventDefault();
 			e.stopPropagation();
@@ -120,8 +115,7 @@ function initialize() {
 			EditComment(tempForm, $(commentID));
 
 		});
-		
-	}
+	});
 
 	if (sitePage == pageOther) {
 		return;

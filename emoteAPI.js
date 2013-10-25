@@ -100,7 +100,7 @@ function initialize() {
 		$(this).attr("onsubmit", "");
 		$(this).submit(function(e) {
 
-			//e.preventDefault();
+			e.preventDefault();
 			e.stopPropagation();
 
 			var tempForm = $(this);

@@ -97,7 +97,7 @@ function initialize() {
 	});
 
 	$(".data form").each(function(index) {
-		$(this).attr("onsubmit", "");
+		//$(this).attr("onsubmit", "");
 		$(this).submit(function(e) {
 
 			e.preventDefault();

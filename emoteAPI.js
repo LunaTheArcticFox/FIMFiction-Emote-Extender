@@ -112,7 +112,7 @@ function initialize() {
 			var commentID = tempForm.attr("id");
 			commentID = "#" + commentID.split("_")[3];
 
-			EditComment(tempForm, $(commentID));
+			EditComment(this, $(commentID));
 
 			return false;
 

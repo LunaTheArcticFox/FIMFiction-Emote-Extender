@@ -790,7 +790,7 @@ function emoteShorthandToImages(textToConvert) {
 	var urlList = $("#emoteURLList").children();
 
 	for (var i = 0; i < nameList.length; i++) {
-		textToConvert = textToConvert.split(nameList.eq(i).html()).join("[img]" + urlList.eq(i).html() + "[/img] ");
+		textToConvert = textToConvert.split(nameList.eq(i).html()).join("[img]" + urlList.eq(i).html() + "[/img]");
 	}
 
 	return textToConvert;

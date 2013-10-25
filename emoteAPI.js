@@ -88,8 +88,8 @@ function initialize() {
 
 	}
 
-	$(".toolbar a:odd").each(function(index) {
-		$(this).on("click", function(index) {
+	$("a[title='Edit this comment']").each(function(index) {
+		$(this).on("click", function(e) {
 			$(".textarea_padding textarea").each(function(index) {
 				$(this).html(imagesToEmoteShorthand($(this).html()));
 			});

@@ -97,11 +97,11 @@ function initialize() {
 	});
 
 	$(".data form").each(function(index) {
-		//$(this).attr("onsubmit", "");
+		$(this).attr("onsubmit", "");
 		$(this).submit(function(e) {
 
-			//e.preventDefault();
-			//e.stopPropagation();
+			e.preventDefault();
+			e.stopPropagation();
 
 			var tempForm = $(this);
 
@@ -113,8 +113,6 @@ function initialize() {
 			commentID = "#" + commentID.split("_")[3];
 
 			EditComment(this, $(commentID));
-
-			return false;
 
 		});
 	});

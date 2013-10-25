@@ -96,46 +96,6 @@ function initialize() {
 		});
 	});
 
-	$(".data form").each(function(index) {
-		$(this).attr("onsubmit", "");
-		$(this).submit(function(e) {
-
-			e.preventDefault();
-			e.stopPropagation();
-
-			alert("!");
-
-			var tempForm = $(this);
-
-			$(".textarea_padding textarea").each(function(index) {
-				$(this).html(emoteShorthandToImages($(this).html()));
-			});
-
-			var commentID = tempForm.attr("id");
-			commentID = "#" + commentID.split("_")[3];
-
-			EditComment(this, $(commentID).get());
-			/*$(commentID).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/loading_white.gif");
-			$(commentID).find(".edit_area").find(".save_button").find("img").attr("width", "16");
-			$.post('/ajax/edit_comment.php',
-				tempForm.serialize(), 
-				function(xml) {
-		            if ($("error",xml).length) {
-						ShowErrorWindow($("error", xml).text());
-		            } else {
-						$(commentID).find(".comment_data").html($("content", xml).text());
-						$(commentID).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/save.png");
-						$(commentID).find(".edit_area").toggle();
-						$(commentID).find(".comment_data").toggle();
-		            }
-				} 
-			);
-*/
-			return false;
-
-		});
-	});
-
 	if (sitePage == pageOther) {
 		return;
 	}

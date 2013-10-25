@@ -88,6 +88,14 @@ function initialize() {
 
 	}
 
+	$(".toolbar a").eq(1).each(function(index) {
+		$(this).on("click", function(index) {
+			$(".textarea_padding textarea").each(function(index) {
+				$(this).html(imagesToEmoteShorthand($(this).html()));
+			});
+		});
+	});
+
 	if (sitePage == pageOther) {
 		return;
 	}
@@ -511,10 +519,6 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 	container = $(document.createElement('span'));
 	container.html(url);
 	urlListDiv.append(container);
-
-	$(".textarea_padding textarea").each(function(index) {
-		$(this).html(imagesToEmoteShorthand($(this).html()));
-	});
 
 	var tableFound = false;
 

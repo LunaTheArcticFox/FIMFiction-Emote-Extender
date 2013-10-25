@@ -99,6 +99,8 @@ function initialize() {
 		$(this).attr("onsubmit", "");
 		$(this).submit(function(e) {
 			
+			alert("!");
+
 			e.preventDefault();
 			e.stopPropagation();
 

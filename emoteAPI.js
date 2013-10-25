@@ -96,6 +96,25 @@ function initialize() {
 		});
 	});
 
+	$(".data form").each(function(index) {
+		$(this).removeAttr("onsubmit").submit(function(e) {
+
+			e.preventDefault();
+
+			$(".textarea_padding textarea").each(function(index) {
+				$(this).html(emoteShorthandToImages($(this).html()));
+			});
+
+			var commentID = $(this).attr("id");
+			commentID = "#" + commentID.split("_")[3];
+
+			EditComment(this, $(commentID));
+
+			return false;
+
+		});
+	});
+
 	if (sitePage == pageOther) {
 		return;
 	}

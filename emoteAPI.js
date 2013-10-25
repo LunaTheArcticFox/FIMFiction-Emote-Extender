@@ -103,7 +103,7 @@ function initialize() {
 			e.stopPropagation();
 
 			$(".textarea_padding textarea").each(function(index) {
-				$(this).html(emoteShorthandToImages($(this).html()));
+				$(this).val(emoteShorthandToImages($(this).val()));
 			});
 
 			var id = $(this).attr("id").split("_")[3];

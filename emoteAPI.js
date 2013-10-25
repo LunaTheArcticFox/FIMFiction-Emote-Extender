@@ -97,32 +97,24 @@ function initialize() {
 	});
 
 	$(".data form").each(function(index) {
-		$(this).attr("onsubmit", "parseCommentEdit(this); return false;");
+		$(this).attr("onsubmit", "");
+		$(this).submit(function(e) {
+
+			alert("Hey!");
+
+			var tempForm = $(this);
+
+			$(".textarea_padding textarea").each(function(index) {
+				$(this).html(emoteShorthandToImages($(this).html()));
+			});
+
+			var commentID = tempForm.attr("id");
+			commentID = "#" + commentID.split("_")[3];
+
+			EditComment(tempForm, $(commentID));
+
+		});
 	});
-
-	var jsToAdd = $(document.createElement('script'));
-	jsToAdd.attr("type", "text/javascript");
-	jsToAdd.attr("src", "");
-	jsToAdd.html("
-			function parseCommentEdit(form) {
-
-				alert(\"Hey!\");
-
-				var tempForm = $(form);
-
-				$(\".textarea_padding textarea\").each(function(index) {
-					$(this).html(emoteShorthandToImages($(this).html()));
-				});
-
-				var commentID = tempForm.attr(\"id\");
-				commentID = \"#\" + commentID.split(\"_\")[3];
-
-				EditComment(form, $(commentID));
-
-				return false;
-
-			}
-		");
 
 	if (sitePage == pageOther) {
 		return;

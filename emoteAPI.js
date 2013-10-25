@@ -91,7 +91,7 @@ function initialize() {
 	$(".comment .data .comment_information .toolbar").each(function(index) {
 		$(this).children().eq(1).on("click", function() {
 			$(".comment").each(function(index) {
-				var commentData = $(".comment").eq(index).has("textarea[name=comment]");
+				var commentData = $(this).has("textarea[name=comment]");
 				commentData.html() = imagesToEmoteShorthand(commentData.html());
 			});
 		});

@@ -553,6 +553,8 @@ function createNewEmote(url, emoteName, shortTableName, tablePage) {
 
 	$(selector).append(image);
 
+	logInfo("Textarea length: " + $("textarea[name=comment]").length);
+
 	$("textarea[name=comment]").each(function(index) {
 		var commentData = $(this).html();
 		$(this).html(imagesToEmoteShorthand(commentData.html()));

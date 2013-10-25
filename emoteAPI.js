@@ -114,6 +114,8 @@ function initialize() {
 
 			EditComment(tempForm, $(commentID));
 
+			return false;
+
 		});
 	});
 

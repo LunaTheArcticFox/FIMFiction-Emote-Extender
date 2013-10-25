@@ -114,8 +114,8 @@ function initialize() {
 			var commentID = tempForm.attr("id");
 			commentID = "#" + commentID.split("_")[3];
 
-			//EditComment(this, $(commentID));
-			$(commentID).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/loading_white.gif");
+			EditComment(this, $(commentID).get());
+			/*$(commentID).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/loading_white.gif");
 			$(commentID).find(".edit_area").find(".save_button").find("img").attr("width", "16");
 			$.post('/ajax/edit_comment.php',
 				tempForm.serialize(), 
@@ -130,7 +130,7 @@ function initialize() {
 		            }
 				} 
 			);
-
+*/
 			return false;
 
 		});

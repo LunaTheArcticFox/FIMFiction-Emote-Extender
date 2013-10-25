@@ -97,10 +97,10 @@ function initialize() {
 	});
 
 	$(".data form").each(function(index) {
-		$(this).attr("onsubmit", "return false;");
+		$(this).attr("onsubmit", "");
 		$(this).submit(function(e) {
 
-			e.preventDefault();
+			//e.preventDefault();
 			e.stopPropagation();
 
 			var tempForm = $(this);

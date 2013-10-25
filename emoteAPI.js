@@ -85,7 +85,6 @@ function initialize() {
 		$(".light_toolbar").after(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");
 		$(".emoticons_panel").after("<p style='display: block;'>Blog post support for the emote script is undergoing development. While it should be fully functional, the styling is actively being worked on and looks this way intentionally. Kind of.</p>");
-
 	}
 
 	$("a[title='Edit this comment']").each(function(index) {
@@ -93,6 +92,28 @@ function initialize() {
 			$(".textarea_padding textarea").each(function(index) {
 				$(this).html(imagesToEmoteShorthand($(this).html()));
 			});
+		});
+	});
+
+	$(".data form").each(function(index) {
+		$(this).attr("onsubmit", "");
+		$(this).submit(function(e) {
+			
+			e.preventDefault();
+			e.stopPropagation();
+
+			var id = $(this).attr("id").split("_")[3];
+			id = "#comment_" + id;
+			var comment = $(id);
+
+			$(".textarea_padding textarea").each(function(index) {
+				$(this).html(emoteShorthandToImages($(this).html()));
+			});
+
+			EditComment(this, comment);
+
+			return false;
+
 		});
 	});
 

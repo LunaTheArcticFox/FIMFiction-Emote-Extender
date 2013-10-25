@@ -100,7 +100,7 @@ function initialize() {
 		$(this).attr("onsubmit", "");
 		$(this).submit(function(e) {
 
-			//e.preventDefault();
+			e.preventDefault();
 			e.stopPropagation();
 
 			var tempForm = $(this);
@@ -112,7 +112,22 @@ function initialize() {
 			var commentID = tempForm.attr("id");
 			commentID = "#" + commentID.split("_")[3];
 
-			EditComment(this, $(commentID));
+			//EditComment(this, $(commentID));
+			$(commentID).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/loading_white.gif");
+			$(commentID).find(".edit_area").find(".save_button").find("img").attr("width", "16");
+			$.post('/ajax/edit_comment.php',
+				$(this).serialize(), 
+				function(xml) {
+		            if ($("error",xml).length) {
+						ShowErrorWindow($("error", xml).text());
+		            } else {
+						$(commentID).find(".comment_data").html($("content", xml).text());
+						$(commentID).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/save.png");
+						$(commentID).find(".edit_area").toggle();
+						$(commentID).find(".comment_data").toggle();
+		            }
+				} 
+			);
 
 			return false;
 

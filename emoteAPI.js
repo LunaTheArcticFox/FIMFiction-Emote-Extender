@@ -97,8 +97,8 @@ function initialize() {
 	});
 
 	$(".data form").each(function(index) {
-		$(this).removeAttr("onsubmit");
-		$(this).attr("onsubmit", "parseCommentEdit(this);");
+		//$(this).removeAttr("onsubmit");
+		$(this).attr("onsubmit", "parseCommentEdit(this); return false;");
 	});
 
 	if (sitePage == pageOther) {

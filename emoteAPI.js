@@ -95,15 +95,11 @@ function initialize() {
 		});
 	});
 
+	logInfo($(".data form").length);
+
 	$(".data form").each(function(index) {
-			
-			alert("!");
-			
 		$(this).attr("onsubmit", "");
 		$(this).submit(function(e) {
-			
-			alert("!");
-			
 
 			e.preventDefault();
 			e.stopPropagation();

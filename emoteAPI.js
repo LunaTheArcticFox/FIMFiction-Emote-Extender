@@ -96,6 +96,36 @@ function initialize() {
 		});
 	});
 
+
+	EditComment = function(form, comment) {
+
+		alert("New function working.");
+
+		$(".textarea_padding textarea").each(function(index) {
+			$(this).html(emoteShorthandToImages($(this).html()));
+		});
+
+		$(comment).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/loading_white.gif");
+		$(comment).find(".edit_area").find(".save_button").find("img").attr("width", "16");
+		$.post('/ajax/edit_comment.php',
+			$(form).serialize( ), 
+			function(xml) 
+			{
+	            if ( $("error",xml).length )
+	            {
+					ShowErrorWindow( $("error",xml).text( ) );
+	            }
+	            else
+	            {
+					$(comment).find( ".comment_data" ).html( $("content",xml).text( ) );
+					$(comment).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/save.png");
+					ToggleEditComment( comment );
+	            }
+			} 
+		);	
+
+	}
+
 	if (sitePage == pageOther) {
 		return;
 	}
@@ -760,34 +790,6 @@ function parseCommentSubmission() {
 	}
 
 	AddComment($(".add_comment").children().eq(0));
-
-}
-
-
-EditComment = function(form, comment) {
-
-	$(".textarea_padding textarea").each(function(index) {
-		$(this).html(emoteShorthandToImages($(this).html()));
-	});
-
-	$(comment).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/loading_white.gif");
-	$(comment).find(".edit_area").find(".save_button").find("img").attr("width", "16");
-	$.post('/ajax/edit_comment.php',
-		$(form).serialize( ), 
-		function(xml) 
-		{
-            if ( $("error",xml).length )
-            {
-				ShowErrorWindow( $("error",xml).text( ) );
-            }
-            else
-            {
-				$(comment).find( ".comment_data" ).html( $("content",xml).text( ) );
-				$(comment).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/save.png");
-				ToggleEditComment( comment );
-            }
-		} 
-	);	
 
 }
 

@@ -512,6 +512,10 @@ function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {
 	container.html(url);
 	urlListDiv.append(container);
 
+	$(".textarea_padding textarea").each(function(index) {
+		$(this).html(imagesToEmoteShorthand($(this).html()));
+	});
+
 	var tableFound = false;
 
 	if (currentTables.indexOf(tablePrefix + shortTableName + tablePage + "_Area") == -1) {
@@ -552,13 +556,6 @@ function createNewEmote(url, emoteName, shortTableName, tablePage) {
 	var selector = "div[id=\"" + tablePrefix + shortTableName + tablePage + "_Area\"]";
 
 	$(selector).append(image);
-
-	logInfo("Textarea length: " + $("textarea[name=comment]").length);
-
-	/*$("textarea[name=comment]").each(function(index) {
-		var commentData = $(this).html();
-		$(this).html(imagesToEmoteShorthand(commentData.html()));
-	});*/
 
 }
 

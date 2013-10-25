@@ -98,20 +98,23 @@ function initialize() {
 
 	$(".data form").each(function(index) {
 		$(this).removeAttr("onsubmit");
-		$(this).attr("onsubmit", 
+		var tempForm = $(this);
+		$(this).submit(function(e) {
 
-			"$(\".textarea_padding textarea\").each(function(index) {
-				$(this).html(emoteShorthandToImages($(this).html()));
+			e.preventDefault();
+
+			$(".textarea_padding textarea").each(function(index) {
+				tempForm.html(emoteShorthandToImages(tempForm.html()));
 			});
 
-			var commentID = $(this).attr(\"id\");
-			commentID = \"#\" + commentID.split(\"_\")[3];
+			var commentID = tempForm.attr("id");
+			commentID = "#" + commentID.split("_")[3];
 
-			EditComment(this, $(commentID));
+			EditComment(tempForm.get(), $(commentID));
 
-			return false;"
+			return false;
 
-		);
+		});
 	});
 
 	if (sitePage == pageOther) {

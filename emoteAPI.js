@@ -770,6 +770,8 @@ function parseCommentSubmission() {
 
 function parseCommentEdit(form) {
 
+	alert("Hey!");
+
 	var tempForm = $(form);
 
 	$(".textarea_padding textarea").each(function(index) {

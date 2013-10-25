@@ -53,6 +53,8 @@ function addGlobalStyle(css) {
 }
 
 function initialize() {
+
+	initialized = true;
 	
 	if(/\/manage_user\//.test(location.href)) {
 
@@ -65,15 +67,14 @@ function initialize() {
 		settingsTabLink.append(settingsTabSpan);
 		settingsTabList.append(settingsTabLink);
 		
-		var settingsTabContainer = $("div.tabs");
-		settingsTabContainer.children(0).append(settingsTabList);
+		var settingsTabContainer = $(".tabs ul");
+		settingsTabContainer.append(settingsTabList);
 
 		if (sitePage == pageScriptSettings) {
 
 			createSettingsPage();
 
 			$("body").append("<div id='emoteScriptInitialized'></div>");
-			initialized = true;
 			return;
 
 		}
@@ -139,7 +140,6 @@ function initialize() {
 	});
 
 	$("body").append("<div id='emoteScriptInitialized'></div>");
-	initialized = true;
 	
 	if (GM_getValue("verbose", false) == "true") {
 		$("body").append("<div id='verboseEnabled'></div>");

@@ -90,7 +90,7 @@ function initialize() {
 	$("a[title='Edit this comment']").each(function(index) {
 		$(this).on("click", function(e) {
 			$(".textarea_padding textarea").each(function(index) {
-				$(this).html(imagesToEmoteShorthand($(this).html()));
+				$(this).val(imagesToEmoteShorthand($(this).val()));
 			});
 		});
 	});

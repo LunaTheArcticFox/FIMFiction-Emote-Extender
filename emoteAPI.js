@@ -98,23 +98,7 @@ function initialize() {
 
 	$(".data form").each(function(index) {
 		$(this).removeAttr("onsubmit");
-		var tempForm = $(this);
-		$(this).submit(function(e) {
-
-			e.preventDefault();
-
-			$(".textarea_padding textarea").each(function(index) {
-				tempForm.html(emoteShorthandToImages(tempForm.html()));
-			});
-
-			var commentID = tempForm.attr("id");
-			commentID = "#" + commentID.split("_")[3];
-
-			EditComment(tempForm.get(), $(commentID));
-
-			return false;
-
-		});
+		$(this).attr("onsubmit", "parseCommentEdit(this);");
 	});
 
 	if (sitePage == pageOther) {
@@ -784,7 +768,20 @@ function parseCommentSubmission() {
 
 }
 
-function parseCommentEdit(form, comment) {
+function parseCommentEdit(form) {
+
+	var tempForm = $(form);
+
+	$(".textarea_padding textarea").each(function(index) {
+		$(this).html(emoteShorthandToImages($(this).html()));
+	});
+
+	var commentID = tempForm.attr("id");
+	commentID = "#" + commentID.split("_")[3];
+
+	EditComment(form, $(commentID));
+
+	return false;
 
 }
 

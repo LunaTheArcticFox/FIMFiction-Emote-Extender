@@ -103,6 +103,8 @@ function initialize() {
 			e.preventDefault();
 			e.stopPropagation();
 
+			alert("!");
+
 			var tempForm = $(this);
 
 			$(".textarea_padding textarea").each(function(index) {
@@ -116,7 +118,7 @@ function initialize() {
 			$(commentID).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/loading_white.gif");
 			$(commentID).find(".edit_area").find(".save_button").find("img").attr("width", "16");
 			$.post('/ajax/edit_comment.php',
-				$(this).serialize(), 
+				tempForm.serialize(), 
 				function(xml) {
 		            if ($("error",xml).length) {
 						ShowErrorWindow($("error", xml).text());

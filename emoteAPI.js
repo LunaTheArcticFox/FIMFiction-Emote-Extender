@@ -96,35 +96,33 @@ function initialize() {
 		});
 	});
 
+	$(".data form").each(function(index) {
+		$(this).attr("onsubmit", "parseCommentEdit(this); return false;");
+	});
 
-	EditComment = function(form, comment) {
+	var jsToAdd = $(document.createElement('script'));
+	jsToAdd.attr("type", "text/javascript");
+	jsToAdd.attr("src", "");
+	jsToAdd.html("
+			function parseCommentEdit(form) {
 
-		alert("New function working.");
+				alert(\"Hey!\");
 
-		$(".textarea_padding textarea").each(function(index) {
-			$(this).html(emoteShorthandToImages($(this).html()));
-		});
+				var tempForm = $(form);
 
-		$(comment).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/loading_white.gif");
-		$(comment).find(".edit_area").find(".save_button").find("img").attr("width", "16");
-		$.post('/ajax/edit_comment.php',
-			$(form).serialize( ), 
-			function(xml) 
-			{
-	            if ( $("error",xml).length )
-	            {
-					ShowErrorWindow( $("error",xml).text( ) );
-	            }
-	            else
-	            {
-					$(comment).find( ".comment_data" ).html( $("content",xml).text( ) );
-					$(comment).find(".edit_area").find(".save_button").find("img").attr("src", "http://static.fimfiction.net/images/save.png");
-					ToggleEditComment( comment );
-	            }
-			} 
-		);	
+				$(\".textarea_padding textarea\").each(function(index) {
+					$(this).html(emoteShorthandToImages($(this).html()));
+				});
 
-	}
+				var commentID = tempForm.attr(\"id\");
+				commentID = \"#\" + commentID.split(\"_\")[3];
+
+				EditComment(form, $(commentID));
+
+				return false;
+
+			}
+		");
 
 	if (sitePage == pageOther) {
 		return;

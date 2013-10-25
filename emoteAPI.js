@@ -102,13 +102,13 @@ function initialize() {
 			e.preventDefault();
 			e.stopPropagation();
 
-			var id = $(this).attr("id").split("_")[3];
-			id = "#comment_" + id;
-			var comment = $(id);
-
 			$(".textarea_padding textarea").each(function(index) {
 				$(this).html(emoteShorthandToImages($(this).html()));
 			});
+
+			var id = $(this).attr("id").split("_")[3];
+			id = "#comment_" + id;
+			var comment = $(id);
 
 			EditComment(this, comment);
 

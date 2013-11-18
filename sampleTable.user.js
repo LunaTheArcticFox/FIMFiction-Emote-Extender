@@ -5,7 +5,7 @@
 // @include http*://www.fimfiction.net/*
 // @include http*://fimfiction.net/*
 // @grant none
-// @require https://raw.github.com/KrazyTheFox/FIMFiction-Emote-API/master/emoteAPI.js
+// @require https://raw.github.com/KrazyTheFox/FIMFiction-Emote-API/development/emoteAPI.js
 // @version 1.0
 // ==/UserScript==
 
@@ -15,6 +15,8 @@ $(document).ready(run());
 //The run() function is responsible for adding all of your emotes.
 //You could technically name it whatever you like, but I like 'run'.
 function run() {
+
+	//THIS GUIDE IS FOR THE BETA VERSION ONLY
 
 	//To add each emote, use the following format:
 	//As an example, I've taken this line from my Roseluck module.

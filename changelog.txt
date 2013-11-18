@@ -21,3 +21,4 @@ To Do:
 - Pull a few new cheerilee and Twilight emotes from reddit. Check for others that might exist.
 - Allow proper editing for new comments.
 - Emote editing doesn't work for paginated threads.
+- Add this: http://i.imgur.com/MKEwWjt.png

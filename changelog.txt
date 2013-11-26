@@ -9,6 +9,7 @@ PLUS DARING DO
 - Automatic emote spoiler replacement on all pages. (Thanks, Kits!)
 - Performance tweaks reduced run time by 350ms on my machine (when debugging). Script should run noticeably faster.
 - Removed an RD emote that I decided doesn't fit that nobody even used. Will find a suitable replacement.
+- Removed a duplicate Twilight emote.
 - Fix comment submission breaking when previewed first.
 - Add emotes to preview functionality.
 

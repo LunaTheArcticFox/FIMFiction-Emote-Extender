@@ -272,7 +272,6 @@ function run() {
 	addEmote("http://i.imgur.com/OJHNg.png", "Emote", "TS", "Twilight Sparkle", 2);
 	addEmote("http://i.imgur.com/IZJSZ.png", "Emote", "TS", "Twilight Sparkle", 2);
 	addEmote("http://i.imgur.com/z2R9A.png", "Emote", "TS", "Twilight Sparkle", 2);
-	addEmote("http://i.imgur.com/AKn7J.png", "Emote", "TS", "Twilight Sparkle", 2);
 	addEmote("http://i.imgur.com/djjrzly.png", "Emote", "TS", "Twilight Sparkle", 2);
 	addEmote("http://i.imgur.com/u91K3lE.png", "Emote", "TS", "Twilight Sparkle", 2);
 	addEmote("http://i.imgur.com/6amBMsZ.png", "Emote", "TS", "Twilight Sparkle", 2);

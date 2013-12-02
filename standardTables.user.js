@@ -141,6 +141,7 @@ function run() {
 	addEmote("http://i.imgur.com/pfxW46W.png", "pinkiehurt", "PP", "Pinkie Pie", 2);
 	addEmote("http://i.imgur.com/EOCIHpr.png", "pinkiesquee", "PP", "Pinkie Pie", 2);
 	addEmote("http://i.imgur.com/guiiQT2.png", "pinkieglass", "PP", "Pinkie Pie", 2);
+	addEmote("http://i.imgur.com/sBLaV.png", "pinkiewut", "PP", "Pinkie Pie", 2);
 
 	addEmote("http://i.imgur.com/CGBhB.png", "raridaww", "R", "Rarity", 1);
 	addEmote("http://i.imgur.com/Ma3vZ.png", "rarireally", "R", "Rarity", 1);
@@ -363,6 +364,7 @@ function run() {
 	addEmote("http://i.imgur.com/REXzM.png", "trixiesmug", "MISC", "Other", 2);
 	addEmote("http://i.imgur.com/3Sr1ACU.png", "trixiesad", "MISC", "Other", 2);
 	addEmote("http://i.imgur.com/LbXFj.png", "trixiegap", "MISC", "Other", 2);
+	addEmote("http://i.imgur.com/6li8p6M.png", "trixiecreep", "MISC", "Other", 2);
 	addEmote("http://i.imgur.com/jorT3.png", "gilda", "MISC", "Other", 2);
 	addEmote("http://i.imgur.com/nXFjR.png", "spitfirecool", "MISC", "Other", 2);
 	addEmote("http://i.imgur.com/S46ae8h.png", "spitfire", "MISC", "Other", 2);

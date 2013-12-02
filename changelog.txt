@@ -12,6 +12,7 @@ PLUS DARING DO
 - Removed a duplicate Twilight emote.
 - Fix comment submission breaking when previewed first.
 - Add emotes to preview functionality.
+- Added a Trixie and Pinkie emote.
 
 To Do:
 - Emote panel in PMs.

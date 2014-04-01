@@ -413,6 +413,11 @@ function showPageTab(tabID) {
 		});
 	}
 
+	setTimeout(function() {
+		$(".textbox_container").first().css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+		$(".textbox_container").first().css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+	}, 2);
+
 }
 
 function showTable(tableID) {
@@ -438,6 +443,11 @@ function showTable(tableID) {
 		}
 
 	});
+
+	setTimeout(function() {
+		$(".textbox_container").first().css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+		$(".textbox_container").first().css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+	}, 2);
 	
 }
 
@@ -483,6 +493,11 @@ function showTableCycle(tableID) {
 		}
 
 	});
+
+	setTimeout(function() {
+		$(".textbox_container").first().css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
+		$(".textbox_container").first().css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
+	}, 2);
 
 }
 

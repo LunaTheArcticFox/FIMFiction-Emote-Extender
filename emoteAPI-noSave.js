@@ -65,6 +65,7 @@ function initialize() {
 		".emoticons_panel {",
 			"height: auto !important;",
 			"min-height: 285px !important;",
+			"overflow-x: hidden !important;",
 			"padding-top: 15px !important;",
 			"display: block !important;",
 			"border: none !important;",
@@ -97,12 +98,13 @@ function initialize() {
 		
 		".emoteTabButton {",
 			"width: auto;",
-			"height: 23px;",
+			"height: 27px;",
 			"float: left;",
 			"text-align: center;",
 			"padding: 5px 8px 0px 8px;",
 			"margin: 5px 0px 0px 5px;",
 			"font: 13px normal \"Segoe UI\" !important;",
+			"font-weight: normal !important;",
 			"-webkit-touch-callout: none;",
 			"-webkit-user-select: none;",
 			"-khtml-user-select: none;",
@@ -177,6 +179,10 @@ function initialize() {
 			"border-right: 1px solid #e8e5db !important;",
 		"}",
 
+		".textbox_container {",
+			"width: 100%;",
+		"}",
+
 		"#emoteAPITabContainer {",
 			"margin-top: 0px;",
 			"margin-left: 12px;",
@@ -211,14 +217,19 @@ function initialize() {
 	);
 	
 	addGlobalStyle(theCSS.join(''));
+
+	var originalEmotes = $(".emoticons_panel").first().children();
 	
 	logInfo("Added CSS.");
 	
-	$('.emoticons_panel > .inner_padding').attr("id", tablePrefix + "FF_Area");
+	//$('.emoticons_panel > .inner_padding').attr("id", tablePrefix + "FF_Area");
+	var tempContainer = $("<div id='" + tablePrefix + "FF_Area" + "' style='text-align: center;'></div>");
+	var newContainer = tempContainer;
+	$('.emoticons_panel').prepend(tempContainer);
 
 	logInfo("Added default table.");
 	
-	var tempContainer = $("<div id='emotePageTabContainer'></div>");
+	tempContainer = $("<div id='emotePageTabContainer'></div>");
 
 	$('.emoticons_panel').prepend(tempContainer);
 
@@ -230,6 +241,11 @@ function initialize() {
 	$('body').append(tempContainer);
 	
 	logInfo("Added tab container.");
+
+	//Create default FF Emote table
+	originalEmotes.each(function(index) {
+		$(this).detach().appendTo(newContainer);
+	});
 
 	createTableLink("FF", "FF");
 
@@ -318,11 +334,6 @@ function showPageTab(tabID) {
 		});
 	}
 
-	setTimeout(function() {
-		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-	}, 2);
-
 }
 
 function showTable(tableID) {
@@ -348,11 +359,6 @@ function showTable(tableID) {
 		}
 
 	});
-
-	setTimeout(function() {
-		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-	}, 2);
 	
 }
 
@@ -400,11 +406,6 @@ function showTableCycle(tableID) {
 		}
 
 	});
-
-	setTimeout(function() {
-		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-	}, 2);
 	
 }
 

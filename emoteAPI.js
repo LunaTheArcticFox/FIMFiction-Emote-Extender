@@ -59,7 +59,7 @@ function initialize() {
 	if(/\/manage_user\//.test(location.href)) {
 
 		var settingsTabSpan = $("<span>Emote Script</span>");
-		var settingsTabImg  = $("<img src='//www.fimfiction-static.net/images/icons/white/settings.png'></img>");
+		var settingsTabImg  = $("<i class='fa fa-cog'></i>");
 		var settingsTabLink = $("<a href='/manage_user/emote_script_settings'></a>");
 		var settingsTabList = $("<li class='tab'></li>");
 
@@ -81,12 +81,14 @@ function initialize() {
 
 	}
 
-	if (sitePage == pageBlogEdit) {
+	/*if (sitePage == pageBlogEdit) {
 		$(".light_toolbar").removeClass("no_margin");
 		$(".light_toolbar").after(getDefaultTableHTML());
 		$("#blog_post_content").parent().css("margin-right", "300px");
+		var blogEmotePanel = $("<div class='emoticons_panel' style='float: right;'></div>");
+		blogEmotePanel.appendTo($(".dark_toolbar").first().parent());
 		$(".emoticons_panel").after("<p style='display: block;'>Blog post support for the emote script is undergoing development. While it should be fully functional, the styling is actively being worked on and looks this way intentionally. Kind of.</p>");
-	}
+	}*/
 
 	$("a[title='Edit this comment']").each(function(index) {
 		$(this).on("click", function(e) {
@@ -153,6 +155,7 @@ function initialize() {
 		".emoticons_panel {\
 			height: auto !important;\
 			min-height: 285px !important;\
+			overflow-x: hidden !important;\
 			padding-top: 15px !important;\
 			display: block !important;\
 			border: none !important;\
@@ -185,13 +188,14 @@ function initialize() {
 		\
 		.emoteTabButton {\
 			width: auto;\
-			height: 23px;\
+			height: 27px;\
 			float: left;\
 			text-align: center;\
 			padding: 5px 8px 0px 8px !important;\
 			margin: 5px 0px 0px 5px !important;\
 			font-family: \"Arial\" !important;\
 			font-size: 16px !important;\
+			font-weight: normal !important;\
 			-webkit-touch-callout: none;\
 			-webkit-user-select: none;\
 			-khtml-user-select: none;\
@@ -265,6 +269,9 @@ function initialize() {
 		#comment_comment {\
 			border-right: 1px solid #e8e5db !important;\
 		}\
+		.textbox_container {\
+			width: 100%;\
+		}\
 		\
 		#emoteAPITabContainer {\
 			margin-top: 0px;\
@@ -298,10 +305,15 @@ function initialize() {
 		}";
 	
 	addGlobalStyle(theCSS);
+
+	var originalEmotes = $(".emoticons_panel").first().children();
 	
-	$('.emoticons_panel > .inner_padding').attr("id", tablePrefix + "FF_Area");
+	//$('.emoticons_panel > .inner_padding').attr("id", tablePrefix + "FF_Area");
+	var tempContainer = $("<div id='" + tablePrefix + "FF_Area" + "' style='text-align: center;'></div>");
+	var newContainer = tempContainer;
+	$('.emoticons_panel').prepend(tempContainer);
 	
-	var tempContainer = $("<div id='emotePageTabContainer'></div>");
+	tempContainer = $("<div id='emotePageTabContainer'></div>");
 	$('.emoticons_panel').prepend(tempContainer);
 
 	tempContainer = $("<div id='emoteAPITabContainer'></div>");
@@ -312,6 +324,11 @@ function initialize() {
 
 	tempContainer = $("<div id='emoteURLList' style='display: none;'></div>");
 	$("body").append(tempContainer);
+
+	//Create default FF Emote table
+	originalEmotes.each(function(index) {
+		$(this).detach().appendTo(newContainer);
+	});
 
 	createTableLink("FF", "FF");
 
@@ -396,11 +413,6 @@ function showPageTab(tabID) {
 		});
 	}
 
-	setTimeout(function() {
-		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-	}, 2);
-
 }
 
 function showTable(tableID) {
@@ -426,11 +438,6 @@ function showTable(tableID) {
 		}
 
 	});
-
-	setTimeout(function() {
-		$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-		$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-	}, 2);
 	
 }
 
@@ -477,18 +484,6 @@ function showTableCycle(tableID) {
 
 	});
 
-	if (sitePage == pageBlogEdit) {
-		setTimeout(function() {
-			$("textarea#blog_post_content").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-			$("textarea#blog_post_content").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-		}, 2);
-	} else {
-		setTimeout(function() {
-			$("textarea#comment_comment").css({'min-height':(($(".emoticons_panel").height() - 5) + 'px')});
-			$("textarea#comment_comment").css({'height':(($(".emoticons_panel").height() - 5) + 'px')});
-		}, 2);
-	}
-	
 }
 
 function addEmote(url, emoteName, shortTableName, longTableName, tablePage) {

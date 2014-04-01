@@ -1,5 +1,5 @@
 /*
- *	Fimfiction Emote Script v2.0 Release
+ *	FIMFiction Emote Script v3.0
  *
  *	Written by KrazyTheFox
  */

@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name Fimfiction Emote Extender: Cheerilee Module
+// @name FIMFiction Emote Extender: Cheerilee Module
 // @namespace ffemoteextender
 // @description Adds additional emotes to fimfiction.net.
 // @include http*://www.fimfiction.net/*

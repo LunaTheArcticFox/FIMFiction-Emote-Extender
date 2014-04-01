@@ -1,5 +1,5 @@
 /*
- *	Fimfiction Emote Script v3.0
+ *	FIMFiction Emote Script v3.0
  *
  *	Written by KrazyTheFox
  *	Emote expander code courtesy of Kits.

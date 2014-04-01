@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name Fimfiction Emote Extender: Roseluck Module
+// @name FIMFiction Emote Extender: Roseluck Module
 // @namespace ffemoteextender
 // @description Adds additional emotes to fimfiction.net.
 // @include http*://www.fimfiction.net/*
 // @include http*://fimfiction.net/*
 // @grant none
 // @require https://raw.github.com/KrazyTheFox/Fimfiction-Emote-API/master/emoteAPI-noSave.js
-// @version 2.0
+// @version 3.0
 // ==/UserScript==
 
 $(document).ready(run());

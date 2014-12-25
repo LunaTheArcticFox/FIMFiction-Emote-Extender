@@ -5,51 +5,48 @@
 
 body {
 	padding: 0;
+	-moz-user-select: none;
+	cursor: default;
 }
 
 #header {
 	height: 52px;
 	color: white;
 	background-color: #389fe0;
-	-moz-user-select: none;
-	cursor: default;
 	overflow: hidden;
 }
 
 #header > div {
-	line-height: 56px;
 	font-size: 14pt;
 	font-family: "Roboto-Regular";
-	padding-left: 15pt;
 }
 
-#header .imageFrame {
-	margin: 1em 0;
-	position: relative;
-	padding-top: 4px;
-	margin-right: -13px;
-	height: 16px;
+#header img {
 	cursor: pointer;
 }
 
-.imageFrame > img {
-	max-height: 16px;
-	max-width: 24px;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
+#header .verticalAlignment {
+	min-height: 54px;
+	display: -moz-box;
+	-moz-box-pack: center;
+	-moz-box-align: center;
 }
 
 #modules {
 	border-top: 3px solid #2991d2;
 	width: 350px;
 	height: 393px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 #modules > div {
 	min-height: 62px;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+#modules .verticalAlignment {
+	min-height: 62px;
+	display: -moz-box;
+	-moz-box-pack: center;
+	-moz-box-align: center;
 }

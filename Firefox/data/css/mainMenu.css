@@ -1,0 +1,42 @@
+@font-face {
+	font-family: "Roboto-Regular";
+	src: url("../fonts/Roboto-Regular.ttf");
+}
+
+#header {
+	height: 55px;
+	color: white;
+	background-color: #389fe0;
+	border-bottom: 3px solid #2991d2;
+}
+
+#header > div {
+	line-height: 57px;
+	font-size: 14pt;
+	font-family: "Roboto-Regular";
+	padding-left: 15pt;
+}
+
+#header .imageFrame {
+	margin: 1em 0;
+	position: relative;
+	padding-top: 4px;
+	margin-right: -13px;
+	height: 16px;
+	cursor: pointer;
+}
+
+.imageFrame > img {
+	max-height: 16px;
+	max-width: 24px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+body {
+	padding: 0;
+}

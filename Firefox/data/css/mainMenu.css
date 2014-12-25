@@ -3,17 +3,21 @@
 	src: url("../fonts/Roboto-Regular.ttf");
 }
 
+body {
+	padding: 0;
+}
+
 #header {
-	height: 55px;
+	height: 52px;
 	color: white;
 	background-color: #389fe0;
-	border-bottom: 3px solid #2991d2;
 	-moz-user-select: none;
 	cursor: default;
+	overflow: hidden;
 }
 
 #header > div {
-	line-height: 57px;
+	line-height: 56px;
 	font-size: 14pt;
 	font-family: "Roboto-Regular";
 	padding-left: 15pt;
@@ -39,6 +43,13 @@
 	margin: auto;
 }
 
-body {
-	padding: 0;
+#modules {
+	border-top: 3px solid #2991d2;
+	width: 350px;
+	height: 393px;
+	overflow-y: scroll;
+}
+
+#modules > div {
+	min-height: 62px;
 }

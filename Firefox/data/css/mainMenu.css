@@ -8,6 +8,8 @@
 	color: white;
 	background-color: #389fe0;
 	border-bottom: 3px solid #2991d2;
+	-moz-user-select: none;
+	cursor: default;
 }
 
 #header > div {

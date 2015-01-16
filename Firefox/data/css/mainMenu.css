@@ -17,7 +17,7 @@ body {
 }
 
 #header > div {
-	font-size: 14pt;
+	font-size: 19px;
 	font-family: "Roboto-Regular";
 }
 
@@ -33,15 +33,18 @@ body {
 }
 
 #modules {
-	border-top: 3px solid #2991d2;
+	border-top: 3px solid #1a77b2;
 	width: 350px;
 	height: 393px;
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #modules > div {
 	min-height: 62px;
 	border-bottom: 1px solid #e2e2e2;
+	animation-duration: 0.5s;
+	animation-name: fadeIn;
 }
 
 #modules .verticalAlignment {
@@ -49,4 +52,57 @@ body {
 	display: -moz-box;
 	-moz-box-pack: center;
 	-moz-box-align: center;
+}
+
+.scriptTitle {
+	font-size: 18px;
+	font-family: "Roboto-Regular";
+	color: #adadad;
+}
+
+.scriptTitle.enabled {
+	color: #045d94;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.scriptAuthor {
+	font-size: 12px;
+	font-family: "Roboto-Regular";
+	color: #999999;
+}
+
+.scriptAuthor.enabled {
+	color: #a0a0a0;
+}
+
+footer {
+	position: absolute;
+	bottom: 0px;
+	height: 50px;
+	padding: 10px 14px 10px 10px;
+	width: 100%;
+	text-align: right;
+}
+
+.btn-addmod {
+	font-size: 15px;
+	font-family: "Roboto-Regular";
+	background-color: transparent;
+	background-image: url("../images/add-module.png");
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 30px;
+	color: #57a744;
+}
+
+.btn-addmod:hover {
+	color: #57a744;
 }

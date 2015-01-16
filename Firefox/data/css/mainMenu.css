@@ -92,7 +92,7 @@ footer {
 	text-align: right;
 }
 
-.btn-addmod {
+.btn-addmod, .btn-addmod:focus {
 	font-size: 15px;
 	font-family: "Roboto-Regular";
 	background-color: transparent;
@@ -100,9 +100,17 @@ footer {
 	background-repeat: no-repeat;
 	background-position: right center;
 	padding-right: 30px;
+	outline: 0 !important;
+	box-shadow: none;
 	color: #57a744;
 }
 
 .btn-addmod:hover {
-	color: #57a744;
+	color: #51de30;
+	background-image: url("../images/add-module-hover.png");
+}
+
+.btn-addmod:active {
+	color: #1d77d3;
+	background-image: url("../images/add-module-active.png");
 }

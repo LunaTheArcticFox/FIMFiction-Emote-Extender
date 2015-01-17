@@ -85,26 +85,26 @@ function uiButtonClicked() {
 		mainPanel.port.emit("show", ss.storage.scripts);
 	});
 
-	mainPanel.port.on("addScript", function(scriptText) {
+	mainPanel.port.on("addModule", function() {
 		mainPanel.hide();
-		addScript(scriptText);
+		addModule();
 	});
 
 	mainPanel.show();
 
 }
 
-function addScript(scriptText) {
+function addModule() {
 
 	var scriptPanel = require("sdk/panel").Panel({
-		width: 250,
-		height: 75,
+		width: 500,
+		height: 110,
 		contentURL: "./newScript.html",
 		contentScriptFile: "./js/newScript.js"
 	});
 
 	scriptPanel.on("show", function() {
-		scriptPanel.port.emit("show", scriptText);
+		scriptPanel.port.emit("show");
 	});
 
 	scriptPanel.show();

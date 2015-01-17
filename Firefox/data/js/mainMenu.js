@@ -66,7 +66,7 @@ self.port.on("show", function onShow(scripts) {
 	var addModuleButton = document.getElementById("addModuleButton");
 
 	addModuleButton.onclick = function() {
-		self.port.emit("addScript", "Hello, pony!");
+		self.port.emit("addModule");
 	};
 
 });

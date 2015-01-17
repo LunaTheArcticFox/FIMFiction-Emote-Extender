@@ -114,3 +114,10 @@ footer {
 	color: #1d77d3;
 	background-image: url("../images/add-module-active.png");
 }
+
+#moduleURLLabel {
+	font-size: 18px;
+	font-family: "Roboto-Regular";
+	color: #045d94;
+	padding-bottom: 5px;
+}

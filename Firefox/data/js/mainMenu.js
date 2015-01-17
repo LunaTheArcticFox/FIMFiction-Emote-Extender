@@ -1,9 +1,9 @@
-self.port.on("show", function onShow(scripts) {
+self.port.on("show", function onShow(modules) {
 
-	var modules = document.getElementById("modules");
+	var moduleParent = document.getElementById("modules");
 
-	for (var i = 0; i < scripts.length; i++) {
-		createModule(scripts[i], modules, scripts);
+	for (var i = 0; i < modules.length; i++) {
+		createModule(modules[i], moduleParent, modules);
 	}
 
 	var addModuleButton = document.getElementById("addModuleButton");
@@ -14,15 +14,15 @@ self.port.on("show", function onShow(scripts) {
 
 });
 
-function createModule(script, modules, scripts) {
+function createModule(module, moduleParent, modules) {
 
 	var textNode = document.createElement("div");
 	textNode.classList.add("col-xs-10");
-	textNode.classList.add(script.enabled ? "enabled" : "disabled");
+	textNode.classList.add(module.enabled ? "enabled" : "disabled");
 	textNode.innerHTML = '\
 		<div class="verticalAlignment">\
-			<span class="scriptTitle">' + script.name + '</span><br>\
-			<span class="scriptAuthor">' + script.author + '</span>\
+			<span class="moduleTitle">' + module.name + '</span><br>\
+			<span class="moduleAuthor">' + module.author + '</span>\
 		</div>\
 	';
 
@@ -31,15 +31,15 @@ function createModule(script, modules, scripts) {
 
 	var imageParent = document.createElement("div");
 	imageParent.classList.add("moduleImage");
-	imageParent.classList.add(script.enabled ? "enabled" : "disabled");
+	imageParent.classList.add(module.enabled ? "enabled" : "disabled");
 	imageParent.innerHTML = '\
 		<img src="images/enabled.png">\
 		<img src="images/not-enabled.png">\
 	';
 
 	imageParent.onclick = function() {
-		script.enabled = !script.enabled;
-		if (script.enabled) {
+		module.enabled = !module.enabled;
+		if (module.enabled) {
 			imageParent.classList.remove("disabled");
 			imageParent.classList.add("enabled");
 			textNode.classList.remove("disabled");
@@ -50,7 +50,7 @@ function createModule(script, modules, scripts) {
 			textNode.classList.remove("enabled");
 			textNode.classList.add("disabled");
 		}
-		self.port.emit("save", scripts);
+		self.port.emit("save", modules);
 	}
 
 	var imageParentAlignment = document.createElement("div");
@@ -58,7 +58,7 @@ function createModule(script, modules, scripts) {
 	imageParentAlignment.appendChild(imageParent);
 	imageNode.appendChild(imageParentAlignment);
 
-	modules.appendChild(textNode);
-	modules.appendChild(imageNode);
+	moduleParent.appendChild(textNode);
+	moduleParent.appendChild(imageNode);
 
 }

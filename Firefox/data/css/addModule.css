@@ -55,13 +55,13 @@ body {
 	-moz-box-align: center;
 }
 
-.scriptTitle {
+.moduleTitle {
 	font-size: 18px;
 	font-family: "Roboto-Regular";
 	color: #adadad;
 }
 
-.scriptTitle.enabled {
+.moduleTitle.enabled {
 	color: #045d94;
 }
 
@@ -74,13 +74,13 @@ body {
 	}
 }
 
-.scriptAuthor {
+.moduleAuthor {
 	font-size: 12px;
 	font-family: "Roboto-Regular";
 	color: #999999;
 }
 
-.scriptAuthor.enabled {
+.moduleAuthor.enabled {
 	color: #a0a0a0;
 }
 

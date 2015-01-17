@@ -1,9 +1,9 @@
 var ss = require("sdk/simple-storage");
 
-if (!ss.storage.scripts) {
-	ss.storage.scripts = [
+if (!ss.storage.modules) {
+	ss.storage.modules = [
 		{
-			"name" : "Pony Script 1",
+			"name" : "Pony Module 1",
 			"author" : "KrazyTheFox",
 			"enabled" : true,
 			"emoteTables" : [
@@ -82,7 +82,7 @@ function uiButtonClicked() {
 	});
 
 	mainPanel.on("show", function() {
-		mainPanel.port.emit("show", ss.storage.scripts);
+		mainPanel.port.emit("show", ss.storage.modules);
 	});
 
 	mainPanel.port.on("addModule", function() {
@@ -90,8 +90,8 @@ function uiButtonClicked() {
 		addModule();
 	});
 
-	mainPanel.port.on("save", function(scripts) {
-		ss.storage.scripts = scripts;
+	mainPanel.port.on("save", function(modules) {
+		ss.storage.modules = modules;
 	});
 
 
@@ -101,23 +101,23 @@ function uiButtonClicked() {
 
 function addModule() {
 
-	var scriptPanel = require("sdk/panel").Panel({
+	var modulePanel = require("sdk/panel").Panel({
 		width: 500,
 		height: 110,
 		contentURL: "./addModule.html",
 		contentScriptFile: "./js/addModule.js"
 	});
 
-	scriptPanel.on("show", function() {
-		scriptPanel.port.emit("show");
+	modulePanel.on("show", function() {
+		modulePanel.port.emit("show");
 	});
 
-	scriptPanel.port.on("addURL", function(url) {
-		scriptPanel.hide();
+	modulePanel.port.on("addURL", function(url) {
+		modulePanel.hide();
 		addURL(url);
 	});
 	
-	scriptPanel.show();
+	modulePanel.show();
 	
 }
 
@@ -131,20 +131,20 @@ function addURL(urlTemp) {
 			onComplete: function (response) {
 				if (response.status == 200) {
 					var module = JSON.parse(response.text);
-					ss.storage.scripts.push(module);
-					var scriptPanel = require("sdk/panel").Panel({
+					ss.storage.modules.push(module);
+					var modulePanel = require("sdk/panel").Panel({
 						width: 250,
 						height: 150,
 						contentURL: "./moduleAddSuccess.html"
 					});
-					scriptPanel.show();
+					modulePanel.show();
 				} else {
-					var scriptPanel = require("sdk/panel").Panel({
+					var modulePanel = require("sdk/panel").Panel({
 						width: 250,
 						height: 150,
 						contentURL: "./moduleAddFailed.html"
 					});
-					scriptPanel.show();
+					modulePanel.show();
 				}
 			}
 		});
@@ -152,12 +152,12 @@ function addURL(urlTemp) {
 		moduleRequest.get();
 
 	} catch (e) {
-		var scriptPanel = require("sdk/panel").Panel({
+		var modulePanel = require("sdk/panel").Panel({
 			width: 250,
 			height: 150,
 			contentURL: "./moduleAddFailed.html"
 		});
-		scriptPanel.show();
+		modulePanel.show();
 	}
 
 }

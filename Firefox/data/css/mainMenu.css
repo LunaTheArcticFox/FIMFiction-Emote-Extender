@@ -87,17 +87,17 @@ body {
 	cursor: pointer;
 }
 
-.scriptTitle {
+.moduleTitle {
 	font-size: 18px;
 	font-family: "Roboto-Regular";
 }
 
-.disabled .scriptTitle {
+.disabled .moduleTitle {
 	color: #adadad;
 	transition: color 0.3s;
 }
 
-.enabled .scriptTitle {
+.enabled .moduleTitle {
 	color: #045d94;
 	transition: color 0.3s;
 }
@@ -111,17 +111,17 @@ body {
 	}
 }
 
-.scriptAuthor {
+.moduleAuthor {
 	font-size: 12px;
 	font-family: "Roboto-Regular";
 }
 
-.disabled .scriptAuthor {
+.disabled .moduleAuthor {
 	color: #cacaca;
 	transition: color 0.3s;
 }
 
-.enabled .scriptAuthor {
+.enabled .moduleAuthor {
 	color: #a0a0a0;
 	transition: color 0.3s;
 }

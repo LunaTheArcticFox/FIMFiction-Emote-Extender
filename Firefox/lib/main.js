@@ -107,6 +107,27 @@ function addModule() {
 		scriptPanel.port.emit("show");
 	});
 
+	scriptPanel.port.on("addURL", function(url) {
+		scriptPanel.hide();
+		addURL(url);
+	});
+
 	scriptPanel.show();
 	
+}
+
+function addURL(urlTemp) {
+
+	var Request = require("sdk/request").Request;
+	var moduleRequest = Request({
+		url: urlTemp,
+		onComplete: function (response) {
+			if (response.status == 200) {
+				var module = JSON.parse(response.text);
+				ss.storage.scripts.push(module);
+			}
+		}
+	});
+	moduleRequest.get();
+
 }

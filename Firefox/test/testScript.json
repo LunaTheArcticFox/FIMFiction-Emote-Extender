@@ -1,0 +1,23 @@
+{
+	"name" : "Appletastic",
+	"author" : "KrazyTheFox",
+	"enabled" : true,
+	"emoteTables" : [
+		{
+			"shortName" : "AJ",
+			"longName" : "Applejack",
+			"numberOfEmotes" : 1,
+			"emotes" : [
+				[ "http://i.imgur.com/NBEDt.png", "ajlie" ]
+			]
+		},
+		{
+			"shortName" : "AB",
+			"longName" : "Apple Bloom",
+			"numberOfEmotes" : 1,
+			"emotes" : [
+				[ "http://i.imgur.com/ab30Fs.png", "abwat" ]
+			]
+		}
+	]
+}

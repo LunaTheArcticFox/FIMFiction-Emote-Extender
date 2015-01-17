@@ -90,6 +90,11 @@ function uiButtonClicked() {
 		addModule();
 	});
 
+	mainPanel.port.on("save", function(scripts) {
+		ss.storage.scripts = scripts;
+	});
+
+
 	mainPanel.show();
 
 }
@@ -111,7 +116,7 @@ function addModule() {
 		scriptPanel.hide();
 		addURL(url);
 	});
-
+	
 	scriptPanel.show();
 	
 }

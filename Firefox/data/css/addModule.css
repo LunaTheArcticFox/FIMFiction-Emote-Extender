@@ -1,0 +1,124 @@
+@font-face {
+	font-family: "Roboto-Regular";
+	src: url("../fonts/Roboto-Regular.ttf");
+}
+
+body {
+	padding: 20px 25px 25px 25px;
+	overflow: hidden;
+	-moz-user-select: none;
+	cursor: default;
+}
+
+#header {
+	height: 52px;
+	color: white;
+	background-color: #389fe0;
+	overflow: hidden;
+}
+
+#header > div {
+	font-size: 19px;
+	font-family: "Roboto-Regular";
+}
+
+#header img {
+	cursor: pointer;
+}
+
+#header .verticalAlignment {
+	min-height: 54px;
+	display: -moz-box;
+	-moz-box-pack: center;
+	-moz-box-align: center;
+}
+
+#modules {
+	border-top: 3px solid #1a77b2;
+	width: 350px;
+	height: 393px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#modules > div {
+	min-height: 62px;
+	border-bottom: 1px solid #e2e2e2;
+	animation-duration: 0.5s;
+	animation-name: fadeIn;
+}
+
+#modules .verticalAlignment {
+	min-height: 62px;
+	display: -moz-box;
+	-moz-box-pack: center;
+	-moz-box-align: center;
+}
+
+.scriptTitle {
+	font-size: 18px;
+	font-family: "Roboto-Regular";
+	color: #adadad;
+}
+
+.scriptTitle.enabled {
+	color: #045d94;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.scriptAuthor {
+	font-size: 12px;
+	font-family: "Roboto-Regular";
+	color: #999999;
+}
+
+.scriptAuthor.enabled {
+	color: #a0a0a0;
+}
+
+footer {
+	position: absolute;
+	bottom: 0px;
+	height: 50px;
+	padding: 10px 14px 10px 10px;
+	width: 100%;
+	text-align: right;
+}
+
+.btn-addmod, .btn-addmod:focus {
+	font-size: 15px;
+	font-family: "Roboto-Regular";
+	background-color: transparent;
+	background-image: url("../images/add-module.png");
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 30px;
+	outline: 0 !important;
+	box-shadow: none;
+	color: #57a744;
+}
+
+.btn-addmod:hover {
+	color: #51de30;
+	background-image: url("../images/add-module-hover.png");
+}
+
+.btn-addmod:active {
+	color: #1d77d3;
+	background-image: url("../images/add-module-active.png");
+}
+
+#moduleURLLabel {
+	font-size: 18px;
+	font-family: "Roboto-Regular";
+	color: #045d94;
+	padding-bottom: 5px;
+}

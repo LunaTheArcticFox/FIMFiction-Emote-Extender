@@ -99,8 +99,8 @@ function addModule() {
 	var scriptPanel = require("sdk/panel").Panel({
 		width: 500,
 		height: 110,
-		contentURL: "./newScript.html",
-		contentScriptFile: "./js/newScript.js"
+		contentURL: "./addModule.html",
+		contentScriptFile: "./js/addModule.js"
 	});
 
 	scriptPanel.on("show", function() {
@@ -118,16 +118,41 @@ function addModule() {
 
 function addURL(urlTemp) {
 
-	var Request = require("sdk/request").Request;
-	var moduleRequest = Request({
-		url: urlTemp,
-		onComplete: function (response) {
-			if (response.status == 200) {
-				var module = JSON.parse(response.text);
-				ss.storage.scripts.push(module);
+	try {
+
+		var Request = require("sdk/request").Request;
+		var moduleRequest = Request({
+			url: urlTemp,
+			onComplete: function (response) {
+				if (response.status == 200) {
+					var module = JSON.parse(response.text);
+					ss.storage.scripts.push(module);
+					var scriptPanel = require("sdk/panel").Panel({
+						width: 250,
+						height: 150,
+						contentURL: "./moduleAddSuccess.html"
+					});
+					scriptPanel.show();
+				} else {
+					var scriptPanel = require("sdk/panel").Panel({
+						width: 250,
+						height: 150,
+						contentURL: "./moduleAddFailed.html"
+					});
+					scriptPanel.show();
+				}
 			}
-		}
-	});
-	moduleRequest.get();
+		});
+		
+		moduleRequest.get();
+
+	} catch (e) {
+		var scriptPanel = require("sdk/panel").Panel({
+			width: 250,
+			height: 150,
+			contentURL: "./moduleAddFailed.html"
+		});
+		scriptPanel.show();
+	}
 
 }

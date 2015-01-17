@@ -60,6 +60,14 @@ if (!ss.storage.modules) {
 	];
 }
 
+require("sdk/page-mod").PageMod({
+	include: "*.fimfiction.net",
+	contentScriptFile: "./js/injection.js",
+	onAttach: function(worker) {
+		worker.port.emit("addModules", ss.storage.scripts);
+	}
+});
+
 var uiButton = require('sdk/ui/button/action').ActionButton({
 	id: "mozilla-link",
 	label: "FIMFiction Emote Extender Settings",

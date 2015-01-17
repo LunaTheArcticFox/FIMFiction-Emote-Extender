@@ -1,4 +1,5 @@
 var tables = {};
+var tableDIVs = {};
 
 self.port.on("addModules", function addScripts(modules) {
 
@@ -7,7 +8,7 @@ self.port.on("addModules", function addScripts(modules) {
 	combineTables(modules);
 
 	for(var i = 0; i < editors.length; i++) {
-		injectEmoteModules(editors.item(i), modules);
+		injectEmotes(editors.item(i));
 	}
 
 });
@@ -15,27 +16,29 @@ self.port.on("addModules", function addScripts(modules) {
 function combineTables(modules) {
 
 	for (var i = 0; i < modules.length; i++) {
-		for (var j = 0; j < modules[i].emoteTables.length; j++) {
+		if (modules[i].enabled) {
+			for (var j = 0; j < modules[i].emoteTables.length; j++) {
 
-			var table = modules[i].emoteTables[j];
+				var table = modules[i].emoteTables[j];
 
-			if (table.longName in tables) {
+				if (table.longName in tables) {
 
-				tables[table.longName].numberOfEmotes += table.numberOfEmotes;
-				tables[table.longName].emotes.concat(table.emotes);
+					tables[table.longName].numberOfEmotes += table.numberOfEmotes;
+					tables[table.longName].emotes.concat(table.emotes);
 
-			} else {
+				} else {
 
-				tables[table.longName] = table;
+					tables[table.longName] = table;
+
+				}
 
 			}
-
 		}
 	}
 
 }
 
-function injectEmoteModules(editor, modules) {
+function injectEmotes(editor) {
 
 	var toolbar = editor.children[0];
 
@@ -71,6 +74,15 @@ function injectEmoteModules(editor, modules) {
 
 	};
 
+	for (var key in tables) {
+		showTable(tables[key].longName, emoteDropdown);
+		break;
+	}
+
+	/*document.onclick = function(e) {
+		emoteButton.parentNode.classList.remove("drop-down-show");
+	}*/
+
 }
 
 function addTableSelector(emoteDropdown) {
@@ -98,9 +110,25 @@ function addTableSelector(emoteDropdown) {
 
 function showTable(tableName, emoteDropdown) {
 
+	//var child4 = emoteDropdown.children[4];
+	//emoteDropdown.removeChild(child4);
+	//emoteDropdown.removeChild(emoteDropdown.children[3]);
+	if (emoteDropdown.children.length > 2) {
+		emoteDropdown.removeChild(emoteDropdown.children[2]);
+	}
+
+	if (tableName in tableDIVs) {
+
+		return;
+	}
+
 	var div = document.createElement("div");
 
-	div.innerHTML = tableName;
+	for (var i = 0; i < tables[tableName].numberOfEmotes; i++) {
+		var emote = document.createElement("img");
+		emote.src = tables[tableName].emotes[i][0];
+		div.appendChild(emote);
+	}
 
 	emoteDropdown.appendChild(div);
 

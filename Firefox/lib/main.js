@@ -12,9 +12,9 @@ if (!ss.storage.modules) {
 					"longName" : "Obscure Pony",
 					"numberOfEmotes" : 3,
 					"emotes" : [
-						[ "http://i.imgur.com/3UFhl3F1.png", "obspony1" ],
-						[ "http://i.imgur.com/3UFhl3F2.png", "obspony2" ],
-						[ "http://i.imgur.com/3UFhl3F3.png", "obspony3" ]
+						[ "http://i.imgur.com/dVnqE.png", "obspony1" ],
+						[ "http://i.imgur.com/geqle.png", "obspony2" ],
+						[ "http://i.imgur.com/oBAx788.png", "obspony3" ]
 					]
 				}
 			]

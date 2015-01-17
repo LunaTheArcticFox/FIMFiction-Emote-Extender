@@ -64,7 +64,7 @@ require("sdk/page-mod").PageMod({
 	include: "*.fimfiction.net",
 	contentScriptFile: "./js/injection.js",
 	onAttach: function(worker) {
-		worker.port.emit("addModules", ss.storage.scripts);
+		worker.port.emit("addModules", ss.storage.modules);
 	}
 });
 

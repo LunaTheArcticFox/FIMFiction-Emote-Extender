@@ -18,7 +18,7 @@ if (!ss.storage.modules) {
 					]
 				}
 			]
-		}/*,
+		},
 		{
 			"name" : "Appletastic",
 			"author" : "KrazyTheFox",
@@ -43,20 +43,20 @@ if (!ss.storage.modules) {
 			]
 		},
 		{
-			"name" : "Rainbowgasmic",
+			"name" : "Super Massive",
 			"author" : "KrazyTheFox",
-			"enabled" : "false",
+			"enabled" : true,
 			"emoteTables" : [
 				{
 					"shortName" : "RD",
 					"longName" : "Rainbow Dash",
 					"numberOfEmotes" : 1,
 					"emotes" : [
-						[ "http://i.imgur.com/NRtTF.png", "rdash" ]
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ]
 					]
 				}
 			]
-		}*/
+		}
 	];
 }
 

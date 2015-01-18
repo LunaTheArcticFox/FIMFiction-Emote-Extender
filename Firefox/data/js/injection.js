@@ -9,8 +9,9 @@ self.port.on("addModules", function addScripts(modules) {
 	.emoteTable { animation: fadeout 0.25s; animation-fill-mode: forwards; }\
 	.fade { animation: fadein 0.25s; animation-fill-mode: forwards; }\
 	.emoteTable .invisible { opacity: 0.0 !important; }\
-	.emoteTable img { opacity: 0.7; transition: opacity 0.3s; cursor: pointer; }\
+	.emoteTable img { opacity: 0.8; transition: opacity 0.3s; cursor: pointer; }\
 	.emoteTable img:hover { opacity: 1.0; transition: opacity 0.3s; }\
+	.loader { animation: loadingAnimation 7s infinite; animation-timing-function: ease-in-out; width: 10px !important; height: 10px !important; display: inline-block; position: absolute; border-radius: 5px; left: 30px; top: 64px; }\
 	@keyframes\
 	fadein {\
 	    from { opacity: 0; }\
@@ -20,7 +21,18 @@ self.port.on("addModules", function addScripts(modules) {
 	fadeout {\
 	    from { opacity: 1; }\
 	    to   { opacity: 0; display: none; }\
-	}";
+	}\
+	@keyframes\
+	loadingAnimation {\
+		0%    { background-color: #ffc261; }\
+		16.7% { background-color: #fdf6af; }\
+		33.4% { background-color: #f3b6cf; }\
+		50.1% { background-color: #9edbf9; }\
+		66.8% { background-color: #b689c8; }\
+		83.5% { background-color: #ebeff1; }\
+		100%  { background-color: #ffc261; }\
+	}\
+	";
 	document.body.appendChild(css);
 
 	var editors = document.getElementsByClassName("bbcode-editor");
@@ -179,15 +191,31 @@ function showTable(tableName, emoteDropdown) {
 }
 
 function getEmote(emote) {
+
+	var container = document.createElement("div");
+	container.style.display = "inline-block";
+	container.style.width = "70px";
+	container.style.height = "70px";
+
+	var loader = document.createElement("span");
+	loader.className = "loader";
+
 	var emoteElement = document.createElement("img");
 	emoteElement.className = "invisible";
 	emoteElement.onclick = function() {
 		insertText(document.getElementById("comment_comment"), "[img]" + emoteElement.src + "[/img]");
 	};
+
 	$(emoteElement).attr({src: emote[0]}).on('load', function() {
+		container.removeChild(loader);
 		emoteElement.classList.remove("invisible");
 	});
-	return emoteElement;
+
+	container.appendChild(loader);
+	container.appendChild(emoteElement);
+
+	return container;
+
 }
 
 function resizeDropdown(emoteDropdown) {

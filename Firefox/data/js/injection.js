@@ -3,6 +3,25 @@ var tableDIVs = {};
 
 self.port.on("addModules", function addScripts(modules) {
 
+	var css = document.createElement("style");
+	css.type = "text/css";
+	css.innerHTML = "\
+	.emoteTable { animation: fadeout 0.25s; animation-fill-mode: forwards; }\
+	.fade { animation: fadein 0.25s; animation-fill-mode: forwards; }\
+	.emoteTable img { opacity: 0.7; transition: opacity 0.3s; cursor: pointer; }\
+	.emoteTable img:hover { opacity: 1.0; transition: opacity 0.3s; }\
+	@keyframes\
+	fadein {\
+	    from { opacity: 0; }\
+	    to   { opacity: 1; }\
+	}\
+	@keyframes\
+	fadeout {\
+	    from { opacity: 1; }\
+	    to   { opacity: 0; display: none; }\
+	}";
+	document.body.appendChild(css);
+
 	var editors = document.getElementsByClassName("bbcode-editor");
 
 	combineTables(modules);
@@ -110,28 +129,57 @@ function addTableSelector(emoteDropdown) {
 
 function showTable(tableName, emoteDropdown) {
 
-	//var child4 = emoteDropdown.children[4];
-	//emoteDropdown.removeChild(child4);
-	//emoteDropdown.removeChild(emoteDropdown.children[3]);
+	var child = null;
+
 	if (emoteDropdown.children.length > 2) {
-		emoteDropdown.removeChild(emoteDropdown.children[2]);
+		child = emoteDropdown.children[2];
+		child.classList.remove("fade");
 	}
 
 	if (tableName in tableDIVs) {
-
+		var table2 = tableDIVs[tableName];
+		if (child != null) {
+			setTimeout(function() {
+				emoteDropdown.removeChild(child);
+				emoteDropdown.appendChild(table2);
+				table2.classList.add("fade");
+			}, 250);
+		} else {
+			emoteDropdown.appendChild(table2);
+			table2.classList.add("fade");
+		}
 		return;
 	}
 
 	var div = document.createElement("div");
+	div.classList.add("emoteTable");
 
 	for (var i = 0; i < tables[tableName].numberOfEmotes; i++) {
-		var emote = document.createElement("img");
-		emote.src = tables[tableName].emotes[i][0];
-		div.appendChild(emote);
+		div.appendChild(getEmote(tables[tableName].emotes[i]));
 	}
 
-	emoteDropdown.appendChild(div);
+	if (child != null) {
+		setTimeout(function() {
+			emoteDropdown.removeChild(child);
+			emoteDropdown.appendChild(div);
+			div.classList.add("fade");
+			tableDIVs[tableName] = div;
+		}, 250);
+	} else {
+		emoteDropdown.appendChild(div);
+		div.classList.add("fade");
+		tableDIVs[tableName] = div;
+	}
 
+}
+
+function getEmote(emote) {
+	var emoteElement = document.createElement("img");
+	emoteElement.src = emote[0];
+	emoteElement.onclick = function() {
+		insertText(document.getElementById("comment_comment"), "[img]" + emoteElement.src + "[/img]");
+	};
+	return emoteElement;
 }
 
 function resizeDropdown(emoteDropdown) {
@@ -142,4 +190,19 @@ function resizeDropdown(emoteDropdown) {
 	//emoteDropdown.style.right = "-200px";
 	emoteDropdown.style.height = h + "px";
 
+}
+
+function insertText(element, text) {
+	text = text || '';
+	if (element.selectionStart || element.selectionStart === 0) {
+		var startPos = element.selectionStart;
+		var endPos = element.selectionEnd;
+		element.value = element.value.substring(0, startPos) +
+			text +
+			element.value.substring(endPos, element.value.length);
+		element.selectionStart = startPos + text.length;
+		element.selectionEnd = startPos + text.length;
+	} else {
+		element.value += text;
+	}
 }

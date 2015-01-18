@@ -62,7 +62,7 @@ if (!ss.storage.modules) {
 
 require("sdk/page-mod").PageMod({
 	include: "*.fimfiction.net",
-	contentScriptFile: "./js/injection.js",
+	contentScriptFile: ["./js/jQuery.min.js", "./js/injection.js"],
 	onAttach: function(worker) {
 		worker.port.emit("addModules", ss.storage.modules);
 	}

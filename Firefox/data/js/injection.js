@@ -8,6 +8,7 @@ self.port.on("addModules", function addScripts(modules) {
 	css.innerHTML = "\
 	.emoteTable { animation: fadeout 0.25s; animation-fill-mode: forwards; }\
 	.fade { animation: fadein 0.25s; animation-fill-mode: forwards; }\
+	.emoteTable .invisible { opacity: 0.0 !important; }\
 	.emoteTable img { opacity: 0.7; transition: opacity 0.3s; cursor: pointer; }\
 	.emoteTable img:hover { opacity: 1.0; transition: opacity 0.3s; }\
 	@keyframes\
@@ -78,7 +79,11 @@ function injectEmotes(editor) {
 	};
 
 	//Locates the vanilla FIMFiction emote button
-	var emoteButton = toolbar.children[2].children[6].children[0];
+	if (toolbar.children[2]) {
+		var emoteButton = toolbar.children[2].children[6].children[0];
+	} else {
+		var emoteButton = toolbar.children[1].children[5].children[0];
+	}
 	emoteButton.parentNode.appendChild(emoteDropdown);
 	emoteButton.onclick = function(e) {
 
@@ -175,10 +180,13 @@ function showTable(tableName, emoteDropdown) {
 
 function getEmote(emote) {
 	var emoteElement = document.createElement("img");
-	emoteElement.src = emote[0];
+	emoteElement.className = "invisible";
 	emoteElement.onclick = function() {
 		insertText(document.getElementById("comment_comment"), "[img]" + emoteElement.src + "[/img]");
 	};
+	$(emoteElement).attr({src: emote[0]}).on('load', function() {
+		emoteElement.classList.remove("invisible");
+	});
 	return emoteElement;
 }
 

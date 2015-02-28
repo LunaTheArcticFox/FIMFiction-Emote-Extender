@@ -95,9 +95,11 @@ function injectEmotes(editor) {
 		var emoteButton = toolbar.children[1].children[5].children[0];
 	}
 
-	emoteButton.parentNode.appendChild(emoteDropdown);
+	var dropdownParent = emoteButton.parentNode;
 
-	addTableSelector(emoteDropdown);
+	dropdownParent.appendChild(emoteDropdown);
+
+	addTableSelector(emoteDropdown, dropdownParent);
 
 	resizeDropdown(emoteDropdown);
 
@@ -110,10 +112,10 @@ function injectEmotes(editor) {
   		e.preventDefault();
 		e.stopPropagation();
 
-		if (emoteButton.parentNode.classList.contains("drop-down-show")) {
-			emoteButton.parentNode.classList.remove("drop-down-show");
+		if (dropdownParent.classList.contains("drop-down-show")) {
+			dropdownParent.classList.remove("drop-down-show");
 		} else {
-			emoteButton.parentNode.classList.add("drop-down-show");
+			dropdownParent.classList.add("drop-down-show");
 		}
 
 	};
@@ -121,23 +123,23 @@ function injectEmotes(editor) {
 	document.body.onclick = function(e) {
 
 		if ($(emoteDropdown).find($(e.target)).length == 0) {
-			if (emoteButton.parentNode.classList.contains("drop-down-show")) {
-				emoteButton.parentNode.classList.remove("drop-down-show");
+			if (dropdownParent.classList.contains("drop-down-show")) {
+				dropdownParent.classList.remove("drop-down-show");
 			}
 		}
 
 	}
 
-	emoteButton.parentNode.classList.remove("drop-down-show");
+	dropdownParent.classList.remove("drop-down-show");
 
 	for (var key in tables) {
-		showTable(tables[key].name, emoteDropdown);
+		showTable(tables[key].name, emoteDropdown, dropdownParent);
 		break;
 	}
 
 }
 
-function addTableSelector(emoteDropdown) {
+function addTableSelector(emoteDropdown, dropdownParent) {
 
 	var tableSelector = document.createElement("select");
 	tableSelector.id = "tableSelector"
@@ -154,14 +156,14 @@ function addTableSelector(emoteDropdown) {
 	}
 
 	tableSelector.onchange = function() {
-		showTable(tableSelector.value, emoteDropdown);
+		showTable(tableSelector.value, emoteDropdown, dropdownParent);
 	};
 
 	emoteDropdown.appendChild(tableSelector);
 
 }
 
-function showTable(tableName, emoteDropdown) {
+function showTable(tableName, emoteDropdown, dropdownParent) {
 
 	var child = null;
 
@@ -190,7 +192,7 @@ function showTable(tableName, emoteDropdown) {
 	div.style.height = $(emoteDropdown).height() - $("#tableSelector").height() - 9 - 9 - 13 + "px";
 
 	for (var i = 0; i < tables[tableName].numberOfEmotes; i++) {
-		div.appendChild(getEmote(tables[tableName].emotes[i]));
+		div.appendChild(getEmote(tables[tableName].emotes[i], dropdownParent));
 	}
 
 	if (child != null) {
@@ -208,7 +210,7 @@ function showTable(tableName, emoteDropdown) {
 
 }
 
-function getEmote(emote) {
+function getEmote(emote, dropdownParent) {
 
 	var container = document.createElement("div");
 	container.style.display = "inline-block";
@@ -222,6 +224,7 @@ function getEmote(emote) {
 	emoteElement.title = ":" + emote[1] + ":";
 	emoteElement.onclick = function() {
 		insertText(document.getElementById("comment_comment"), "[img]" + emoteElement.src + "[/img]");
+		dropdownParent.classList.remove("drop-down-show");
 	};
 
 	$(emoteElement).attr({src: emote[0]}).on('load', function() {

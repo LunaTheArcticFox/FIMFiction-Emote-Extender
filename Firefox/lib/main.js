@@ -1,20 +1,69 @@
 var ss = require("sdk/simple-storage");
 
+ss.storage.modules = null;
 if (!ss.storage.modules) {
 	ss.storage.modules = [
 		{
-			"name" : "Pony Module 1",
+			"name" : "Standard Tables",
 			"author" : "KrazyTheFox",
 			"enabled" : true,
 			"emoteTables" : [
 				{
-					"shortName" : "PONY",
-					"longName" : "Obscure Pony",
-					"numberOfEmotes" : 3,
+					"shortName" : "AJ",
+					"longName" : "Applejack",
 					"emotes" : [
-						[ "http://i.imgur.com/dVnqE.png", "obspony1" ],
-						[ "http://i.imgur.com/geqle.png", "obspony2" ],
-						[ "http://i.imgur.com/oBAx788.png", "obspony3" ]
+						[ "http://i.imgur.com/NBEDt.png", "ajlie" ],
+						[ "http://i.imgur.com/5Tp73.png", "ajhappy" ],
+						[ "http://i.imgur.com/oa0BJ.png", "ajsup" ],
+						[ "http://i.imgur.com/oaEI1BM.png", "ajderp" ],
+						[ "http://i.imgur.com/bEP8EQ2.png", "ajgasp" ],
+						[ "http://i.imgur.com/mMp7L.png", "ajcower" ],
+						[ "http://i.imgur.com/HZlOi.png", "ajsly" ],
+						[ "http://i.imgur.com/7PYFy.png", "ajsquinty" ],
+						[ "http://i.imgur.com/DHDbq.png", "ajugh" ],
+						[ "http://i.imgur.com/8zRAx.png", "ajwut" ],
+						[ "http://i.imgur.com/aBIJ1.png", "ajfrown" ],
+						[ "http://i.imgur.com/DmoWN.png", "ajhmmm" ],
+						[ "http://i.imgur.com/MdJgU.png", "ajconfused" ],
+						[ "http://i.imgur.com/dVnqE.png", "ajcarefree" ],
+						[ "http://i.imgur.com/TAf9J.png", "ajconfident" ],
+						[ "http://i.imgur.com/gNxjD.png", "ajproud" ],
+						[ "http://i.imgur.com/JmYib.png", "ajmad" ],
+						[ "http://i.imgur.com/aPZth.png", "ajinnocent" ],
+						[ "http://i.imgur.com/4sZY1.png", "ajwoozy" ],
+						[ "http://i.imgur.com/1NN8f.png", "ajwhat" ],
+						[ "http://i.imgur.com/xmRQV.png", "ajskeptical" ],
+						[ "http://i.imgur.com/lGb8P.png", "ajcurious" ],
+						[ "http://i.imgur.com/0zTKq.png", "ajsmirk" ],
+						[ "http://i.imgur.com/BeQHk.png", "ajbiggrin" ],
+						[ "http://i.imgur.com/fl6ox.png", "ajcry" ],
+						[ "http://i.imgur.com/mbZjl.png", "ajmoustache" ],
+						[ "http://i.imgur.com/r19vB.png", "ajbashful" ],
+						[ "http://i.imgur.com/hMgvT.png", "ajunamused" ],
+						[ "http://i.imgur.com/ZCoEh.png", "ajsalute" ],
+						[ "http://i.imgur.com/1ppRy.png", "ajglasses" ],
+						[ "http://i.imgur.com/kjSfI.png", "ajhazy" ],
+						[ "http://i.imgur.com/pwUmu.png", "ajdiscorded" ],
+						[ "http://i.imgur.com/geqle.png", "ajghost" ],
+						[ "http://i.imgur.com/LOrxf.png", "ajannoyed" ],
+						[ "http://i.imgur.com/Evd0x.png", "ajcrazy" ],
+						[ "http://i.imgur.com/tjCXQ.png", "ajeww" ],
+						[ "http://i.imgur.com/NlvYtnA.png", "ajooh" ],
+						[ "http://i.imgur.com/Qe7TiLt.png", "ajwait" ],
+						[ "http://i.imgur.com/yAmRYea.png", "ajangry" ],
+						[ "http://i.imgur.com/pww1wjm.png", "ajstubborn" ],
+						[ "http://i.imgur.com/KZHFE8U.png", "ajno" ],
+						[ "http://i.imgur.com/MZsrxQK.png", "ajunsure" ],
+						[ "http://i.imgur.com/aHVIEJf.png", "ajfearful" ],
+						[ "http://i.imgur.com/DPk2NZn.png", "ajnotlying" ],
+						[ "http://i.imgur.com/ogtnDnC.png", "ajexcited" ],
+						[ "http://i.imgur.com/oBAx788.png", "ajwink" ],
+						[ "http://i.imgur.com/myOBKB4.png", "ajfaint" ],
+						[ "http://i.imgur.com/LRD2W70.png", "ajglare" ],
+						[ "http://i.imgur.com/MIrVmT7.png", "ajsad" ],
+						[ "http://i.imgur.com/yyfj6BZ.png", "fillyaj" ],
+						[ "http://i.imgur.com/6DvjrRv.png", "ajrage" ],
+						[ "http://i.imgur.com/0REqcvr.png", "ajcanthearyou" ]
 					]
 				}
 			]
@@ -26,18 +75,28 @@ if (!ss.storage.modules) {
 			"emoteTables" : [
 				{
 					"shortName" : "AJ",
-					"longName" : "Applejack",
-					"numberOfEmotes" : 1,
+					"longName" : "Obscure Pony",
 					"emotes" : [
-						[ "http://i.imgur.com/NBEDt.png", "ajlie" ]
+						[ "http://i.imgur.com/dVnqE.png", "obspony1" ],
+						[ "http://i.imgur.com/geqle.png", "obspony2" ],
+						[ "http://i.imgur.com/oBAx788.png", "obspony3" ],
+						[ "http://i.imgur.com/geqle.png", "obspony2" ],
+						[ "http://i.imgur.com/oBAx788.png", "obspony3" ],
+						[ "http://i.imgur.com/geqle.png", "obspony2" ],
+						[ "http://i.imgur.com/oBAx788.png", "obspony3" ]
 					]
 				},
 				{
 					"shortName" : "AB",
 					"longName" : "Apple Bloom",
-					"numberOfEmotes" : 1,
 					"emotes" : [
-						[ "http://i.imgur.com/ab30Fs.png", "abwat" ]
+						[ "http://i.imgur.com/dVnqE.png", "obspony1" ],
+						[ "http://i.imgur.com/geqle.png", "obspony2" ],
+						[ "http://i.imgur.com/oBAx788.png", "obspony3" ],
+						[ "http://i.imgur.com/geqle.png", "obspony2" ],
+						[ "http://i.imgur.com/oBAx788.png", "obspony3" ],
+						[ "http://i.imgur.com/geqle.png", "obspony2" ],
+						[ "http://i.imgur.com/oBAx788.png", "obspony3" ]
 					]
 				}
 			]
@@ -50,8 +109,16 @@ if (!ss.storage.modules) {
 				{
 					"shortName" : "RD",
 					"longName" : "Rainbow Dash",
-					"numberOfEmotes" : 1,
 					"emotes" : [
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ],
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ],
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ],
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ],
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ],
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ],
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ],
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ],
+						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ],
 						[ "http://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAQQjBw&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSupermoon_over_ESO%27s_Very_Large_Telescope.jpg&ei=hwC7VIbkK8u4ggT7ioGYBA&bvm=bv.83829542,d.eXY&psig=AFQjCNH0f3gpIW8qz1iwKKvkH4tkor5R3w&ust=1421627907314553", "rdash" ]
 					]
 				}
@@ -98,6 +165,11 @@ function uiButtonClicked() {
 		addModule();
 	});
 
+	mainPanel.port.on("deleteModule", function(module) {
+		mainPanel.hide();
+		requestDeleteModule(module);
+	});
+
 	mainPanel.port.on("save", function(modules) {
 		ss.storage.modules = modules;
 	});
@@ -124,9 +196,36 @@ function addModule() {
 		modulePanel.hide();
 		addURL(url);
 	});
-	
+
 	modulePanel.show();
 	
+}
+
+function requestDeleteModule(module) {
+
+	var modulePanel = require("sdk/panel").Panel({
+		width: 350,
+		height: 225,
+		contentURL: "./moduleDelete.html",
+		contentScriptFile: "./js/deleteModule.js"
+	});
+
+	modulePanel.on("show", function() {
+		modulePanel.port.emit("show", module);
+	});
+
+	modulePanel.port.on("cancel", function() {
+		modulePanel.hide();
+	});
+
+	modulePanel.port.on("deleteModule", function() {
+		modulePanel.hide();
+		var removeIndex = ss.storage.modules.indexOf(module);
+		ss.storage.modules.splice(removeIndex, 1);
+	});
+
+	modulePanel.show();
+
 }
 
 function addURL(urlTemp) {

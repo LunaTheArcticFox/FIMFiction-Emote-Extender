@@ -6,12 +6,15 @@ self.port.on("addModules", function addScripts(modules) {
 	var css = document.createElement("style");
 	css.type = "text/css";
 	css.innerHTML = "\
-	.emoteTable { animation: fadeout 0.25s; animation-fill-mode: forwards; }\
+	#tableSelector { padding: 0 0 0 5px; width: 175px; height: 30px; margin: 9px; border-radius: 4px; background-color: #347ccd; color: #ffffff; border: none; }\
+	.emoteTable { animation: fadeout 0.25s; animation-fill-mode: forwards; margin: 0px 9px 0px 9px; overflow-y: auto; }\
 	.fade { animation: fadein 0.25s; animation-fill-mode: forwards; }\
 	.emoteTable .invisible { opacity: 0.0 !important; }\
 	.emoteTable img { opacity: 0.8; transition: opacity 0.3s; cursor: pointer; }\
+	.emoteTable div { margin-bottom: 9px; margin-right: 9px; }\
 	.emoteTable img:hover { opacity: 1.0; transition: opacity 0.3s; }\
-	.loader { animation: loadingAnimation 7s infinite; animation-timing-function: ease-in-out; width: 10px !important; height: 10px !important; display: inline-block; position: absolute; border-radius: 5px; left: 30px; top: 64px; }\
+	.loading { width: 70px; height: 70px; }\
+	.loader { animation: loadingAnimation 7s infinite; animation-timing-function: ease-in-out; width: 10px !important; height: 10px !important; display: inline-block; position: relative; border-radius: 5px; left: 30px; top: 15px; }\
 	@keyframes\
 	fadein {\
 	    from { opacity: 0; }\
@@ -55,11 +58,12 @@ function combineTables(modules) {
 
 				if (table.longName in tables) {
 
-					tables[table.longName].numberOfEmotes += table.numberOfEmotes;
+					tables[table.longName].numberOfEmotes += tables[table.longName].emotes.length;
 					tables[table.longName].emotes.concat(table.emotes);
 
 				} else {
 
+					table.numberOfEmotes = table.emotes.length;
 					tables[table.longName] = table;
 
 				}
@@ -110,20 +114,27 @@ function injectEmotes(editor) {
 
 	};
 
+	document.body.onclick = function(e) {
+
+		if ($(emoteDropdown).find($(e.target)).length == 0) {
+			if (emoteButton.parentNode.classList.contains("drop-down-show")) {
+				emoteButton.parentNode.classList.remove("drop-down-show");
+			}
+		}
+
+	}
+
 	for (var key in tables) {
 		showTable(tables[key].longName, emoteDropdown);
 		break;
 	}
-
-	/*document.onclick = function(e) {
-		emoteButton.parentNode.classList.remove("drop-down-show");
-	}*/
 
 }
 
 function addTableSelector(emoteDropdown) {
 
 	var tableSelector = document.createElement("select");
+	tableSelector.id = "tableSelector"
 
 	for (var key in tables) {
 
@@ -170,6 +181,7 @@ function showTable(tableName, emoteDropdown) {
 
 	var div = document.createElement("div");
 	div.classList.add("emoteTable");
+	div.style.height = $(emoteDropdown).height() - $("#tableSelector").height() - 9 - 9 - 13 + "px";
 
 	for (var i = 0; i < tables[tableName].numberOfEmotes; i++) {
 		div.appendChild(getEmote(tables[tableName].emotes[i]));
@@ -194,20 +206,21 @@ function getEmote(emote) {
 
 	var container = document.createElement("div");
 	container.style.display = "inline-block";
-	container.style.width = "70px";
-	container.style.height = "70px";
+	container.className = "loading";
 
 	var loader = document.createElement("span");
 	loader.className = "loader";
 
 	var emoteElement = document.createElement("img");
 	emoteElement.className = "invisible";
+	emoteElement.title = ":" + emote[1] + ":";
 	emoteElement.onclick = function() {
 		insertText(document.getElementById("comment_comment"), "[img]" + emoteElement.src + "[/img]");
 	};
 
 	$(emoteElement).attr({src: emote[0]}).on('load', function() {
 		container.removeChild(loader);
+		container.classList.remove("loading");
 		emoteElement.classList.remove("invisible");
 	});
 
@@ -220,8 +233,8 @@ function getEmote(emote) {
 
 function resizeDropdown(emoteDropdown) {
 
-	var w = Math.min(200, Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
-	var h = Math.min(250, Math.max(document.documentElement.clientHeight, window.innerHeight || 0));
+	var w = Math.min(735, Math.max(200, Math.max(document.documentElement.clientWidth, window.innerWidth || 0)));
+	var h = Math.min(300, Math.max(250, Math.max(document.documentElement.clientHeight, window.innerHeight || 0)));
 	emoteDropdown.style.width = w + "px";
 	//emoteDropdown.style.right = "-200px";
 	emoteDropdown.style.height = h + "px";

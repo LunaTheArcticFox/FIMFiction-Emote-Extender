@@ -1,3 +1,12 @@
+var displaySettings = false;
+var moduleNodes = [];
+
+var ModuleNode = function(module, textNode, imageNode) {
+	this.module = module;
+	this.textNode = textNode;
+	this.imageNode = imageNode;
+}
+
 self.port.on("show", function onShow(modules) {
 
 	var moduleParent = document.getElementById("modules");
@@ -12,7 +21,30 @@ self.port.on("show", function onShow(modules) {
 		self.port.emit("addModule");
 	};
 
+	var toggleOptionsButton = document.getElementById("toggleOptionsButton");
+
+	toggleOptionsButton.onclick = function() {
+		displaySettings = !displaySettings;
+		toggleOptions();
+	};
+
 });
+
+function toggleOptions() {
+
+	if (displaySettings) {
+		moduleNodes.forEach(function(node) {
+			node.imageNode.classList.add("delete");
+			node.textNode.classList.add("delete");
+		});
+	} else {
+		moduleNodes.forEach(function(node) {
+			node.imageNode.classList.remove("delete");
+			node.textNode.classList.remove("delete");
+		});
+	}
+
+}
 
 function createModule(module, moduleParent, modules) {
 
@@ -35,22 +67,33 @@ function createModule(module, moduleParent, modules) {
 	imageParent.innerHTML = '\
 		<img src="images/enabled.png">\
 		<img src="images/not-enabled.png">\
+		<img src="images/delete.png">\
 	';
 
+	moduleNodes.push(new ModuleNode(module, textNode, imageParent));
+
 	imageParent.onclick = function() {
-		module.enabled = !module.enabled;
-		if (module.enabled) {
-			imageParent.classList.remove("disabled");
-			imageParent.classList.add("enabled");
-			textNode.classList.remove("disabled");
-			textNode.classList.add("enabled");
+		if (displaySettings) {
+			self.port.emit("deleteModule", module);
 		} else {
-			imageParent.classList.remove("enabled");
-			imageParent.classList.add("disabled");
-			textNode.classList.remove("enabled");
-			textNode.classList.add("disabled");
+			module.enabled = !module.enabled;
+			if (module.enabled) {
+				imageParent.classList.remove("disabled");
+				imageParent.classList.add("enabled");
+				imageParent.classList.remove("delete");
+				textNode.classList.remove("disabled");
+				textNode.classList.add("enabled");
+				textNode.classList.remove("delete");
+			} else {
+				imageParent.classList.remove("enabled");
+				imageParent.classList.add("disabled");
+				imageParent.classList.remove("delete");
+				textNode.classList.remove("enabled");
+				textNode.classList.add("disabled");
+				textNode.classList.remove("delete");
+			}
+			self.port.emit("save", modules);
 		}
-		self.port.emit("save", modules);
 	}
 
 	var imageParentAlignment = document.createElement("div");

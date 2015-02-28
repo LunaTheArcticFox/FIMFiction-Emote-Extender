@@ -64,12 +64,37 @@ body {
 	transition: opacity 0.5s;
 }
 
+.enabled img:nth-of-type(3) {
+	opacity: 0.0;
+	transition: opacity 0.5s;
+}
+
 .disabled img:nth-of-type(1) {
 	opacity: 0.0;
 	transition: opacity 0.5s;
 }
 
 .disabled img:nth-of-type(2) {
+	opacity: 1.0;
+	transition: opacity 0.5s;
+}
+
+.disabled img:nth-of-type(3) {
+	opacity: 0.0;
+	transition: opacity 0.5s;
+}
+
+.delete img:nth-of-type(1) {
+	opacity: 0.0;
+	transition: opacity 0.5s;
+}
+
+.delete img:nth-of-type(2) {
+	opacity: 0.0;
+	transition: opacity 0.5s;
+}
+
+.delete img:nth-of-type(3) {
 	opacity: 1.0;
 	transition: opacity 0.5s;
 }

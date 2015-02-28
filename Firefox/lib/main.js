@@ -1,6 +1,6 @@
 var ss = require("sdk/simple-storage");
 
-ss.storage.modules = null;
+//ss.storage.modules = null;
 if (!ss.storage.modules) {
 	ss.storage.modules = [];
 	addURL("https://raw.githubusercontent.com/KrazyTheFox/FIMFiction-Emote-Extender/v4.0.0-development/Scripts/standard.json", true);

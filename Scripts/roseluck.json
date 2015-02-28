@@ -1,0 +1,21 @@
+{
+	"name" : "Roseluck",
+	"author" : "KrazyTheFox",
+	"enabled" : true,
+	"emoteTables" : [
+		{
+			"name" : "Roseluck",
+			"emotes" : [
+				["http://i.imgur.com/z3ePgg1.png", "rosewhat"],
+				["http://i.imgur.com/iK0Xz0v.png", "roserage"],
+				["http://i.imgur.com/Y3BcKY7.png", "rosescared"],
+				["http://i.imgur.com/9mowejk.png", "rosesad"],
+				["http://i.imgur.com/5YjZf5N.png", "rosemad"],
+				["http://i.imgur.com/4GVsw3z.png", "rosesmug"],
+				["http://i.imgur.com/Ni95wGQ.png", "rosechipper"],
+				["http://i.imgur.com/YwR8mr7.png", "rosejoy"],
+				["http://i.imgur.com/KbqYzkO.png", "rosecute"]
+			]
+		}
+	]
+}

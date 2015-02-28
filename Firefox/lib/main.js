@@ -2,6 +2,7 @@ var ss = require("sdk/simple-storage");
 
 ss.storage.modules = null;
 if (!ss.storage.modules) {
+	loadTable();
 	ss.storage.modules = [
 		{
 			"name" : "Standard Tables",
@@ -172,7 +173,7 @@ if (!ss.storage.modules) {
 						["http://i.imgur.com/drWSW.png", "Emote"],
 						["http://i.imgur.com/r1Eed.png", "Emote"],
 						["http://i.imgur.com/mI2kf.png", "Emote"],
-						["http://i.imgur.com/JJakx.png", "Emote"],
+						["http://i.imgur.com/JJakx.png", "omigosh"],
 						["http://i.imgur.com/2mIou.png", "Emote"],
 						["http://i.imgur.com/l49YA.png", "Emote"],
 						["http://i.imgur.com/Bo3i2.png", "Emote"],
@@ -335,7 +336,7 @@ if (!ss.storage.modules) {
 						["http://i.imgur.com/fiITL.png", "scootapride"],
 						["http://i.imgur.com/tDOuj3P.png", "scootarock"],
 						["http://i.imgur.com/O7YJl8D.png", "scootabasket"],
-						["http://i.imgur.com/5HOAGsD.png", "scootapost"],
+						["http://i.imgur.com/5HOAGsD.png", "postaloo"],
 						["http://i.imgur.com/kQc1R5l.png", "scootasurprised"],
 						["http://i.imgur.com/sM1SH0r.png", "guiltyloo"],
 						["http://i.imgur.com/rLhDpm3.png", "chicken"],
@@ -578,6 +579,10 @@ function requestDeleteModule(module) {
 }
 
 function addURL(urlTemp) {
+	addURL(urlTemp, false);
+}
+
+function addURL(urlTemp, suppress) {
 
 	try {
 
@@ -588,19 +593,23 @@ function addURL(urlTemp) {
 				if (response.status == 200) {
 					var module = JSON.parse(response.text);
 					ss.storage.modules.push(module);
-					var modulePanel = require("sdk/panel").Panel({
-						width: 250,
-						height: 150,
-						contentURL: "./moduleAddSuccess.html"
-					});
-					modulePanel.show();
+					if (!suppress) {
+						var modulePanel = require("sdk/panel").Panel({
+							width: 250,
+							height: 150,
+							contentURL: "./moduleAddSuccess.html"
+						});
+						modulePanel.show();
+					}
 				} else {
-					var modulePanel = require("sdk/panel").Panel({
-						width: 250,
-						height: 150,
-						contentURL: "./moduleAddFailed.html"
-					});
-					modulePanel.show();
+					if (!suppress) {
+						var modulePanel = require("sdk/panel").Panel({
+							width: 250,
+							height: 150,
+							contentURL: "./moduleAddFailed.html"
+						});
+						modulePanel.show();
+					}
 				}
 			}
 		});
@@ -608,12 +617,15 @@ function addURL(urlTemp) {
 		moduleRequest.get();
 
 	} catch (e) {
-		var modulePanel = require("sdk/panel").Panel({
-			width: 250,
-			height: 150,
-			contentURL: "./moduleAddFailed.html"
-		});
-		modulePanel.show();
+		if (!suppress) {
+			var modulePanel = require("sdk/panel").Panel({
+				width: 250,
+				height: 150,
+				contentURL: "./moduleAddFailed.html"
+			});
+			modulePanel.show();
+		}
 	}
 
 }
+

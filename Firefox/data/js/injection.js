@@ -223,7 +223,11 @@ function getEmote(emote, dropdownParent) {
 	emoteElement.className = "invisible";
 	emoteElement.title = ":" + emote[1] + ":";
 	emoteElement.onclick = function() {
-		insertText(document.getElementById("comment_comment"), "[img]" + emoteElement.src + "[/img]");
+		if (!document.getElementById("comment_comment")) {
+			insertText(document.getElementById("blog_post_content"), "[img]" + emoteElement.src + "[/img]");
+		} else {
+			insertText(document.getElementById("comment_comment"), "[img]" + emoteElement.src + "[/img]");
+		}
 		dropdownParent.classList.remove("drop-down-show");
 	};
 

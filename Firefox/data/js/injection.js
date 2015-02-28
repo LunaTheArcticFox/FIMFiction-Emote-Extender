@@ -78,6 +78,8 @@ function injectEmotes(editor) {
 
 	var toolbar = editor.children[0];
 
+	$(".drop-down-emoticons").remove();
+
 	var emoteDropdown = document.createElement("div");
 	emoteDropdown.classList.add("drop-down");
 	emoteDropdown.classList.add("drop-down-emoticons");
@@ -125,6 +127,8 @@ function injectEmotes(editor) {
 		}
 
 	}
+	
+	emoteButton.parentNode.classList.remove("drop-down-show");
 
 	for (var key in tables) {
 		showTable(tables[key].name, emoteDropdown);

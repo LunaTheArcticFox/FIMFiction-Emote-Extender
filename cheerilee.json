@@ -1,0 +1,29 @@
+{
+	"name" : "Cheerilee",
+	"author" : "KrazyTheFox",
+	"enabled" : true,
+	"emoteTables" : [
+		{
+			"name" : "Cheerilee",
+			"emotes" : [
+				["http://i.imgur.com/cvM4P.png", "cheerilee"],
+				["http://i.imgur.com/IdiNEoG.png", "cheeristare"],
+				["http://i.imgur.com/zi55aHB.png", "cheerannoyed"],
+				["http://i.imgur.com/Z9dmrsL.png", "cheerihmm"],
+				["http://i.imgur.com/etvChCJ.png", "cheerihurry"],
+				["http://i.imgur.com/4CT6FFE.png", "cheerikissy"],
+				["http://i.imgur.com/sqalbWn.png", "cheeripoker"],
+				["http://i.imgur.com/rRAQgvt.png", "cheeriwhat"],
+				["http://i.imgur.com/8uzdXWe.png", "cheerigaze"],
+				["http://i.imgur.com/PsTsg73.png", "cheerismile"],
+				["http://i.imgur.com/7OlsrI3.png", "cheeritated"],
+				["http://i.imgur.com/PC1vZ9r.png", "angrilee"],
+				["http://i.imgur.com/r0hl8Qx.png", "cheeriously"],
+				["http://i.imgur.com/um4v4cj.png", "cheeriwink"],
+				["http://i.imgur.com/4tvC5bF.png", "notsocheeri"],
+				["http://i.imgur.com/2VCyIBF.png", "crazilee"],
+				["http://i.imgur.com/Ot8C5aY.png", "cheereww"]
+			]
+		}
+	]
+}

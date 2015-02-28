@@ -127,7 +127,7 @@ function injectEmotes(editor) {
 		}
 
 	}
-	
+
 	emoteButton.parentNode.classList.remove("drop-down-show");
 
 	for (var key in tables) {
@@ -243,20 +243,27 @@ function resizeDropdown(emoteDropdown) {
 	var h = Math.min(300, Math.max(200, Math.max(document.documentElement.clientHeight, window.innerHeight || 0)));
 
 	emoteDropdown.style.margin = "0";
-	emoteDropdown.style.right = "0";//-w / 2 + "px";
+	emoteDropdown.style.right = "0";
 
 	var viewWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
 	var parentLeft = $(emoteDropdown).parent().offset().left;
 
-	emoteDropdown.style.left = (viewWidth - (parentLeft + w)) + "px";
+	var leftOffset = viewWidth - (parentLeft + w);
 
-	/*if (parentLeft + w + 20 > Math.max(document.documentElement.clientWidth, window.innerWidth || 0)) {
-
-		//emoteDropdown.style.right = -w / 2 + eTop + "px";
-		//w -= 20;
+	if (w < viewWidth) {
+		leftOffset = -(w - 20) / 2;
+		emoteDropdown.style.left = leftOffset + "px";
+		if ($(emoteDropdown).offset().left + w > viewWidth) {
+			leftOffset = viewWidth - (parentLeft + w);
+		}
 	}
-*/
+
+	emoteDropdown.style.left = leftOffset + "px";
+
+	emoteDropdown.children[0].style.left = -leftOffset + 18 + "px";
+	emoteDropdown.children[0].style.width = 0 + "px";
+
 	emoteDropdown.style.width = (w - 20) + "px";
 	emoteDropdown.style.height = h + "px";
 

@@ -56,15 +56,15 @@ function combineTables(modules) {
 
 				var table = modules[i].emoteTables[j];
 
-				if (table.longName in tables) {
+				if (table.name in tables) {
 
-					tables[table.longName].numberOfEmotes += tables[table.longName].emotes.length;
-					tables[table.longName].emotes.concat(table.emotes);
+					tables[table.name].numberOfEmotes += tables[table.name].emotes.length;
+					tables[table.name].emotes.concat(table.emotes);
 
 				} else {
 
 					table.numberOfEmotes = table.emotes.length;
-					tables[table.longName] = table;
+					tables[table.name] = table;
 
 				}
 
@@ -125,7 +125,7 @@ function injectEmotes(editor) {
 	}
 
 	for (var key in tables) {
-		showTable(tables[key].longName, emoteDropdown);
+		showTable(tables[key].name, emoteDropdown);
 		break;
 	}
 
@@ -141,8 +141,8 @@ function addTableSelector(emoteDropdown) {
 		var table = tables[key];
 
 		var option = document.createElement("option");
-		option.innerHTML = table.longName;
-		option.value = table.longName;
+		option.innerHTML = table.name;
+		option.value = table.name;
 		tableSelector.appendChild(option);
 
 	}

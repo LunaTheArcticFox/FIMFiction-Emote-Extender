@@ -86,6 +86,15 @@ function injectEmotes(editor) {
 	arrow.classList.add("arrow");
 	emoteDropdown.appendChild(arrow);
 
+	//Locates the vanilla FIMFiction emote button
+	if (toolbar.children[2]) {
+		var emoteButton = toolbar.children[2].children[6].children[0];
+	} else {
+		var emoteButton = toolbar.children[1].children[5].children[0];
+	}
+
+	emoteButton.parentNode.appendChild(emoteDropdown);
+
 	addTableSelector(emoteDropdown);
 
 	resizeDropdown(emoteDropdown);
@@ -94,13 +103,6 @@ function injectEmotes(editor) {
 		resizeDropdown(emoteDropdown);
 	};
 
-	//Locates the vanilla FIMFiction emote button
-	if (toolbar.children[2]) {
-		var emoteButton = toolbar.children[2].children[6].children[0];
-	} else {
-		var emoteButton = toolbar.children[1].children[5].children[0];
-	}
-	emoteButton.parentNode.appendChild(emoteDropdown);
 	emoteButton.onclick = function(e) {
 
   		e.preventDefault();
@@ -233,10 +235,25 @@ function getEmote(emote) {
 
 function resizeDropdown(emoteDropdown) {
 
-	var w = Math.min(735, Math.max(200, Math.max(document.documentElement.clientWidth, window.innerWidth || 0)));
-	var h = Math.min(300, Math.max(250, Math.max(document.documentElement.clientHeight, window.innerHeight || 0)));
-	emoteDropdown.style.width = w + "px";
-	//emoteDropdown.style.right = "-200px";
+	var w = Math.min(735, Math.max(250, Math.max(document.documentElement.clientWidth, window.innerWidth || 0)));
+	var h = Math.min(300, Math.max(200, Math.max(document.documentElement.clientHeight, window.innerHeight || 0)));
+
+	emoteDropdown.style.margin = "0";
+	emoteDropdown.style.right = "0";//-w / 2 + "px";
+
+	var viewWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+	var parentLeft = $(emoteDropdown).parent().offset().left;
+
+	emoteDropdown.style.left = (viewWidth - (parentLeft + w)) + "px";
+
+	/*if (parentLeft + w + 20 > Math.max(document.documentElement.clientWidth, window.innerWidth || 0)) {
+
+		//emoteDropdown.style.right = -w / 2 + eTop + "px";
+		//w -= 20;
+	}
+*/
+	emoteDropdown.style.width = (w - 20) + "px";
 	emoteDropdown.style.height = h + "px";
 
 }

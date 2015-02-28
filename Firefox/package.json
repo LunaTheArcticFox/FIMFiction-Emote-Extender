@@ -2,8 +2,9 @@
   "name": "fimfiction-emote-extender",
   "title": "FIMFiction Emote Extender",
   "id": "a795ee10-9f83-4159-90ca-dedca4b1f4c0",
-  "description": "TODO",
+  "description": "Hooks into FIMFiction to provide a vast selection of ponymotes to use in group forums.",
+  "icon": "data/images/icon-64.png",
   "author": "Mitchell Matthews",
-  "license": "MPL 2.0",
-  "version": "0.1"
+  "license": "MIT",
+  "version": "4.0 Alpha 1"
 }
